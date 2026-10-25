@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cbt.canaanlandmodelschool.org</title>
+     <link rel="icon" type="image/x-icon" href="fav_icon2.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+       
+            body {
+          margin: 0;
+          padding: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-height: 100vh;
+          font-family: 'Jost', sans-serif;
+          background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+          background-image: url("img/computerlab.jpg");
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+
+         .main {
+          width: 405px;
+          height: 450px;
+          background: #eee;
+          overflow: hidden;
+          border-radius: 25px;
+          box-shadow: 5px 20px 50px #000;
+          text-align: center;
+        }
+        .login-container {
+            background-color: rgba(200,200,200,0.4);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 400px;
+            padding: 40px;
+            text-align: center;
+        }
+       
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+       
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+        }
+       
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+       
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: 500;
+        }
+       
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+       
+        input:focus {
+            border-color: #2575fc;
+            outline: none;
+        }
+       
+        .login-btn {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 10px;
+        }
+       
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+       
+        .error-message {
+            color: #e74c3c;
+            margin-top: 15px;
+            font-size: 14px;
+            display: none;
+        }
+       
+        .demo-accounts {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: left;
+        }
+       
+        .demo-accounts h3 {
+            color: #555;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+       
+        .demo-accounts p {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 5px;
+        }
+
+
+         .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            background: white;
+            padding: 10px 0;
+        }
+    
+        /* Moving text animation */
+        .marquee-text {
+            display: inline-block;
+            color: red;
+            font-size: 24px;
+            font-weight: bold;
+            animation: marquee 10s linear infinite;
+        }
+
+        /* Keyframes for moving text */
+        @keyframes marquee {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+    </style>
+</head>
+<body oncontextmenu="return false;"><!---->
+  <div class="container-xxxl center">
+    <div>
+      <img src="img/Ctemplogo.jpg" style="margin-bottom:15px; width: 400px; height: 120px" />
+    </div>
+
+    <div class="login-container">
+        <div class="marquee-container">
+                        <span class="marquee-text">2026/2027 FIRST TERM  EXAMINATION </span>
+                    </div>
+        <h3><label style="color: red; font-size: 25px;"> CBT PORTAL</label></h3>
+        <p class="subtitle"  style="color: lime; font-size: 15px;">Please sign in to your account</p>
+       
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="username"  style="color: red; font-size: 18px; text-align: center;">Enter Your Username  Here</label>
+                <input type="text" id="username" placeholder="Enter your username" required>
+            </div>
+           
+            <div class="input-group">
+                <label for="password"  style="color: orange; font-size: 18px; text-align: center;">Enter Your Password Here</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+            </div>
+            <div style="margin-top: 10px;">
+                      <label style="color: lime; font-size: 15px;">
+                        <input type="checkbox" id="altLoginCheck">
+                       Click the checkbox to verify and click on Sign In
+                      </label>
+            </div>
+           
+            <button type="submit" class="login-btn">Sign In</button>
+
+           
+            <div class="error-message" id="errorMessage">
+                Invalid username or password. Please try again.
+            </div>
+            <label style="color: lime; font-size: 25px;">CBT PORTAL</label>
+                    
+             <a href="https://canaanland-model-schools.github.io/home/" style="color: red; font-size: 18px;">Home</a>
+        </form>
+    </div>
+
+    <script>
+        const users = [
+            
+            // JSS1
+            {username: "afolabi darasmi", password: "cmgs101", image: "cmgs101.jpg", paid: true},
+            {username: "ajiboye aduragbemi", password: "cmgs102", image: "cmgs102.jpg", paid: true},
+            {username: "ayeni oluwatomilola", password: "cmgs103", image: "cmgs103.jpg", paid: true},
+            {username: "akinwale felix", password: "cmgs104", image: "cmgs104.jpg", paid: true},
+            {username: "ayodeji testimony", password: "cmgs105", image: "cmgs105.jpg", paid: true},
+            {username: "owoyemi praise", password: "cmgs106", image: "cmgs106.jpg", paid: true},
+            
+           //JSS2
+            {username: "felix victor", password: "cmgs201", image: "cmgs201.jpg", paid: true},
+            {username: "alpha trinity", password: "cmgs202", image: "cmgs202.jpg", paid: true},
+            {username: "ogundipe seun", password: "cmgs203", image: "cmgs203.jpg", paid: true},
+            {username: "abiodun darasimi", password: "cmgs204", image: "cmgs204.jpg", paid: true},
+            {username: "ibegbu emmanuel", password: "cmgs205", image: "cmgs205.jpg", paid: true},
+            {username: "ajayi convenant", password: "cmgs206", image: "cmgs206.jpg", paid: true},
+            {username: "fadirepo elizabeth", password: "cmgs207", image: "cmgs207.jpg", paid: true},
+            {username: "david grace", password: "cmgs208", image: "cmgs208.jpg", paid: true},
+            {username: "adepoju kemisola", password: "cmgs209", image: "cmgs209.jpg", paid: true},
+            {username: "ayodele adeife peace", password: "cmgs210", image: "cmgs210.jpg", paid: true},
+            {username: "fakorede fikayo esther", password: "cmgs211", image: "cmgs211.jpg", paid: true},
+            {username: "adewunmi darasimi", password: "cmgs212", image: "cmgs212.jpg", paid: true},
+
+            // JSS3 BOYS (All Paid)
+            {username: "ojo ayomide", password: "cmgs301", image: "cmgs301.jpg", paid: true},
+            {username: "olatise excel", password: "cmgs302", image: "cmgs302.jpg", paid: true},
+            {username: "adewunmi tunmise", password: "cmgs303", image: "cmgs303.jpg", paid: true},
+            {username: "eyebiokin tobiloba", password: "cmgs304", image: "cmgs304.jpg", paid: true},
+            {username: "oluwafemi nifemi", password: "cmgs305", image: "cmgs305.jpg", paid: true},
+            {username: "oluwatuyi olamide", password: "cmgs306", image: "cmgs306.jpg", paid: true},
+            {username: "abiodun praise", password: "cmgs307", image: "cmgs307.jpg", paid: true},
+            {username: "adejumo adenike", password: "cmgs308", image: "cmgs308.jpg", paid: true},
+            {username: "david mercy", password: "cmgs309", image: "cmgs309.jpg", paid: true},
+            {username: "olusanya semilore", password: "cmgs310", image: "cmgs310.jpg", paid: true},
+            {username: "ajibola demilade", password: "cmgs311", image: "cmgs311.jpg", paid: true},
+            {username: "afeni dunusinmi", password: "cmgs312", image: "cmgs312.jpg", paid: true},
+            {username: "bashiru qudus", password: "cmgs313", image: "cmgs313.jpg", paid: true},
+            {username: "owolabi olamide", password: "cmgs314", image: "cmgs314.jpg", paid: true},
+            //{username: "erinfolami precious", password: "cmgs315", image: "cmgs315.jpg", paid: true},
+            {username: "ajiboye aanu", password: "cmgs316", image: "cmgs316.jpg", paid: true},
+            //{username: "isa godiya", password: "cmgs317", image: "cmgs317.jpg", paid: true},
+            {username: "akinola surprise", password: "cmgs318", image: "cmgs318.jpg", paid: true},
+
+            ///ss1
+            {username: "abdullah kehinde", password: "cmgs401", image: "cmgs401.jpg", paid: true},
+            {username: "abiodun paul", password: "cmgs402", image: "cmgs402.jpg", paid: true},
+            {username: "aluko taiwo", password: "cmgs403", image: "cmgs403.jpg", paid: true},
+            {username: "ojo emmanuel", password: "cmgs404", image: "cmgs404.jpg", paid: true},
+            {username: "olajide daniel", password: "cmgs405", image: "cmgs405.jpg", paid: true},
+            {username: "olanrewaju isreal", password: "cmgs406", image: "cmgs406.jpg", paid: true},
+            {username: "olatunji samuel", password: "cmgs407", image: "cmgs407.jpg", paid: true},
+            {username: "harris peace", password: "cmgs408", image: "cmgs408.jpg", paid: true},
+            {username: "abdullah taiwo", password: "cmgs409", image: "cmgs409.jpg", paid: true},
+            {username: "adejumo azeezat", password: "cmgs410", image: "cmgs410.jpg", paid: true},
+            {username: "ajogo esther", password: "cmgs411", image: "cmgs411.jpg", paid: true},
+            {username: "alonge ayanfeoluwa", password: "cmgs412", image: "cmgs412.jpg", paid: true},
+            {username: "aluko kehinde", password: "cmgs413", image: "cmgs413.jpg", paid: true},
+            {username: "asaolu sefunmi", password: "cmgs414", image: "cmgs414.jpg", paid: true},
+            {username: "ayodele sekemi", password: "cmgs415", image: "cmgs415.jpg", paid: true},
+            {username: "isa godiya", password: "cmgs416", image: "cmgs416.jpg", paid: true},
+            {username: "okunola darasimi", password: "cmgs417", image: "cmgs417.jpg", paid: true},
+            {username: "oyinloye ibironke", password: "cmgs418", image: "cmgs418.jpg", paid: true},
+            {username: "sesan ojo wisdom", password: "cmgs419", image: "cmgs419.jpg", paid: true},
+
+            // SS2 (All Paid)
+            {username: "john goodness", password: "cmgs501", image: "cmgs501.jpg", paid: true},
+            {username: "ibegbu cynthia", password: "cmgs502", image: "cmgs502.jpg", paid: true},
+            {username: "eniafe success", password: "cmgs503", image: "cmgs503.jpg", paid: true},
+            {username: "isa hauwa kezia", password: "cmgs504", image: "cmgs504.jpg", paid: true},
+            {username: "best daniel", password: "cmgs505", image: "cmgs505.jpg", paid: true},
+            {username: "ogundana henry", password: "cmgs506", image: "cmgs506.jpg", paid: true},
+            {username: "olamide oluwaseun", password: "cmgs507", image: "cmgs507.jpg", paid: true},
+
+            // SS3 (Mix of paid/unpaid)
+            {username: "aluko crown", password: "cmgs601", image: "cmgs601.jpg", paid: true},
+            {username: "adejumo sodiq", password: "cmgs602", image: "cmgs602.jpg", paid: true},
+            {username: "ambrose godwin", password: "cmgs603", image: "cmgs603.jpg", paid: true},
+            {username: "bello george", password: "cmgs604", image: "cmgs604.jpg", paid: true},
+            {username: "fadirepo semilore", password: "cmgs605", image: "cmgs605.jpg", paid: true},
+            {username: "oke david", password: "cmgs606", image: "cmgs606.jpg", paid: true},
+            {username: "adeoye divine", password: "cmgs607", image: "cmgs607.jpg", paid: true},
+            {username: "awobiye eniola", password: "cmgs608", image: "cmgs608.jpg", paid: true},
+            {username: "kayode racheal", password: "cmgs609", image: "cmgs609.jpg", paid: true},
+            {username: "ojo eniope", password: "cmgs610", image: "cmgs610.jpg", paid: true},
+            {username: "ogundipe blessing", password: "cmgs611", image: "cmgs611.jpg", paid: true},
+            {username: "olanrewaju hepzibah", password: "cmgs612", image: "cmgs612.jpg", paid: true},
+            {username: "osasono desola", password: "cmgs613", image: "cmgs613.jpg", paid: true},           
+            // ADMIN (always paid)
+            {username: "admin", password: "admin", image: "admin.png", paid: true}
+        ];
+
+        // Handle form submission
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+           
+            const username = document.getElementById('username').value.toLowerCase().trim();
+            const password = document.getElementById('password').value.trim();
+            const errorMessage = document.getElementById('errorMessage');
+            const altCheck = document.getElementById('altLoginCheck');
+           
+            // Check if credentials match any user (case-insensitive username match)
+            const matchedUser = users.find(user =>
+                user.username.toLowerCase() === username && user.password === password
+            );
+          if (matchedUser) {
+                // Check if user has paid
+                if (matchedUser.paid === false) {
+                    alert("⚠️ You have not paid your school fees. You are not allowed access to the report portal.\n\nPlease contact the school administration to regularize your payment.");
+                    window.location.href = 'Debtors.html';
+                    //return; // Stop execution, don't redirect
+                }
+       
+         
+                            
+                // User has paid, proceed with login
+                // Store user data in sessionStorage for the main page to use
+                sessionStorage.setItem('loggedInUser', JSON.stringify(matchedUser));
+                sessionStorage.setItem('username', matchedUser.username);
+                sessionStorage.setItem('image', `img/${matchedUser.image}`); // Add img/ prefix
+                
+                console.log("✅ Login successful for paid user:", matchedUser.username);
+                
+                // Check if alt login checkbox is checked
+                if (altCheck.checked) {
+                    console.log("🔄 Running alternate validation...");
+                    validateLoginComparison(username, password);
+                } else {
+                    // Redirect to the main page
+                    window.location.href = 'final_instructions.html';
+                }
+            } else {
+                // Show error message
+                errorMessage.style.display = 'block';
+               
+                // Clear password field
+                document.getElementById('password').value = '';
+            }
+        });
+
+        // =============================
+        // SECOND LOGIN METHOD (for comparison)
+        // =============================
+        function validateLoginComparison(username, password) {
+            if (!username || !password) {
+                alert("Please enter both username and password.");
+                return;
+            }
+
+            const user = users.find(
+                (u) => u.username.toLowerCase() === username.toLowerCase() && u.password === password
+            );
+
+            if (user) {
+                // Check if user has paid
+                if (user.paid === false) {
+                    alert("⚠️ You have not paid your school fees. You are not allowed access to the report portal.\n\nPlease contact the school administration to regularize your payment.");
+                       window.location.href = "Debtors.html";
+                    return;
+                }
+                
+                // Store again to ensure both formats are available
+                sessionStorage.setItem('username', user.username);
+                sessionStorage.setItem('image', `img/${user.image}`); // Add img/ prefix
+                console.log("✅ Alternate validation passed for paid user");
+                window.location.href = 'final_instruction.html';
+            } else {
+                alert("Invalid username or password in alternate check.");
+            }
+        }
+
+    </script>
+</body>
+</html>
