@@ -1,0 +1,1870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SS3 Mathematics — Comprehensive Theory Notes</title>
+    <style>
+        /* ── Reset & Base ── */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f0f4f8;
+            color: #1e293b;
+            line-height: 1.7;
+            padding: 24px 16px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            padding: 40px 48px;
+        }
+
+        /* ── Header ── */
+        .header {
+            text-align: center;
+            padding-bottom: 28px;
+            border-bottom: 4px solid #2563eb;
+            margin-bottom: 32px;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #0f172a;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 16px;
+            color: #64748b;
+            margin-top: 6px;
+            font-weight: 400;
+        }
+
+        .header .badge {
+            display: inline-block;
+            margin-top: 12px;
+            background: #dbeafe;
+            color: #1d4ed8;
+            padding: 6px 18px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        /* ── Table of Contents ── */
+        .toc {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 24px 28px;
+            margin-bottom: 36px;
+        }
+
+        .toc h2 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .toc h2::before {
+            content: "📋";
+            font-size: 20px;
+        }
+
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 8px 24px;
+        }
+
+        .toc-grid a {
+            color: #2563eb;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 4px 0;
+            border-bottom: 1px dashed transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .toc-grid a:hover {
+            border-bottom-color: #2563eb;
+            color: #1d4ed8;
+        }
+
+        /* ── Module Sections ── */
+        .module {
+            margin-bottom: 44px;
+            scroll-margin-top: 20px;
+        }
+
+        .module h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #0f172a;
+            padding: 12px 0 8px 0;
+            border-bottom: 3px solid #2563eb;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .module h2 .num {
+            background: #2563eb;
+            color: #ffffff;
+            font-size: 16px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .module h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e293b;
+            margin: 24px 0 10px 0;
+            padding-left: 12px;
+            border-left: 4px solid #2563eb;
+        }
+
+        .module h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: #334155;
+            margin: 18px 0 8px 0;
+        }
+
+        /* ── Paragraphs & Lists ── */
+        p {
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+
+        ul, ol {
+            margin: 8px 0 16px 24px;
+        }
+
+        li {
+            margin-bottom: 6px;
+            font-size: 15px;
+        }
+
+        /* ── Cards / Boxes ── */
+        .formula-box {
+            background: #f1f5f9;
+            border-left: 5px solid #2563eb;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 16px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 15px;
+            line-height: 1.9;
+            overflow-x: auto;
+        }
+
+        .formula-box strong {
+            color: #1d4ed8;
+        }
+
+        .example-box {
+            background: #f0fdf4;
+            border-left: 5px solid #16a34a;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 16px 0;
+        }
+
+        .example-box .label {
+            font-weight: 700;
+            color: #15803d;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .solution-box {
+            background: #fefce8;
+            border-left: 5px solid #ca8a04;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 12px 0 16px 0;
+        }
+
+        .solution-box .label {
+            font-weight: 700;
+            color: #a16207;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .answer-box {
+            background: #eff6ff;
+            border: 2px solid #2563eb;
+            border-radius: 8px;
+            padding: 12px 20px;
+            margin: 12px 0;
+            font-weight: 700;
+            color: #1d4ed8;
+            font-size: 16px;
+        }
+
+        .note-box {
+            background: #fff7ed;
+            border-left: 5px solid #ea580c;
+            border-radius: 8px;
+            padding: 14px 20px;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+
+        .note-box strong {
+            color: #c2410c;
+        }
+
+        /* ── Tables ── */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 14px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+        }
+
+        thead {
+            background: #2563eb;
+            color: #ffffff;
+        }
+
+        th {
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+
+        td {
+            padding: 10px 16px;
+            border-bottom: 1px solid #e2e8f0;
+            background: #ffffff;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:hover td {
+            background: #f8fafc;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .container {
+                padding: 24px 18px;
+                border-radius: 16px;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .module h2 {
+                font-size: 20px;
+            }
+
+            .module h3 {
+                font-size: 16px;
+            }
+
+            table {
+                font-size: 12px;
+            }
+
+            th, td {
+                padding: 8px 10px;
+            }
+
+            .toc-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 12px 8px;
+            }
+
+            .container {
+                padding: 16px 12px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .formula-box {
+                font-size: 13px;
+                padding: 12px 14px;
+            }
+        }
+
+        /* ── Print ── */
+        @media print {
+            body {
+                background: #ffffff;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                padding: 20px;
+                max-width: 100%;
+            }
+
+            .toc {
+                display: none;
+            }
+
+            .module {
+                page-break-inside: avoid;
+            }
+        }
+
+        /* ── Back to Top ── */
+        .back-top {
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 13px;
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            border: 1px solid #2563eb;
+            border-radius: 999px;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .back-top:hover {
+            background: #2563eb;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- ══════════ HEADER ══════════ -->
+        <header class="header">
+            <h1>📘 SS3 Mathematics</h1>
+            <p class="subtitle">Comprehensive Theory Notes — Exam Coverage</p>
+            <span class="badge">Logarithms · Logic · Trigonometry · Matrices · Quadratics · Mensuration · Longitude &amp; Latitude · Binary Operations</span>
+        </header>
+
+        <!-- ══════════ TABLE OF CONTENTS ══════════ -->
+        <nav class="toc">
+            <h2>Table of Contents</h2>
+            <div class="toc-grid">
+                <a href="#module1">1. Logarithms &amp; Indices</a>
+                <a href="#module2">2. Logic &amp; Reasoning</a>
+                <a href="#module3">3. Trigonometry &amp; Surds</a>
+                <a href="#module4">4. Matrices &amp; Determinants</a>
+                <a href="#module5">5. Quadratic Functions &amp; Graphs</a>
+                <a href="#module6">6. Mensuration — Spheres &amp; Hemispheres</a>
+                <a href="#module7">7. Longitude &amp; Latitude</a>
+                <a href="#module8">8. Binary Operations</a>
+                <a href="#module9">9. Financial Mathematics</a>
+                <a href="#module10">10. Calculus (Introduction)</a>
+                <a href="#formulae">📐 Key Formulae Summary</a>
+            </div>
+        </nav>
+
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!-- MODULE 1 — LOGARITHMS & INDICES                            -->
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <section class="module" id="module1">
+            <h2><span class="num">1</span> Logarithms &amp; Indices</h2>
+
+            <h3>1.1 Laws of Logarithms</h3>
+            <p>If <strong>a<sup>x</sup> = y</strong>, then <strong>log<sub>a</sub> y = x</strong> (where a &gt; 0, a ≠ 1).</p>
+
+            <table>
+                <thead>
+                    <tr><th>Law</th><th>Formula</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Product Law</strong></td><td>log<sub>a</sub>(M × N) = log<sub>a</sub> M + log<sub>a</sub> N</td></tr>
+                    <tr><td><strong>Quotient Law</strong></td><td>log<sub>a</sub>(M ÷ N) = log<sub>a</sub> M − log<sub>a</sub> N</td></tr>
+                    <tr><td><strong>Power Law</strong></td><td>log<sub>a</sub>(M<sup>p</sup>) = p × log<sub>a</sub> M</td></tr>
+                </tbody>
+            </table>
+
+            <div class="note-box">
+                <strong>Additional Properties:</strong><br>
+                log<sub>a</sub> 1 = 0 &nbsp;|&nbsp; log<sub>a</sub> a = 1 &nbsp;|&nbsp; log<sub>a</sub> a<sup>x</sup> = x &nbsp;|&nbsp; a<sup>log<sub>a</sub> x</sup> = x<br>
+                <strong>Change of Base:</strong> log<sub>a</sub> b = log<sub>c</sub> b ÷ log<sub>c</sub> a
+            </div>
+
+            <h3>1.2 Solving Logarithmic Equations</h3>
+
+            <div class="example-box">
+                <div class="label">Worked Example 1</div>
+                <p><strong>Solve:</strong> log<sub>3</sub>(x+2) + log<sub>3</sub>(x−4) = 2 + log<sub>3</sub>(2x−5)</p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <p><strong>Step 1:</strong> Apply Product Law on LHS</p>
+                <div class="formula-box">log<sub>3</sub>[(x+2)(x−4)] = 2 + log<sub>3</sub>(2x−5)</div>
+
+                <p><strong>Step 2:</strong> Move log<sub>3</sub>(2x−5) to LHS</p>
+                <div class="formula-box">log<sub>3</sub>[(x+2)(x−4)] − log<sub>3</sub>(2x−5) = 2</div>
+
+                <p><strong>Step 3:</strong> Apply Quotient Law</p>
+                <div class="formula-box">log<sub>3</sub>[((x+2)(x−4))/(2x−5)] = 2</div>
+
+                <p><strong>Step 4:</strong> Convert to exponential form</p>
+                <div class="formula-box">((x+2)(x−4))/(2x−5) = 3² = 9</div>
+
+                <p><strong>Step 5:</strong> Cross-multiply and solve</p>
+                <div class="formula-box">
+                    (x+2)(x−4) = 9(2x−5)<br>
+                    x² − 2x − 8 = 18x − 45<br>
+                    x² − 20x + 37 = 0<br>
+                    x = [20 ± √(400 − 148)]/2 = [20 ± √252]/2<br>
+                    x = 10 ± 3√7<br>
+                    x ≈ 17.94 &nbsp;or&nbsp; x ≈ 2.06
+                </div>
+
+                <p><strong>Check:</strong> x ≈ 2.06 makes (x−4) negative → Reject</p>
+            </div>
+
+            <div class="answer-box">Answer: x = 10 + 3√7 ≈ 17.94</div>
+
+            <h3>1.3 Exponential Growth and Decay</h3>
+            <div class="formula-box">
+                <strong>Key Formula:</strong> P(t) = P₀ × e<sup>kt</sup><br>
+                <strong>Doubling Time Form:</strong> P(t) = P₀ × 2<sup>t/T</sup> &nbsp; (T = doubling time)
+            </div>
+
+            <div class="example-box">
+                <div class="label">Worked Example 2</div>
+                <p>Population doubles in 25 years. How long to triple?</p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <p><strong>Step 1:</strong> Use doubling time formula</p>
+                <div class="formula-box">P(t) = P₀ × 2<sup>t/25</sup></div>
+                <p><strong>Step 2:</strong> For tripling, P(t) = 3P₀</p>
+                <div class="formula-box">
+                    3 = 2<sup>t/25</sup><br>
+                    log 3 = (t/25) × log 2<br>
+                    t/25 = log 3 / log 2 = 0.4771 / 0.3010 = 1.5850<br>
+                    t = 25 × 1.5850 ≈ 39.6 years
+                </div>
+            </div>
+
+            <div class="answer-box">Answer: Approximately 39.6 years</div>
+
+            <h3>1.4 Solving Indicinal Equations</h3>
+
+            <div class="example-box">
+                <div class="label">Worked Example 3</div>
+                <p><strong>Solve:</strong> 2<sup>2x+1</sup> − 5(2<sup>x</sup>) + 2 = 0</p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <p><strong>Step 1:</strong> Rewrite 2<sup>2x+1</sup> = 2 × (2<sup>x</sup>)²</p>
+                <p><strong>Step 2:</strong> Let y = 2<sup>x</sup></p>
+                <div class="formula-box">
+                    2y² − 5y + 2 = 0<br>
+                    (2y − 1)(y − 2) = 0<br>
+                    y = 1/2 &nbsp;or&nbsp; y = 2
+                </div>
+                <p><strong>Step 3:</strong> Substitute back</p>
+                <div class="formula-box">
+                    2<sup>x</sup> = 1/2 → x = −1<br>
+                    2<sup>x</sup> = 2 → x = 1
+                </div>
+            </div>
+
+            <div class="answer-box">Answer: x = −1 or x = 1</div>
+
+            <a href="#" class="back-top">↑ Back to Top</a>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!-- MODULE 2 — LOGIC & REASONING                                -->
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <section class="module" id="module2">
+            <h2><span class="num">2</span> Logic &amp; Reasoning</h2>
+
+            <h3>2.1 Statements and Connectives</h3>
+            <table>
+                <thead>
+                    <tr><th>Connective</th><th>Symbol</th><th>Meaning</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Negation</td><td>¬p</td><td>"not p"</td></tr>
+                    <tr><td>Conjunction</td><td>p ∧ q</td><td>"p and q"</td></tr>
+                    <tr><td>Disjunction</td><td>p ∨ q</td><td>"p or q"</td></tr>
+                    <tr><td>Conditional</td><td>p → q</td><td>"if p then q"</td></tr>
+                    <tr><td>Biconditional</td><td>p ↔ q</td><td>"p if and only if q"</td></tr>
+                </tbody>
+            </table>
+
+            <h3>2.2 Truth Tables</h3>
+            <table>
+                <thead>
+                    <tr><th>p</th><th>q</th><th>¬p</th><th>p∧q</th><th>p∨q</th><th>p→q</th><th>p↔q</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>T</td><td>T</td><td>F</td><td>T</td><td>T</td><td>T</td><td>T</td></tr>
+                    <tr><td>T</td><td>F</td><td>F</td><td>F</td><td>T</td><td>F</td><td>F</td></tr>
+                    <tr><td>F</td><td>T</td><td>T</td><td>F</td><td>T</td><td>T</td><td>F</td></tr>
+                    <tr><td>F</td><td>F</td><td>T</td><td>F</td><td>F</td><td>T</td><td>T</td></tr>
+                </tbody>
+            </table>
+
+            <div class="formula-box">
+                <strong>Key Equivalences:</strong><br>
+                p → q ≡ ¬p ∨ q &nbsp; (Material Implication)<br>
+                p ↔ q ≡ (p→q) ∧ (q→p)<br>
+                <strong>Contrapositive:</strong> p→q ≡ ¬q→¬p
+            </div>
+
+            <h3>2.3 Types of Statements</h3>
+            <table>
+                <thead>
+                    <tr><th>Type</th><th>Definition</th><th>Example</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Tautology</strong></td><td>Always true</td><td>p ∨ ¬p</td></tr>
+                    <tr><td><strong>Contradiction</strong></td><td>Always false</td><td>p ∧ ¬p</td></tr>
+                    <tr><td><strong>Contingent</strong></td><td>Sometimes true</td><td>p → q</td></tr>
+                </tbody>
+            </table>
+
+            <h3>2.4 Valid Argument Forms</h3>
+
+            <h4>Modus Ponens (Affirming the Antecedent) — VALID ✓</h4>
+            <div class="formula-box">
+                Premise 1: p → q<br>
+                Premise 2: p<br>
+                Conclusion: ∴ q
+            </div>
+
+            <h4>Modus Tollens (Denying the Consequent) — VALID ✓</h4>
+            <div class="formula-box">
+                Premise 1: p → q<br>
+                Premise 2: ¬q<br>
+                Conclusion: ∴ ¬p
+            </div>
+
+            <h4>Hypothetical Syllogism — VALID ✓</h4>
+            <div class="formula-box">
+                Premise 1: p → q<br>
+                Premise 2: q → r<br>
+                Conclusion: ∴ p → r
+            </div>
+
+            <h3>2.5 Invalid Argument Forms (Fallacies)</h3>
+            <div class="note-box">
+                <strong>Affirming the Consequent (INVALID ✗):</strong> p → q, q, ∴ p<br>
+                <strong>Denying the Antecedent (INVALID ✗):</strong> p → q, ¬p, ∴ ¬q
+            </div>
+
+            <div class="example-box">
+                <div class="label">Worked Example 4</div>
+                <p><strong>Prove:</strong> (p→q) ∧ (q→r) → (p→r) is a tautology.</p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Truth Table</div>
+                <table>
+                    <thead>
+                        <tr><th>p</th><th>q</th><th>r</th><th>p→q</th><th>q→r</th><th>(p→q)∧(q→r)</th><th>p→r</th><th>Whole Statement</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>T</td><td>T</td><td>T</td><td>T</td><td>T</td><td>T</td><td>T</td><td><strong>T</strong></td></tr>
+                        <tr><td>T</td><td>T</td><td>F</td><td>T</td><td>F</td><td>F</td><td>F</td><td><strong>T</strong></td></tr>
+                        <tr><td>T</td><td>F</td><td>T</td><td>F</td><td>T</td><td>F</td><td>T</td><td><strong>T</strong></td></tr>
+                        <tr><td>T</td><td>F</td><td>F</td><td>F</td><td>T</td><td>F</td><td>F</td><td><strong>T</strong></td></tr>
+                        <tr><td>F</td><td>T</td><td>T</td><td>T</td><td>T</td><td>T</td><td>T</td><td><strong>T</strong></td></tr>
+                        <tr><td>F</td><td>T</td><td>F</td><td>T</td><td>F</td><td>F</td><td>T</td><td><strong>T</strong></td></tr>
+                        <tr><td>F</td><td>F</td><td>T</td><td>T</td><td>T</td><td>T</td><td>T</td><td><strong>T</strong></td></tr>
+                        <tr><td>F</td><td>F</td><td>F</td><td>T</td><td>T</td><td>T</td><td>T</td><td><strong>T</strong></td></tr>
+                    </tbody>
+                </table>
+                <p>Since the last column is all TRUE, the statement is a <strong>TAUTOLOGY</strong> ✓</p>
+            </div>
+
+            <div class="example-box">
+                <div class="label">Worked Example 5</div>
+                <p><strong>Determine validity:</strong></p>
+                <div class="formula-box">
+                    Premise 1: If I study, then I will pass. (S → P)<br>
+                    Premise 2: If I pass, then I will get a scholarship. (P → Q)<br>
+                    Premise 3: I did not get a scholarship. (¬Q)<br>
+                    Conclusion: Therefore, I did not study. (¬S)
+                </div>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <p><strong>Step 1:</strong> From Premise 1 &amp; 2 (Hypothetical Syllogism): S → Q</p>
+                <p><strong>Step 2:</strong> Apply Modus Tollens to (S → Q) and ¬Q: ¬S ✓</p>
+            </div>
+
+            <div class="answer-box">Answer: The argument is VALID ✓</div>
+
+            <a href="#" class="back-top">↑ Back to Top</a>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!-- MODULE 3 — TRIGONOMETRY & SURDS                             -->
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <section class="module" id="module3">
+            <h2><span class="num">3</span> Trigonometry &amp; Surds</h2>
+
+            <h3>3.1 Surds — Rationalization</h3>
+
+            <div class="example-box">
+                <div class="label">Worked Example 6</div>
+                <p><strong>Simplify:</strong> (2√3 + 3√2)/√6</p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <p><strong>Step 1:</strong> Multiply numerator and denominator by √6</p>
+                <div class="formula-box">= [(2√3 + 3√2) × √6] / (√6 × √6)</div>
+                <p><strong>Step 2:</strong> Expand numerator</p>
+                <div class="formula-box">= (2√18 + 3√12) / 6</div>
+                <p><strong>Step 3:</strong> Simplify surds: √18 = 3√2, √12 = 2√3</p>
+                <div class="formula-box">
+                    = (2(3√2) + 3(2√3)) / 6<br>
+                    = (6√2 + 6√3) / 6<br>
+                    = √2 + √3
+                </div>
+            </div>
+
+            <div class="answer-box">Answer: √2 + √3</div>
+
+            <div class="example-box">
+                <div class="label">Worked Example 7</div>
+                <p><strong>Rationalize:</strong> 4/(3√5 − 2√3)</p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <p><strong>Step 1:</strong> Multiply by conjugate (3√5 + 2√3)</p>
+                <div class="formula-box">= [4(3√5 + 2√3)] / [(3√5 − 2√3)(3√5 + 2√3)]</div>
+                <p><strong>Step 2:</strong> Denominator (difference of squares)</p>
+                <div class="formula-box">(3√5)² − (2√3)² = 45 − 12 = 33</div>
+                <p><strong>Step 3:</strong> Expand numerator</p>
+                <div class="formula-box">= (12√5 + 8√3) / 33</div>
+            </div>
+
+            <div class="answer-box">Answer: (12√5 + 8√3)/33</div>
+
+            <h3>3.2 Compound Angle Formulae</h3>
+            <table>
+                <thead>
+                    <tr><th>Formula</th><th>Expression</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>sin(A+B)</td><td>sinA cosB + cosA sinB</td></tr>
+                    <tr><td>sin(A−B)</td><td>sinA cosB − cosA sinB</td></tr>
+                    <tr><td>cos(A+B)</td><td>cosA cosB − sinA sinB</td></tr>
+                    <tr><td>cos(A−B)</td><td>cosA cosB + sinA sinB</td></tr>
+                    <tr><td>tan(A+B)</td><td>(tanA + tanB)/(1 − tanA tanB)</td></tr>
+                    <tr><td>tan(A−B)</td><td>(tanA − tanB)/(1 + tanA tanB)</td></tr>
+                </tbody>
+            </table>
+
+            <h3>3.3 Double Angle Formulae</h3>
+            <div class="formula-box">
+                sin2A = 2 sinA cosA<br>
+                cos2A = cos²A − sin²A = 2cos²A − 1 = 1 − 2sin²A<br>
+                tan2A = 2tanA/(1 − tan²A)
+            </div>
+
+            <h3>3.4 Special Angles</h3>
+            <table>
+                <thead>
+                    <tr><th>Angle</th><th>sin</th><th>cos</th><th>tan</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>0°</td><td>0</td><td>1</td><td>0</td></tr>
+                    <tr><td>30°</td><td>1/2</td><td>√3/2</td><td>1/√3</td></tr>
+                    <tr><td>45°</td><td>1/√2</td><td>1/√2</td><td>1</td></tr>
+                    <tr><td>60°</td><td>√3/2</td><td>1/2</td><td>√3</td></tr>
+                    <tr><td>90°</td><td>1</td><td>0</td><td>∞</td></tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <div class="label">Worked Example 8</div>
+                <p><strong>Without tables, evaluate cos 15°</strong></p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <p><strong>Step 1:</strong> Write 15° = 45° − 30°</p>
+                <p><strong>Step 2:</strong> Apply cos(A−B) formula</p>
+                <div class="formula-box">
+                    cos(45° − 30°) = cos45°cos30° + sin45°sin30°<br>
+                    = (1/√2)(√3/2) + (1/√2)(1/2)<br>
+                    = √3/(2√2) + 1/(2√2)<br>
+                    = (√3 + 1)/(2√2)
+                </div>
+                <p><strong>Step 3:</strong> Rationalize</p>
+                <div class="formula-box">= (√3 + 1)/(2√2) × √2/√2 = (√6 + √2)/4</div>
+            </div>
+
+            <div class="answer-box">Answer: cos 15° = (√6 + √2)/4</div>
+
+            <div class="example-box">
+                <div class="label">Worked Example 9</div>
+                <p><strong>Find cos15° sin15°</strong></p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <p>Use identity: sinA cosA = (1/2) sin2A</p>
+                <div class="formula-box">
+                    cos15° sin15° = (1/2) sin(2×15°)<br>
+                    = (1/2) sin30°<br>
+                    = (1/2)(1/2) = 1/4
+                </div>
+            </div>
+
+            <div class="answer-box">Answer: 1/4</div>
+
+            <h3>3.5 Solving Trigonometric Equations</h3>
+
+            <div class="example-box">
+                <div class="label">Worked Example 10</div>
+                <p><strong>Solve:</strong> 3sin²θ − 2cosθ − 3 = 0 for 0° ≤ θ ≤ 360°</p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <p><strong>Step 1:</strong> Use identity sin²θ = 1 − cos²θ</p>
+                <div class="formula-box">
+                    3(1 − cos²θ) − 2cosθ − 3 = 0<br>
+                    3 − 3cos²θ − 2cosθ − 3 = 0<br>
+                    −3cos²θ − 2cosθ = 0<br>
+                    3cos²θ + 2cosθ = 0<br>
+                    cosθ(3cosθ + 2) = 0
+                </div>
+                <p><strong>Step 2:</strong> Solve each factor</p>
+                <div class="formula-box">
+                    cosθ = 0 &nbsp;or&nbsp; 3cosθ + 2 = 0<br>
+                    θ = 90°, 270° &nbsp;or&nbsp; cosθ = −2/3
+                </div>
+                <p><strong>Step 3:</strong> For cosθ = −2/3</p>
+                <div class="formula-box">
+                    θ = cos⁻¹(−2/3) = 131.81° (Q2)<br>
+                    θ = 360° − 131.81° = 228.19° (Q3)
+                </div>
+            </div>
+
+            <div class="answer-box">Answer: θ = 90°, 131.81°, 228.19°, 270°</div>
+
+            <h3>3.6 Expressions of Form a sinx + b cosx</h3>
+            <div class="formula-box">
+                <strong>Maximum value</strong> = √(a² + b²)<br>
+                <strong>Minimum value</strong> = −√(a² + b²)<br><br>
+                <strong>Example:</strong> 3sinx + 4cosx<br>
+                Maximum = √(9 + 16) = √25 = <strong>5</strong><br>
+                Minimum = <strong>−5</strong>
+            </div>
+
+            <a href="#" class="back-top">↑ Back to Top</a>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!-- MODULE 4 — MATRICES & DETERMINANTS                          -->
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <section class="module" id="module4">
+            <h2><span class="num">4</span> Matrices &amp; Determinants</h2>
+
+            <h3>4.1 Matrix Operations</h3>
+            <ul>
+                <li><strong>Addition/Subtraction:</strong> Add/subtract corresponding elements (matrices must be same size)</li>
+                <li><strong>Scalar Multiplication:</strong> Multiply every element by the scalar</li>
+                <li><strong>Matrix Multiplication:</strong> For A(m×n) and B(n×p), product AB is (m×p). Rule: Row × Column</li>
+            </ul>
+
+            <div class="example-box">
+                <div class="label">Worked Example 11</div>
+                <p><strong>Given A = [[3,−2],[4,1]] and B = [[2,3],[−1,5]], find 2A − 3B</strong></p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <p><strong>Step 1:</strong> 2A = [[6,−4],[8,2]]</p>
+                <p><strong>Step 2:</strong> 3B = [[6,9],[−3,15]]</p>
+                <p><strong>Step 3:</strong> Subtract</p>
+                <div class="formula-box">
+                    2A − 3B = [[6−6, −4−9],[8−(−3), 2−15]]<br>
+                    = [[0, −13],[11, −13]]
+                </div>
+            </div>
+
+            <div class="answer-box">Answer: [[0, −13],[11, −13]]</div>
+
+            <h3>4.2 Determinants</h3>
+            <div class="formula-box">
+                <strong>2×2:</strong> For A = [[a,b],[c,d]], |A| = ad − bc<br><br>
+                <strong>3×3:</strong> For A = [[a,b,c],[d,e,f],[g,h,i]]:<br>
+                |A| = a(ei − fh) − b(di − fg) + c(dh − eg)
+            </div>
+
+            <div class="example-box">
+                <div class="label">Worked Example 12</div>
+                <p><strong>Evaluate:</strong> |[[2,1,3],[1,0,2],[3,2,1]]|</p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <p><strong>Step 1:</strong> Expand along first row</p>
+                <div class="formula-box">
+                    = 2|[[0,2],[2,1]]| − 1|[[1,2],[3,1]]| + 3|[[1,0],[3,2]]|
+                </div>
+                <p><strong>Step 2:</strong> Calculate 2×2 determinants</p>
+                <div class="formula-box">
+                    = 2(0×1 − 2×2) − 1(1×1 − 2×3) + 3(1×2 − 0×3)<br>
+                    = 2(0 − 4) − 1(1 − 6) + 3(2 − 0)<br>
+                    = 2(−4) − 1(−5) + 3(2)<br>
+                    = −8 + 5 + 6<br>
+                    = 3
+                </div>
+            </div>
+
+            <div class="answer-box">Answer: 3</div>
+
+            <h3>4.3 Inverse of a Matrix</h3>
+            <div class="formula-box">
+                <strong>2×2 Inverse:</strong> For A = [[a,b],[c,d]]:<br>
+                A⁻¹ = (1/|A|) × [[d,−b],[−c,a]]<br>
+                where |A| = ad − bc ≠ 0
+            </div>
+
+            <div class="note-box">
+                <strong>Properties:</strong><br>
+                (AB)⁻¹ = B⁻¹A⁻¹ &nbsp;|&nbsp; (A⁻¹)⁻¹ = A &nbsp;|&nbsp; AA⁻¹ = A⁻¹A = I
+            </div>
+
+            <div class="example-box">
+                <div class="label">Worked Example 13</div>
+                <p><strong>Find the inverse of A = [[5,3],[3,2]]</strong></p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <p><strong>Step 1:</strong> Calculate determinant</p>
+                <div class="formula-box">|A| = 5×2 − 3×3 = 10 − 9 = 1</div>
+                <p><strong>Step 2:</strong> Apply formula</p>
+                <div class="formula-box">
+                    A⁻¹ = (1/1) × [[2,−3],[−3,5]] = [[2,−3],[−3,5]]
+                </div>
+            </div>
+
+            <div class="answer-box">Answer: [[2,−3],[−3,5]]</div>
+
+            <div class="example-box">
+                <div class="label">Worked Example 14</div>
+                <p><strong>Verify (AB)⁻¹ = B⁻¹A⁻¹ for:</strong></p>
+                <p>A = [[3,1],[4,2]], B = [[2,−1],[−4,3]]</p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <p><strong>Step 1:</strong> Calculate AB</p>
+                <div class="formula-box">
+                    AB = [[3(2)+1(−4), 3(−1)+1(3)],[4(2)+2(−4), 4(−1)+2(3)]]<br>
+                    = [[6−4, −3+3],[8−8, −4+6]]<br>
+                    = [[2, 0],[0, 2]]
+                </div>
+                <p><strong>Step 2:</strong> Find (AB)⁻¹</p>
+                <div class="formula-box">
+                    |AB| = 2×2 − 0×0 = 4<br>
+                    (AB)⁻¹ = (1/4)[[2, 0],[0, 2]] = [[1/2, 0],[0, 1/2]]
+                </div>
+                <p><strong>Step 3:</strong> Find B⁻¹</p>
+                <div class="formula-box">
+                    |B| = 2(3) − (−1)(−4) = 6 − 4 = 2<br>
+                    B⁻¹ = (1/2)[[3, 1],[4, 2]] = [[3/2, 1/2],[2, 1]]
+                </div>
+                <p><strong>Step 4:</strong> Find A⁻¹</p>
+                <div class="formula-box">
+                    |A| = 3(2) − 1(4) = 6 − 4 = 2<br>
+                    A⁻¹ = (1/2)[[2, −1],[−4, 3]] = [[1, −1/2],[−2, 3/2]]
+                </div>
+                <p><strong>Step 5:</strong> Calculate B⁻¹A⁻¹</p>
+                <div class="formula-box">
+                    B⁻¹A⁻¹ = [[3/2, 1/2],[2, 1]] × [[1, −1/2],[−2, 3/2]]<br>
+                    = [[3/2−1, −3/4+3/4],[2−2, −1+3/2]]<br>
+                    = [[1/2, 0],[0, 1/2]]
+                </div>
+                <p>Therefore: (AB)⁻¹ = B⁻¹A⁻¹ ✓</p>
+            </div>
+
+            <h3>4.4 Solving Systems with Matrices</h3>
+
+            <div class="example-box">
+                <div class="label">Worked Example 15</div>
+                <p><strong>Solve:</strong> 2x − y + 3z = 9, x + 2y − z = 3, 3x + y − 2z = 4</p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution (Cramer's Rule)</div>
+                <p><strong>Step 1:</strong> Find |A|</p>
+                <div class="formula-box">
+                    |A| = 2|[[2,−1],[1,−2]]| + 1|[[1,−1],[3,−2]]| + 3|[[1,2],[3,1]]|<br>
+                    = 2(−4+1) + 1(−2+3) + 3(1−6)<br>
+                    = 2(−3) + 1(1) + 3(−5)<br>
+                    = −6 + 1 − 15 = −20
+                </div>
+                <p><strong>Step 2:</strong> Find |Ax|</p>
+                <div class="formula-box">
+                    |Ax| = 9(−4+1) + 1(−6+4) + 3(3−8) = −27 − 2 − 15 = −44<br>
+                    x = −44/−20 = 2.2
+                </div>
+                <p><strong>Step 3:</strong> Find |Ay|</p>
+                <div class="formula-box">
+                    |Ay| = 2(−6+4) − 9(−2+3) + 3(4−9) = −4 − 9 − 15 = −28<br>
+                    y = −28/−20 = 1.4
+                </div>
+                <p><strong>Step 4:</strong> Find |Az|</p>
+                <div class="formula-box">
+                    |Az| = 2(8−3) + 1(4−9) + 9(1−6) = 10 − 5 − 45 = −40<br>
+                    z = −40/−20 = 2
+                </div>
+            </div>
+
+            <div class="answer-box">Answer: x = 2.2, y = 1.4, z = 2</div>
+
+            <a href="#" class="back-top">↑ Back to Top</a>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!-- MODULE 5 — QUADRATIC FUNCTIONS & GRAPHS                     -->
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <section class="module" id="module5">
+            <h2><span class="num">5</span> Quadratic Functions &amp; Graphs</h2>
+
+            <h3>5.1 Quadratic Function Forms</h3>
+            <table>
+                <thead>
+                    <tr><th>Form</th><th>Equation</th><th>Features</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Standard</strong></td><td>y = ax² + bx + c</td><td>y-intercept = c</td></tr>
+                    <tr><td><strong>Vertex</strong></td><td>y = a(x−h)² + k</td><td>Vertex = (h,k)</td></tr>
+                    <tr><td><strong>Factored</strong></td><td>y = a(x−p)(x−q)</td><td>Roots at x = p, q</td></tr>
+                </tbody>
+            </table>
+
+            <div class="formula-box">
+                <strong>Vertex Formula:</strong> h = −b/(2a), k = f(h)<br>
+                <strong>Axis of Symmetry:</strong> x = −b/(2a)
+            </div>
+
+            <h3>5.2 Discriminant Analysis</h3>
+            <div class="formula-box">
+                <strong>Discriminant: Δ = b² − 4ac</strong>
+            </div>
+            <table>
+                <thead>
+                    <tr><th>Δ Value</th><th>Nature of Roots</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Δ &gt; 0</td><td>Real, distinct</td></tr>
+                    <tr><td>Δ = 0</td><td>Real, equal</td></tr>
+                    <tr><td>Δ &lt; 0</td><td>Complex (not real)</td></tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <div class="label">Worked Example 16</div>
+                <p><strong>Find range of k for which f(x) = 2x² − 3x + (k+1) is always positive</strong></p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <p><strong>Step 1:</strong> For always positive, need a &gt; 0 ✓ (a = 2) and Δ &lt; 0</p>
+                <p><strong>Step 2:</strong> Calculate discriminant</p>
+                <div class="formula-box">
+                    Δ = (−3)² − 4(2)(k+1)<br>
+                    = 9 − 8k − 8<br>
+                    = 1 − 8k
+                </div>
+                <p><strong>Step 3:</strong> Set Δ &lt; 0</p>
+                <div class="formula-box">
+                    1 − 8k &lt; 0<br>
+                    1 &lt; 8k<br>
+                    k &gt; 1/8
+                </div>
+            </div>
+
+            <div class="answer-box">Answer: k &gt; 1/8</div>
+
+            <div class="example-box">
+                <div class="label">Worked Example 17</div>
+                <p><strong>f(x) = ax² + bx + c has minimum value −4 at x = 2. If f(0) = 8, find a, b, c</strong></p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <p><strong>Step 1:</strong> Vertex form: f(x) = a(x−2)² − 4</p>
+                <p><strong>Step 2:</strong> Use f(0) = 8</p>
+                <div class="formula-box">
+                    a(0−2)² − 4 = 8<br>
+                    4a − 4 = 8<br>
+                    4a = 12<br>
+                    a = 3
+                </div>
+                <p><strong>Step 3:</strong> Expand</p>
+                <div class="formula-box">
+                    f(x) = 3(x−2)² − 4<br>
+                    = 3(x² − 4x + 4) − 4<br>
+                    = 3x² − 12x + 12 − 4<br>
+                    = 3x² − 12x + 8
+                </div>
+            </div>
+
+            <div class="answer-box">Answer: a = 3, b = −12, c = 8</div>
+
+            <h3>5.3 Tangency Conditions</h3>
+            <div class="note-box">
+                <strong>Line y = mx + c is tangent to y = ax² + bx + c when:</strong><br>
+                Substitute line into curve → resulting quadratic has Δ = 0
+            </div>
+
+            <div class="example-box">
+                <div class="label">Worked Example 18</div>
+                <p><strong>Find k such that y = 2x + k is tangent to y = x² + 3x − 1</strong></p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <p><strong>Step 1:</strong> Set equal</p>
+                <div class="formula-box">
+                    x² + 3x − 1 = 2x + k<br>
+                    x² + x − 1 − k = 0
+                </div>
+                <p><strong>Step 2:</strong> For tangency, Δ = 0</p>
+                <div class="formula-box">
+                    1² − 4(1)(−1−k) = 0<br>
+                    1 + 4 + 4k = 0<br>
+                    5 + 4k = 0<br>
+                    k = −5/4
+                </div>
+            </div>
+
+            <div class="answer-box">Answer: k = −5/4</div>
+
+            <h3>5.4 Maximum and Minimum Values</h3>
+            <table>
+                <thead>
+                    <tr><th>Condition</th><th>Extremum</th><th>Value</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>a &gt; 0</td><td>Minimum</td><td>k = c − b²/(4a)</td></tr>
+                    <tr><td>a &lt; 0</td><td>Maximum</td><td>k = c − b²/(4a)</td></tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <div class="label">Worked Example 19</div>
+                <p><strong>Find maximum value of f(x) = 6 + 5x − x²</strong></p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <p><strong>Step 1:</strong> Identify a = −1, b = 5, c = 6</p>
+                <p><strong>Step 2:</strong> Since a &lt; 0, maximum exists</p>
+                <p><strong>Step 3:</strong> Find x at maximum</p>
+                <div class="formula-box">x = −b/(2a) = −5/(2×−1) = 5/2 = 2.5</div>
+                <p><strong>Step 4:</strong> Calculate maximum value</p>
+                <div class="formula-box">
+                    f(2.5) = 6 + 5(2.5) − (2.5)²<br>
+                    = 6 + 12.5 − 6.25<br>
+                    = 12.25
+                </div>
+            </div>
+
+            <div class="answer-box">Answer: Maximum value = 12.25</div>
+
+            <h3>5.5 Roots and Coefficients</h3>
+            <div class="formula-box">
+                For ax² + bx + c = 0 with roots α and β:<br>
+                <strong>Sum of roots:</strong> α + β = −b/a<br>
+                <strong>Product of roots:</strong> αβ = c/a<br><br>
+                <strong>Forming Equations from Roots:</strong><br>
+                x² − (α+β)x + αβ = 0
+            </div>
+
+            <div class="example-box">
+                <div class="label">Worked Example 20</div>
+                <p><strong>Roots are 2+√3 and 2−√3. Find the equation.</strong></p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <p><strong>Step 1:</strong> Sum of roots</p>
+                <div class="formula-box">(2+√3) + (2−√3) = 4</div>
+                <p><strong>Step 2:</strong> Product of roots</p>
+                <div class="formula-box">(2+√3)(2−√3) = 4 − 3 = 1</div>
+                <p><strong>Step 3:</strong> Form equation</p>
+                <div class="formula-box">x² − 4x + 1 = 0</div>
+            </div>
+
+            <div class="answer-box">Answer: x² − 4x + 1 = 0</div>
+
+            <a href="#" class="back-top">↑ Back to Top</a>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!-- MODULE 6 — MENSURATION: SPHERES & HEMISPHERES               -->
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <section class="module" id="module6">
+            <h2><span class="num">6</span> Mensuration — Spheres &amp; Hemispheres</h2>
+
+            <h3>6.1 Key Formulae</h3>
+            <table>
+                <thead>
+                    <tr><th>Shape</th><th>Volume</th><th>Surface Area</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Sphere</strong></td><td>(4/3)πr³</td><td>4πr²</td></tr>
+                    <tr><td><strong>Hemisphere</strong></td><td>(2/3)πr³</td><td>3πr² (total)</td></tr>
+                    <tr><td><strong>Cylinder</strong></td><td>πr²h</td><td>2πr(r+h)</td></tr>
+                    <tr><td><strong>Cone</strong></td><td>(1/3)πr²h</td><td>πr(r+l)</td></tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <div class="label">Worked Example 21</div>
+                <p><strong>Sphere r=9cm melted into cylinder h=12cm. Find cylinder radius.</strong></p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <p><strong>Step 1:</strong> Volume of sphere</p>
+                <div class="formula-box">V = (4/3)π(9)³ = (4/3)π(729) = 972π cm³</div>
+                <p><strong>Step 2:</strong> Volume of cylinder = Volume of sphere</p>
+                <div class="formula-box">
+                    πr²h = 972π<br>
+                    r²(12) = 972<br>
+                    r² = 81<br>
+                    r = 9 cm
+                </div>
+            </div>
+
+            <div class="answer-box">Answer: 9 cm</div>
+
+            <div class="example-box">
+                <div class="label">Worked Example 22</div>
+                <p><strong>Hemispherical bowl r=12cm filled with water poured into cylinder r=8cm. Find height.</strong></p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <p><strong>Step 1:</strong> Volume of hemisphere</p>
+                <div class="formula-box">V = (2/3)π(12)³ = (2/3)π(1728) = 1152π cm³</div>
+                <p><strong>Step 2:</strong> Volume of cylinder = Volume of hemisphere</p>
+                <div class="formula-box">
+                    πr²h = 1152π<br>
+                    (8)²h = 1152<br>
+                    64h = 1152<br>
+                    h = 18 cm
+                </div>
+            </div>
+
+            <div class="answer-box">Answer: 18 cm</div>
+
+            <div class="example-box">
+                <div class="label">Worked Example 23</div>
+                <p><strong>Sphere r=7cm dropped into cylinder r=14cm. Find rise in water level.</strong></p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <p><strong>Step 1:</strong> Volume of sphere</p>
+                <div class="formula-box">V = (4/3)π(7)³ = (4/3)π(343) = (1372/3)π cm³</div>
+                <p><strong>Step 2:</strong> Rise in water = Volume of sphere</p>
+                <div class="formula-box">
+                    πr²h = (1372/3)π<br>
+                    (14)²h = 1372/3<br>
+                    196h = 1372/3<br>
+                    h = 1372/(3×196) = 1372/588 = 7/3 cm
+                </div>
+            </div>
+
+            <div class="answer-box">Answer: 7/3 cm</div>
+
+            <h3>6.2 Ratio Problems</h3>
+
+            <div class="example-box">
+                <div class="label">Worked Example 24</div>
+                <p><strong>Surface areas ratio = 16:25. Find volume ratio.</strong></p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <p><strong>Step 1:</strong> Surface area = 4πr²</p>
+                <div class="formula-box">
+                    r₁²/r₂² = 16/25<br>
+                    r₁/r₂ = 4/5
+                </div>
+                <p><strong>Step 2:</strong> Volume = (4/3)πr³</p>
+                <div class="formula-box">
+                    V₁/V₂ = (r₁/r₂)³ = (4/5)³ = 64/125
+                </div>
+            </div>
+
+            <div class="answer-box">Answer: 64:125</div>
+
+            <h3>6.3 Hollow Sphere</h3>
+
+            <div class="example-box">
+                <div class="label">Worked Example 25</div>
+                <p><strong>External r=10cm, internal r=8cm. Find volume of material.</strong></p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <div class="formula-box">
+                    V = (4/3)π(R³ − r³)<br>
+                    = (4/3)π(10³ − 8³)<br>
+                    = (4/3)π(1000 − 512)<br>
+                    = (4/3)π(488)<br>
+                    = (1952/3)π cm³
+                </div>
+            </div>
+
+            <h3>6.4 Conversion Problems</h3>
+
+            <div class="example-box">
+                <div class="label">Worked Example 26</div>
+                <p><strong>How many lead balls r=3cm from sphere r=15cm?</strong></p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <div class="formula-box">
+                    n = Volume of large sphere / Volume of small ball<br>
+                    = [(4/3)π(15)³] / [(4/3)π(3)³]<br>
+                    = 15³/3³<br>
+                    = 3375/27<br>
+                    = 125
+                </div>
+            </div>
+
+            <div class="answer-box">Answer: 125 balls</div>
+
+            <h3>6.5 Composite Solids</h3>
+
+            <div class="example-box">
+                <div class="label">Worked Example 27</div>
+                <p><strong>Hemisphere r=14cm on cylinder r=14cm, h=20cm. Find TSA.</strong></p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <p><strong>Step 1:</strong> Curved surface of hemisphere</p>
+                <div class="formula-box">= 2πr² = 2π(14)² = 392π cm²</div>
+                <p><strong>Step 2:</strong> Curved surface of cylinder</p>
+                <div class="formula-box">= 2πrh = 2π(14)(20) = 560π cm²</div>
+                <p><strong>Step 3:</strong> Base of cylinder</p>
+                <div class="formula-box">= πr² = π(14)² = 196π cm²</div>
+                <p><strong>Step 4:</strong> Total</p>
+                <div class="formula-box">
+                    = 392π + 560π + 196π = 1148π<br>
+                    = 1148 × 22/7 = 3608 cm²
+                </div>
+            </div>
+
+            <div class="answer-box">Answer: 3608 cm²</div>
+
+            <a href="#" class="back-top">↑ Back to Top</a>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!-- MODULE 7 — LONGITUDE & LATITUDE                             -->
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <section class="module" id="module7">
+            <h2><span class="num">7</span> Longitude &amp; Latitude</h2>
+
+            <h3>7.1 Key Concepts</h3>
+            <table>
+                <thead>
+                    <tr><th>Term</th><th>Definition</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Latitude</strong></td><td>Angular distance N/S of equator (0° to 90°)</td></tr>
+                    <tr><td><strong>Longitude</strong></td><td>Angular distance E/W of Greenwich (0° to 180°)</td></tr>
+                    <tr><td><strong>Great Circle</strong></td><td>Circle through Earth's center (equator, meridians)</td></tr>
+                    <tr><td><strong>Small Circle</strong></td><td>Circle not through center (parallels except equator)</td></tr>
+                </tbody>
+            </table>
+
+            <h3>7.2 Distance Along Meridian</h3>
+            <div class="formula-box">
+                Points on same meridian with latitudes θ₁ and θ₂:<br>
+                <strong>Distance = (θ/360) × 2πR</strong><br>
+                Where θ = |θ₁ − θ₂| (angular difference)
+            </div>
+
+            <div class="example-box">
+                <div class="label">Worked Example 28</div>
+                <p><strong>Latitudes 30°N and 20°S, R=6400km. Find distance.</strong></p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <p><strong>Step 1:</strong> Angular difference</p>
+                <div class="formula-box">θ = 30° + 20° = 50°</div>
+                <p><strong>Step 2:</strong> Distance</p>
+                <div class="formula-box">
+                    d = (50/360) × 2 × (22/7) × 6400<br>
+                    = (50/360) × 40228.57<br>
+                    = 5587.3 km
+                </div>
+            </div>
+
+            <div class="answer-box">Answer: ≈ 5585 km</div>
+
+            <h3>7.3 Distance Along Parallel</h3>
+            <div class="formula-box">
+                Points on same latitude θ with longitude difference Δλ:<br>
+                <strong>Radius of parallel = R cos θ</strong><br>
+                <strong>Distance = (Δλ/360) × 2πR cos θ</strong>
+            </div>
+
+            <div class="example-box">
+                <div class="label">Worked Example 29</div>
+                <p><strong>P(50°N,20°W), Q(50°N,40°E), R=6400km. Find PQ.</strong></p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <p><strong>Step 1:</strong> Longitude difference</p>
+                <div class="formula-box">Δλ = 20° + 40° = 60°</div>
+                <p><strong>Step 2:</strong> Radius of parallel</p>
+                <div class="formula-box">r = 6400 cos 50° = 6400 × 0.6428 = 4113.9 km</div>
+                <p><strong>Step 3:</strong> Distance</p>
+                <div class="formula-box">
+                    d = (60/360) × 2 × (22/7) × 4113.9<br>
+                    = (1/6) × 25858.2<br>
+                    = 4310 km
+                </div>
+            </div>
+
+            <h3>7.4 Nautical Miles</h3>
+            <div class="formula-box">
+                <strong>1 nautical mile = 1 minute of arc along a great circle</strong><br><br>
+                Distance (nm) = Angular distance in minutes<br>
+                1° = 60 nautical miles
+            </div>
+
+            <div class="example-box">
+                <div class="label">Worked Example 30</div>
+                <p><strong>A(40°N,30°W) to B(40°N,50°E). Find distance in nm.</strong></p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <p><strong>Step 1:</strong> Longitude difference = 80°</p>
+                <p><strong>Step 2:</strong> Along parallel at 40°N</p>
+                <div class="formula-box">
+                    Angular distance = 80° × cos 40°<br>
+                    = 80 × 0.766 = 61.28°<br>
+                    = 61.28 × 60 = 3676.8 nm
+                </div>
+            </div>
+
+            <h3>7.5 Local Time and Longitude</h3>
+            <div class="note-box">
+                <strong>Key Rule:</strong><br>
+                15° longitude = 1 hour time difference<br>
+                1° longitude = 4 minutes time difference<br>
+                <strong>East is ahead of West</strong>
+            </div>
+
+            <div class="example-box">
+                <div class="label">Worked Example 31</div>
+                <p><strong>Local time at A(45°E) = 4:00 pm. Find time at B(60°W).</strong></p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <p><strong>Step 1:</strong> Longitude difference</p>
+                <div class="formula-box">Δλ = 45° + 60° = 105°</div>
+                <p><strong>Step 2:</strong> Time difference</p>
+                <div class="formula-box">Δt = (105/15) hours = 7 hours</div>
+                <p><strong>Step 3:</strong> B is West of A, so B is behind</p>
+                <div class="formula-box">Time at B = 4:00 pm − 7 hours = 9:00 am</div>
+            </div>
+
+            <div class="answer-box">Answer: 9:00 am</div>
+
+            <div class="example-box">
+                <div class="label">Worked Example 32</div>
+                <p><strong>Takeoff at 30°N,45°E at 8:00am. Fly to 30°N,75°E. Flight = 6 hours. Find arrival local time.</strong></p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <p><strong>Step 1:</strong> Longitude difference = 30°</p>
+                <p><strong>Step 2:</strong> Time difference = 30/15 = 2 hours (destination is East, so ahead)</p>
+                <p><strong>Step 3:</strong> Arrival in departure time zone</p>
+                <div class="formula-box">8:00 am + 6 hours = 2:00 pm</div>
+                <p><strong>Step 4:</strong> Convert to destination local time</p>
+                <div class="formula-box">2:00 pm + 2 hours = 4:00 pm</div>
+            </div>
+
+            <div class="answer-box">Answer: 4:00 pm</div>
+
+            <h3>7.6 Speed and Distance</h3>
+
+            <div class="example-box">
+                <div class="label">Worked Example 33</div>
+                <p><strong>Speed = 15 knots. Distance in 8 hours? (1 nm = 1.852 km)</strong></p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <div class="formula-box">
+                    Distance = 15 × 8 = 120 nautical miles<br>
+                    = 120 × 1.852 = 222.24 km
+                </div>
+            </div>
+
+            <div class="answer-box">Answer: 222.24 km</div>
+
+            <h3>7.7 Finding Latitude from Parallel Radius</h3>
+
+            <div class="example-box">
+                <div class="label">Worked Example 34</div>
+                <p><strong>Radius of parallel = 4800 km. R = 6400 km. Find latitude.</strong></p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <div class="formula-box">
+                    cos θ = r/R = 4800/6400 = 0.75<br>
+                    θ = cos⁻¹(0.75) = 41.41°
+                </div>
+            </div>
+
+            <div class="answer-box">Answer: 41.41°</div>
+
+            <h3>7.8 International Date Line</h3>
+            <table>
+                <thead>
+                    <tr><th>Crossing Direction</th><th>Adjustment</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>West → East</td><td>Subtract 1 day</td></tr>
+                    <tr><td>East → West</td><td>Add 1 day</td></tr>
+                </tbody>
+            </table>
+
+            <a href="#" class="back-top">↑ Back to Top</a>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!-- MODULE 8 — BINARY OPERATIONS                                -->
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <section class="module" id="module8">
+            <h2><span class="num">8</span> Binary Operations</h2>
+
+            <h3>8.1 Definition</h3>
+            <p>A binary operation * on set S assigns to each pair (a,b) ∈ S×S a unique element a*b ∈ S.</p>
+
+            <h3>8.2 Properties</h3>
+            <table>
+                <thead>
+                    <tr><th>Property</th><th>Definition</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Closure</strong></td><td>a*b ∈ S for all a,b ∈ S</td></tr>
+                    <tr><td><strong>Commutative</strong></td><td>a*b = b*a</td></tr>
+                    <tr><td><strong>Associative</strong></td><td>(a*b)*c = a*(b*c)</td></tr>
+                    <tr><td><strong>Identity</strong></td><td>a*e = e*a = a</td></tr>
+                    <tr><td><strong>Inverse</strong></td><td>a*b = b*a = e</td></tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <div class="label">Worked Example 35</div>
+                <p><strong>a*b = a+b−3ab. Find identity element.</strong></p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <p><strong>Step 1:</strong> Let e be identity</p>
+                <div class="formula-box">
+                    a*e = a<br>
+                    a+e−3ae = a<br>
+                    e−3ae = 0<br>
+                    e(1−3a) = 0
+                </div>
+                <p><strong>Step 2:</strong> Since this must hold for all a: e = 0</p>
+            </div>
+
+            <div class="answer-box">Answer: Identity = 0</div>
+
+            <div class="example-box">
+                <div class="label">Worked Example 36</div>
+                <p><strong>Same operation, find inverse of 1/2</strong></p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <p><strong>Step 1:</strong> Let b be inverse of a=1/2</p>
+                <div class="formula-box">
+                    a*b = e = 0<br>
+                    1/2 + b − 3(1/2)b = 0<br>
+                    1/2 + b − (3/2)b = 0<br>
+                    1/2 − (1/2)b = 0<br>
+                    (1/2)(1−b) = 0<br>
+                    b = 1
+                </div>
+            </div>
+
+            <div class="answer-box">Answer: Inverse of 1/2 is 1</div>
+
+            <div class="example-box">
+                <div class="label">Worked Example 37</div>
+                <p><strong>a⋆b = ab−a−b+2. Find 3⋆(2⋆1)</strong></p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <p><strong>Step 1:</strong> Calculate 2⋆1</p>
+                <div class="formula-box">2⋆1 = 2(1) − 2 − 1 + 2 = 1</div>
+                <p><strong>Step 2:</strong> Calculate 3⋆1</p>
+                <div class="formula-box">3⋆1 = 3(1) − 3 − 1 + 2 = 1</div>
+            </div>
+
+            <div class="answer-box">Answer: 1</div>
+
+            <div class="example-box">
+                <div class="label">Worked Example 38</div>
+                <p><strong>aΔb = (a²−b²)/(a−b). Simplify.</strong></p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <div class="formula-box">
+                    aΔb = (a−b)(a+b)/(a−b) = a+b
+                </div>
+            </div>
+
+            <div class="answer-box">Answer: aΔb = a+b</div>
+
+            <div class="example-box">
+                <div class="label">Worked Example 39</div>
+                <p><strong>a⋆b = 2a−b+ab. Solve 2⋆x = 3</strong></p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <div class="formula-box">
+                    2⋆x = 2(2) − x + 2x = 4 + x<br>
+                    4 + x = 3<br>
+                    x = −1
+                </div>
+            </div>
+
+            <div class="answer-box">Answer: x = −1</div>
+
+            <h3>8.3 Closure Test</h3>
+
+            <div class="example-box">
+                <div class="label">Worked Example 40</div>
+                <p><strong>Is a*b = (a+b)/2 closed on integers?</strong></p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <p>Take a = 1, b = 2 (both integers)</p>
+                <div class="formula-box">1*2 = (1+2)/2 = 3/2 = 1.5</div>
+                <p>1.5 is NOT an integer</p>
+            </div>
+
+            <div class="answer-box">Answer: NOT closed on integers</div>
+
+            <a href="#" class="back-top">↑ Back to Top</a>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!-- MODULE 9 — FINANCIAL MATHEMATICS                            -->
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <section class="module" id="module9">
+            <h2><span class="num">9</span> Financial Mathematics</h2>
+
+            <h3>9.1 Simple Interest</h3>
+            <div class="formula-box">
+                I = PRT/100<br>
+                A = P + I = P(1 + RT/100)<br><br>
+                Where: P = Principal, R = Rate (% per annum), T = Time (years), A = Amount
+            </div>
+
+            <h3>9.2 Compound Interest</h3>
+            <div class="formula-box">
+                A = P(1 + R/100)ⁿ<br>
+                Where n = number of years
+            </div>
+
+            <h3>9.3 Depreciation</h3>
+            <div class="formula-box">
+                A = P(1 − R/100)ⁿ
+            </div>
+
+            <div class="example-box">
+                <div class="label">Worked Example 41</div>
+                <p><strong>₦200,000 at 8% simple interest. ₦150,000 at 6% compound. When equal?</strong></p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <p><strong>Step 1:</strong> Simple interest amount after t years</p>
+                <div class="formula-box">A₁ = 200000(1 + 8t/100) = 200000 + 16000t</div>
+                <p><strong>Step 2:</strong> Compound interest amount after t years</p>
+                <div class="formula-box">A₂ = 150000(1.06)<sup>t</sup></div>
+                <p><strong>Step 3:</strong> Set equal and solve by trial</p>
+                <div class="formula-box">
+                    t = 10: LHS = 360000, RHS = 268627<br>
+                    t = 12: LHS = 392000, RHS = 301806<br>
+                    t = 13: LHS = 408000, RHS = 319914<br>
+                    ...
+                </div>
+            </div>
+
+            <div class="answer-box">Answer: Approximately t ≈ 15 years</div>
+
+            <div class="example-box">
+                <div class="label">Worked Example 42</div>
+                <p><strong>Machine depreciates 10%/year. After 3 years = ₦1,458,000. Find original cost.</strong></p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <div class="formula-box">
+                    A = P(1 − 0.10)³<br>
+                    1458000 = P(0.9)³<br>
+                    1458000 = P(0.729)<br>
+                    P = 1458000/0.729<br>
+                    P = ₦2,000,000
+                </div>
+            </div>
+
+            <div class="answer-box">Answer: ₦2,000,000</div>
+
+            <a href="#" class="back-top">↑ Back to Top</a>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!-- MODULE 10 — CALCULUS (INTRODUCTION)                         -->
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <section class="module" id="module10">
+            <h2><span class="num">10</span> Calculus (Introduction)</h2>
+
+            <h3>10.1 Differentiation</h3>
+            <div class="formula-box">
+                d/dx(xⁿ) = nxⁿ⁻¹<br>
+                d/dx(constant) = 0<br>
+                d/dx(axⁿ) = anxⁿ⁻¹
+            </div>
+
+            <div class="example-box">
+                <div class="label">Worked Example 43</div>
+                <p><strong>s = 2t³ − 15t² + 24t. Find velocity and acceleration.</strong></p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <p><strong>Step 1:</strong> Velocity = ds/dt</p>
+                <div class="formula-box">v = 6t² − 30t + 24</div>
+                <p><strong>Step 2:</strong> Acceleration = dv/dt</p>
+                <div class="formula-box">a = 12t − 30</div>
+            </div>
+
+            <h3>10.2 Particle at Rest</h3>
+            <p>Particle at rest when v = 0</p>
+
+            <div class="example-box">
+                <div class="label">Worked Example 44</div>
+                <p><strong>When is particle at rest?</strong></p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <div class="formula-box">
+                    6t² − 30t + 24 = 0<br>
+                    t² − 5t + 4 = 0<br>
+                    (t−1)(t−4) = 0<br>
+                    t = 1 or t = 4
+                </div>
+            </div>
+
+            <div class="answer-box">Answer: t = 1s or t = 4s</div>
+
+            <h3>10.3 Distance Travelled</h3>
+
+            <div class="example-box">
+                <div class="label">Worked Example 45</div>
+                <p><strong>Distance in first 3 seconds</strong></p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <div class="formula-box">
+                    s(3) = 2(27) − 15(9) + 24(3)<br>
+                    = 54 − 135 + 72<br>
+                    = −9 m
+                </div>
+                <p>Since displacement can be negative, distance = |−9| = 9 m (if no direction change)</p>
+                <p>But check if particle changes direction:</p>
+                <div class="formula-box">
+                    At t=1: v=0 (changes direction)<br>
+                    s(1) = 2 − 15 + 24 = 11<br>
+                    Distance from t=0 to 1: |11 − 0| = 11 m<br>
+                    Distance from t=1 to 3: |−9 − 11| = 20 m<br>
+                    Total = 31 m
+                </div>
+            </div>
+
+            <div class="answer-box">Answer: 31 m</div>
+
+            <h3>10.4 Sequences and Series</h3>
+
+            <div class="example-box">
+                <div class="label">Worked Example 46</div>
+                <p><strong>Sn = 2n² + 3n. Find first term and nth term.</strong></p>
+            </div>
+
+            <div class="solution-box">
+                <div class="label">Solution</div>
+                <p><strong>Step 1:</strong> First term = S₁</p>
+                <div class="formula-box">S₁ = 2(1)² + 3(1) = 5</div>
+                <p><strong>Step 2:</strong> nth term = Sn − S(n−1)</p>
+                <div class="formula-box">
+                    Tn = [2n² + 3n] − [2(n−1)² + 3(n−1)]<br>
+                    = 2n² + 3n − [2(n²−2n+1) + 3n−3]<br>
+                    = 2n² + 3n − [2n² − 4n + 2 + 3n − 3]<br>
+                    = 2n² + 3n − [2n² − n − 1]<br>
+                    = 2n² + 3n − 2n² + n + 1<br>
+                    = 4n + 1
+                </div>
+            </div>
+
+            <div class="answer-box">Answer: First term = 5, nth term = 4n + 1</div>
+
+            <a href="#" class="back-top">↑ Back to Top</a>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!-- KEY FORMULAE SUMMARY                                        -->
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <section class="module" id="formulae">
+            <h2><span class="num">📐</span> Key Formulae Summary</h2>
+
+            <h3>Logarithms</h3>
+            <div class="formula-box">
+                log(MN) = logM + logN<br>
+                log(M/N) = logM − logN<br>
+                log(Mᵖ) = p logM
+            </div>
+
+            <h3>Trigonometry</h3>
+            <div class="formula-box">
+                sin(A±B) = sinAcosB ± cosAsinB<br>
+                cos(A±B) = cosAcosB ∓ sinAsinB<br>
+                tan(A±B) = (tanA±tanB)/(1∓tanAtanB)<br>
+                sin2A = 2sinAcosA<br>
+                cos2A = cos²A − sin²A
+            </div>
+
+            <h3>Matrices</h3>
+            <div class="formula-box">
+                |A| = ad − bc &nbsp; (2×2)<br>
+                A⁻¹ = (1/|A|)[[d,−b],[−c,a]]
+            </div>
+
+            <h3>Quadratic Equations</h3>
+            <div class="formula-box">
+                x = [−b ± √(b²−4ac)]/2a<br>
+                Sum of roots = −b/a<br>
+                Product of roots = c/a
+            </div>
+
+            <h3>Mensuration</h3>
+            <div class="formula-box">
+                Sphere: V = (4/3)πr³, SA = 4πr²<br>
+                Hemisphere: V = (2/3)πr³, TSA = 3πr²
+            </div>
+
+            <h3>Longitude &amp; Latitude</h3>
+            <div class="formula-box">
+                Distance along meridian = (θ/360) × 2πR<br>
+                Distance along parallel = (Δλ/360) × 2πR cosθ<br>
+                Time difference = Δλ/15 hours
+            </div>
+
+            <h3>Binary Operations</h3>
+            <div class="formula-box">
+                Identity: a*e = a<br>
+                Inverse: a*b = e
+            </div>
+
+            <a href="#" class="back-top">↑ Back to Top</a>
+        </section>
+
+        <!-- ══════════ FOOTER ══════════ -->
+        <footer style="text-align:center; padding-top:28px; border-top:2px solid #e2e8f0; margin-top:32px; color:#94a3b8; font-size:13px;">
+            <p><strong>SS3 Mathematics — Comprehensive Theory Notes</strong></p>
+            <p>Logarithms · Logic · Trigonometry · Matrices · Quadratics · Mensuration · Longitude &amp; Latitude · Binary Operations</p>
+            <p style="margin-top:8px;">&copy; 2026 — Exam Preparation Material</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
