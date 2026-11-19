@@ -507,7 +507,7 @@
         <div id="logout-container">
             <button id="logout" onclick="logout()">Logout</button>
                  <div class="marquee-container">
-        <span class="marquee-text">3RD TERM PROMOTION EXAMINATION :CANAANLAND  GROUP OF SCHOOLS :  GOD IS OUR STRENGTH</span>
+        <span class="marquee-text">FIRST TERM  EXAMINATION :CANAANLAND  GROUP OF SCHOOLS :  GOD IS OUR STRENGTH</span>
     </div>
         </div>
         <div id="logo">
@@ -623,1207 +623,608 @@
             
     
         // ================== STATIC QUESTIONS DATA ==================
-   const staticObjectivesQuestions = [
-       {
-          "id": 1,
-          "question": "A signal that represents data in a continuous, infinitely variable form is known as?",
-          "options": {
-            "A": "Digital",
-            "B": "Binary",
-            "C": "Analog",
-            "D": "Discrete"
-          },
-          "answer": "C",
-          "image": null
-        },
-        {
-          "id": 2,
-          "question": "A standard light switch (ON or OFF) is a good analogy for which type of signal?",
-          "options": {
-            "A": "Analog",
-            "B": "Digital",
-            "C": "Continuous",
-            "D": "Variable"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 3,
-          "question": "Digital technologies process data by representing it as?",
-          "options": {
-            "A": "Continuous waves",
-            "B": "Voltage levels only",
-            "C": "Binary code (0s and 1s)",
-            "D": "Decimal numbers"
-          },
-          "answer": "C",
-          "image": null
-        },
-        {
-          "id": 4,
-          "question": "Which of the following is NOT part of the scope of digital technologies?",
-          "options": {
-            "A": "Cloud Computing",
-            "B": "Artificial Intelligence",
-            "C": "Hydroponics",
-            "D": "Internet of Things (IoT)"
-          },
-          "answer": "C",
-          "image": null
-        },
-        {
-          "id": 5,
-          "question": "The use of platforms like Uber and Bolt for work is an example of digital technology's relevance in the?",
-          "options": {
-            "A": "Health sector",
-            "B": "Gig economy",
-            "C": "Education sector",
-            "D": "Manufacturing industry"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 6,
-          "question": "Consulting a doctor via a video call is an example of?",
-          "options": {
-            "A": "E-commerce",
-            "B": "E-Government",
-            "C": "Telemedicine",
-            "D": "E-Learning"
-          },
-          "answer": "C",
-          "image": null
-        },
-        {
-          "id": 7,
-          "question": "An early counting tool that stored data by the position of beads was the?",
-          "options": {
-            "A": "Pascaline",
-            "B": "Abacus",
-            "C": "ENIAC",
-            "D": "Analytical Engine"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 8,
-          "question": "The first mechanical calculator, invented by Blaise Pascal, was called the?",
-          "options": {
-            "A": "Difference Engine",
-            "B": "Pascaline",
-            "C": "Z3",
-            "D": "UNIVAC I"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 9,
-          "question": "Charles Babbage's design for the Analytical Engine was significant because it was the blueprint for the modern computer, containing a 'Mill' (CPU) and a 'Store' (Memory). This design was conceived in?",
-          "options": {
-            "A": "1642",
-            "B": "1890",
-            "C": "1837",
-            "D": "1941"
-          },
-          "answer": "C",
-          "image": null
-        },
-        {
-          "id": 10,
-          "question": "The company that would eventually become IBM was founded based on the success of Herman Hollerith's?",
-          "options": {
-            "A": "Analytical Engine",
-            "B": "Tabulating Machine",
-            "C": "Difference Engine",
-            "D": "ENIAC"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 11,
-          "question": "The first generation of computers was characterized by the use of?",
-          "options": {
-            "A": "Transistors",
-            "B": "Integrated Circuits",
-            "C": "Microprocessors",
-            "D": "Vacuum Tubes"
-          },
-          "answer": "D",
-          "image": null
-        },
-        {
-          "id": 12,
-          "question": "A major disadvantage of first-generation computers was that they were?",
-          "options": {
-            "A": "Small, fast, and reliable",
-            "B": "Enormous, hot, and unreliable",
-            "C": "Cheap and energy-efficient",
-            "D": "Portable and user-friendly"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 13,
-          "question": "The transistor, which replaced the vacuum tube, was invented at?",
-          "options": {
-            "A": "IBM",
-            "B": "Bell Labs",
-            "C": "Harvard University",
-            "D": "MIT"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 14,
-          "question": "Which computer generation saw the introduction of Integrated Circuits (ICs), placing many transistors on a single silicon chip?",
-          "options": {
-            "A": "First Generation",
-            "B": "Second Generation",
-            "C": "Third Generation",
-            "D": "Fourth Generation"
-          },
-          "answer": "C",
-          "image": null
-        },
-        {
-          "id": 15,
-          "question": "The invention that led to the Personal Computer (PC) revolution in the fourth generation was the?",
-          "options": {
-            "A": "Vacuum Tube",
-            "B": "Integrated Circuit",
-            "C": "Transistor",
-            "D": "Microprocessor"
-          },
-          "answer": "D",
-          "image": null
-        },
-        {
-          "id": 16,
-          "question": "The fifth generation of computers is defined by the development of?",
-          "options": {
-            "A": "Transistors",
-            "B": "Microprocessors",
-            "C": "Artificial Intelligence (AI)",
-            "D": "Vacuum Tubes"
-          },
-          "answer": "C",
-          "image": null
-        },
-        {
-          "id": 17,
-          "question": "The Decimal number system is also known as?",
-          "options": {
-            "A": "Base 2",
-            "B": "Base 8",
-            "C": "Base 10",
-            "D": "Base 16"
-          },
-          "answer": "C",
-          "image": null
-        },
-        {
-          "id": 18,
-          "question": "Computers use the Binary system because it represents two states which correspond to?",
-          "options": {
-            "A": "Positive and negative voltage",
-            "B": "ON and OFF electrical states",
-            "C": "High and low frequencies",
-            "D": "Read and Write operations"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 19,
-          "question": "The Hexadecimal number system uses how many unique digits?",
-          "options": {
-            "A": "2",
-            "B": "8",
-            "C": "10",
-            "D": "16"
-          },
-          "answer": "D",
-          "image": null
-        },
-        {
-          "id": 20,
-          "question": "The letter 'F' in the Hexadecimal system represents the decimal number?",
-          "options": {
-            "A": "10",
-            "B": "12",
-            "C": "15",
-            "D": "16"
-          },
-          "answer": "C",
-          "image": null
-        },
-        {
-          "id": 21,
-          "question": "Hexadecimal numbers are often used in computing as a shorthand for representing?",
-          "options": {
-            "A": "Decimal numbers",
-            "B": "Binary numbers",
-            "C": "Octal numbers",
-            "D": "Analog signals"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 22,
-          "question": "An example of the use of Hexadecimal numbers in computing is?",
-          "options": {
-            "A": "File sizes in MB",
-            "B": "CPU speed in GHz",
-            "C": "Web colour codes (e.g., #FF0000)",
-            "D": "RAM capacity in GB"
-          },
-          "answer": "C",
-          "image": null
-        },
-        {
-          "id": 23,
-          "question": "Convert the binary number 1010₂ to decimal.",
-          "options": {
-            "A": "5₁₀",
-            "B": "8₁₀",
-            "C": "10₁₀",
-            "D": "16₁₀"
-          },
-          "answer": "C",
-          "image": null
-        },
-        {
-          "id": 24,
-          "question": "Convert the decimal number 13₁₀ to binary.",
-          "options": {
-            "A": "1011₂",
-            "B": "1101₂",
-            "C": "1110₂",
-            "D": "1001₂"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 25,
-          "question": "To convert a decimal number to binary, you repeatedly divide by?",
-          "options": {
-            "A": "8",
-            "B": "10",
-            "C": "16",
-            "D": "2"
-          },
-          "answer": "D",
-          "image": null
-        },
-        {
-          "id": 26,
-          "question": "To convert a binary number to hexadecimal, you group the binary digits into sets of?",
-          "options": {
-            "A": "Two",
-            "B": "Three",
-            "C": "Four",
-            "D": "Eight"
-          },
-          "answer": "C",
-          "image": null
-        },
-        {
-          "id": 27,
-          "question": "Convert the binary number 11011010₂ to hexadecimal.",
-          "options": {
-            "A": "6C₁₆",
-            "B": "8D₁₆",
-            "C": "DA₁₆",
-            "D": "AD₁₆"
-          },
-          "answer": "C",
-          "image": null
-        },
-        {
-          "id": 28,
-          "question": "According to the von Neumann architecture, a computer has four main parts. Which of the following is NOT one of them?",
-          "options": {
-            "A": "CPU",
-            "B": "Memory",
-            "C": "Power Supply",
-            "D": "Output Devices"
-          },
-          "answer": "C",
-          "image": null
-        },
-        {
-          "id": 29,
-          "question": "A keyboard is classified as which type of device?",
-          "options": {
-            "A": "Output",
-            "B": "Processing",
-            "C": "Storage",
-            "D": "Input"
-          },
-          "answer": "D",
-          "image": null
-        },
-        {
-          "id": 30,
-          "question": "A monitor is an example of a(n)?",
-          "options": {
-            "A": "Input device",
-            "B": "Output device",
-            "C": "Processing device",
-            "D": "Storage device"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 31,
-          "question": "The CPU is often described as the \"brain\" of the computer. Its speed is primarily measured in?",
-          "options": {
-            "A": "Gigabytes (GB)",
-            "B": "Gigahertz (GHz)",
-            "C": "Watts (W)",
-            "D": "Megapixels (MP)"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 32,
-          "question": "A GPU (Graphics Processing Unit) is a specialized processor optimized for handling?",
-          "options": {
-            "A": "Mathematical calculations for the OS",
-            "B": "Complex visual data for gaming and video editing",
-            "C": "Network traffic routing",
-            "D": "Power distribution to components"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 33,
-          "question": "RAM (Random Access Memory) is considered volatile because it?",
-          "options": {
-            "A": "Is very slow to access data",
-            "B": "Loses all stored data when power is turned off",
-            "C": "Has moving parts that can break",
-            "D": "Stores data permanently"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 34,
-          "question": "The computer's \"workbench\" or \"short-term memory\" where currently running programs are held is the?",
-          "options": {
-            "A": "HDD",
-            "B": "SSD",
-            "C": "CPU",
-            "D": "RAM"
-          },
-          "answer": "D",
-          "image": null
-        },
-        {
-          "id": 35,
-          "question": "Which of the following is an example of non-volatile secondary storage?",
-          "options": {
-            "A": "RAM",
-            "B": "CPU cache",
-            "C": "Solid State Drive (SSD)",
-            "D": "Register"
-          },
-          "answer": "C",
-          "image": null
-        },
-        {
-          "id": 36,
-          "question": "An SSD (Solid State Drive) is superior to an HDD (Hard Disk Drive) mainly because it?",
-          "options": {
-            "A": "Has a larger storage capacity",
-            "B": "Is cheaper to manufacture",
-            "C": "Has no moving parts and is much faster",
-            "D": "Uses magnetic platters"
-          },
-          "answer": "C",
-          "image": null
-        },
-        {
-          "id": 37,
-          "question": "The main circuit board that connects all internal components of a computer is the?",
-          "options": {
-            "A": "CPU",
-            "B": "PSU",
-            "C": "Motherboard",
-            "D": "RAM"
-          },
-          "answer": "C",
-          "image": null
-        },
-        {
-          "id": 38,
-          "question": "A peripheral device is best described as an?",
-          "options": {
-            "A": "Essential internal component like the CPU",
-            "B": "External add-on that expands the computer's functionality",
-            "C": "Type of system software",
-            "D": "Component that only stores data"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 39,
-          "question": "Software is defined as a set of?",
-          "options": {
-            "A": "Physical components that make up a computer",
-            "B": "Instructions that tells the hardware what to do",
-            "C": "Devices connected to the computer externally",
-            "D": "Cables and connectors for peripherals"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 40,
-          "question": "Which of the following is an example of System Software?",
-          "options": {
-            "A": "Microsoft Word",
-            "B": "Google Chrome",
-            "C": "Linux Operating System",
-            "D": "FIFA Game"
-          },
-          "answer": "C",
-          "image": null
-        },
-        {
-          "id": 41,
-          "question": "Utility programs are a type of system software designed to?",
-          "options": {
-            "A": "Create documents for the user",
-            "B": "Perform \"housekeeping\" and maintenance tasks",
-            "C": "Browse the internet",
-            "D": "Play multimedia files"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 42,
-          "question": "A device driver acts as a?",
-          "options": {
-            "A": "Physical connector for a peripheral",
-            "B": "Translator between the OS and a hardware device",
-            "C": "Program for creating spreadsheets",
-            "D": "Type of antivirus software"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 43,
-          "question": "Microsoft Excel is an example of which category of application software?",
-          "options": {
-            "A": "Word processor",
-            "B": "Spreadsheet",
-            "C": "Presentation software",
-            "D": "Database"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 44,
-          "question": "Google Docs is a popular web-based word processor. This means it is accessed via a?",
-          "options": {
-            "A": "USB drive",
-            "B": "Browser and internet connection",
-            "C": "CD-ROM",
-            "D": "Specialised hardware"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 45,
-          "question": "In the 3-layer model of a computing system, the Application Software sits on top of the?",
-          "options": {
-            "A": "Hardware",
-            "B": "User",
-            "C": "System Software (OS)",
-            "D": "Firmware"
-          },
-          "answer": "C",
-          "image": null
-        },
-        {
-          "id": 46,
-          "question": "An Operating System (OS) is the most important piece of?",
-          "options": {
-            "A": "Application software",
-            "B": "Utility software",
-            "C": "System software",
-            "D": "Entertainment software"
-          },
-          "answer": "C",
-          "image": null
-        },
-        {
-          "id": 47,
-          "question": "The OS function that makes it seem like you are multitasking by scheduling tasks for the CPU is called?",
-          "options": {
-            "A": "Memory Management",
-            "B": "File Management",
-            "C": "Process Management",
-            "D": "Security Management"
-          },
-          "answer": "C",
-          "image": null
-        },
-        {
-          "id": 48,
-          "question": "Which OS function ensures that two programs do not try to use the same space in RAM?",
-          "options": {
-            "A": "File Management",
-            "B": "Memory Management",
-            "C": "Hardware Management",
-            "D": "User Interface Management"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 49,
-          "question": "The part of the OS responsible for the file system, controlling how files are saved and organized, is?",
-          "options": {
-            "A": "Process Management",
-            "B": "Security Management",
-            "C": "Memory Management",
-            "D": "File Management"
-          },
-          "answer": "D",
-          "image": null
-        },
-        {
-          "id": 50,
-          "question": "The OS communicates with hardware devices like printers through small programs called?",
-          "options": {
-            "A": "Applications",
-            "B": "Drivers",
-            "C": "Utilities",
-            "D": "Browsers"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 51,
-          "question": "A Graphical User Interface (GUI) typically uses which acronym to describe its components?",
-          "options": {
-            "A": "HTML",
-            "B": "HTTP",
-            "C": "WIMP (Windows, Icons, Menus, Pointers)",
-            "D": "BIOS"
-          },
-          "answer": "C",
-          "image": null
-        },
-        {
-          "id": 52,
-          "question": "An example of a Command-Line Interface (CLI) is?",
-          "options": {
-            "A": "Windows 11",
-            "B": "macOS",
-            "C": "Android",
-            "D": "MS-DOS"
-          },
-          "answer": "D",
-          "image": null
-        },
-        {
-          "id": 53,
-          "question": "A Real-Time Operating System (RTOS) is critical for which type of application?",
-          "options": {
-            "A": "Browsing the internet",
-            "B": "Word processing",
-            "C": "A car's anti-lock braking system",
-            "D": "Playing a video game"
-          },
-          "answer": "C",
-          "image": null
-        },
-        {
-          "id": 54,
-          "question": "Which of the following is an example of a mobile operating system?",
-          "options": {
-            "A": "Windows 10",
-            "B": "macOS",
-            "C": "Ubuntu Linux",
-            "D": "iOS"
-          },
-          "answer": "D",
-          "image": null
-        },
-        {
-          "id": 55,
-          "question": "Preventive maintenance on hardware involves?",
-          "options": {
-            "A": "Replacing a faulty hard drive",
-            "B": "Running a virus scan",
-            "C": "Cleaning dust from fans and vents",
-            "D": "Updating the operating system"
-          },
-          "answer": "C",
-          "image": null
-        },
-        {
-          "id": 56,
-          "question": "The number one physical enemy of electronics, which acts as a thermal insulator, is?",
-          "options": {
-            "A": "Water",
-            "B": "Dust",
-            "C": "Heat",
-            "D": "Cold"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 57,
-          "question": "A device that protects a computer from power spikes is a?",
-          "options": {
-            "A": "Power strip",
-            "B": "Surge protector",
-            "C": "USB hub",
-            "D": "Cooling fan"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 58,
-          "question": "The \"3-2-1 Rule\" is a guideline for?",
-          "options": {
-            "A": "Creating strong passwords",
-            "B": "Data backup",
-            "C": "Ergonomics",
-            "D": "Software updates"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 59,
-          "question": "According to the 3-2-1 backup rule, you should have one copy of your data stored?",
-          "options": {
-            "A": "On your main hard drive",
-            "B": "On two different types of media",
-            "C": "Off-site",
-            "D": "In a password-protected folder"
-          },
-          "answer": "C",
-          "image": null
-        },
-        {
-          "id": 60,
-          "question": "The science of designing a workspace to be safe, comfortable, and efficient is called?",
-          "options": {
-            "A": "Ergonomics",
-            "B": "Aesthetics",
-            "C": "Kinesiology",
-            "D": "Physiology"
-          },
-          "answer": "A",
-          "image": null
-        },
-        {
-          "id": 61,
-          "question": "Repetitive Strain Injury (RSI) is damage caused by?",
-          "options": {
-            "A": "A single traumatic event",
-            "B": "Small, repeated motions like typing",
-            "C": "Poor lighting",
-            "D": "Electrical shock"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 62,
-          "question": "The \"20-20-20 Rule\" helps prevent?",
-          "options": {
-            "A": "Repetitive Strain Injury",
-            "B": "Back pain",
-            "C": "Eye strain (Computer Vision Syndrome)",
-            "D": "Hearing loss"
-          },
-          "answer": "C",
-          "image": null
-        },
-        {
-          "id": 63,
-          "question": "The smallest unit of data a computer can process is a?",
-          "options": {
-            "A": "Byte",
-            "B": "Bit",
-            "C": "Kilobyte",
-            "D": "Nibble"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 64,
-          "question": "A group of 8 bits is called a?",
-          "options": {
-            "A": "Nibble",
-            "B": "Word",
-            "C": "Byte",
-            "D": "Kilobyte"
-          },
-          "answer": "C",
-          "image": null
-        },
-        {
-          "id": 65,
-          "question": "One Megabyte (MB) is approximately?",
-          "options": {
-            "A": "1 byte",
-            "B": "1,000 bytes (1 KB)",
-            "C": "1,000,000 bytes (1,000 KB)",
-            "D": "1,000,000,000 bytes (1,000 MB)"
-          },
-          "answer": "C",
-          "image": null
-        },
-        {
-          "id": 66,
-          "question": "Which of the following is the largest unit of storage?",
-          "options": {
-            "A": "Megabyte (MB)",
-            "B": "Gigabyte (GB)",
-            "C": "Terabyte (TB)",
-            "D": "Kilobyte (KB)"
-          },
-          "answer": "C",
-          "image": null
-        },
-        {
-          "id": 67,
-          "question": "ASCII is an early character encoding standard. Its main limitation was that it could only represent?",
-          "options": {
-            "A": "Numbers, not letters",
-            "B": "256 different characters",
-            "C": "English characters and symbols",
-            "D": "All characters from every language"
-          },
-          "answer": "C",
-          "image": null
-        },
-        {
-          "id": 68,
-          "question": "The ASCII code for the capital letter 'A' is 65. What is the ASCII code for 'B'?",
-          "options": {
-            "A": "64",
-            "B": "65",
-            "C": "66",
-            "D": "67"
-          },
-          "answer": "C",
-          "image": null
-        },
-        {
-          "id": 69,
-          "question": "Unicode was created to solve the problem of?",
-          "options": {
-            "A": "Representing too many characters inefficiently",
-            "B": "ASCII being too large for early computers",
-            "C": "Representing characters from all the world's languages and emojis",
-            "D": "Storing images in a standard format"
-          },
-          "answer": "C",
-          "image": null
-        },
-        {
-          "id": 70,
-          "question": "UTF-8 is a popular implementation of?",
-          "options": {
-            "A": "ASCII",
-            "B": "Unicode",
-            "C": "The Binary system",
-            "D": "Machine code"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 71,
-          "question": "In a bitmap image, the image is made up of a grid of tiny dots called?",
-          "options": {
-            "A": "Vectors",
-            "B": "Pixels",
-            "C": "Bytes",
-            "D": "Resolutions"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 72,
-          "question": "If you scale a vector image to be very large, what happens to its quality?",
-          "options": {
-            "A": "It becomes pixelated and blurry",
-            "B": "It loses all colour",
-            "C": "It maintains perfect sharpness",
-            "D": "The file size increases dramatically"
-          },
-          "answer": "C",
-          "image": null
-        },
-        {
-          "id": 73,
-          "question": "An SVG file is an example of a?",
-          "options": {
-            "A": "Bitmap image",
-            "B": "Raster image",
-            "C": "Vector image",
-            "D": "Compressed audio file"
-          },
-          "answer": "C",
-          "image": null
-        },
-        {
-          "id": 74,
-          "question": "The process of converting an analog sound wave into digital data by taking thousands of \"snapshots\" per second is called?",
-          "options": {
-            "A": "Quantization",
-            "B": "Sampling",
-            "C": "Rendering",
-            "D": "Encoding"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 75,
-          "question": "A higher sample rate when converting sound results in?",
-          "options": {
-            "A": "Lower quality and smaller file size",
-            "B": "Higher quality and larger file size",
-            "C": "No change in quality",
-            "D": "The file being in mono only"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 76,
-          "question": "A student wants to build a new computer for gaming. Which component should they pay the most attention to for the best performance?",
-          "options": {
-            "A": "A large HDD",
-            "B": "A powerful GPU",
-            "C": "A basic CPU",
-            "D": "An expensive sound card"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 77,
-          "question": "If a user has many applications open and the computer slows down, which component is most likely the bottleneck?",
-          "options": {
-            "A": "CPU speed",
-            "B": "Amount of RAM",
-            "C": "Hard drive space",
-            "D": "Monitor size"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 78,
-          "question": "The process of repeatedly dividing by 2 and reading the remainders from bottom to top is used for converting?",
-          "options": {
-            "A": "Binary to Decimal",
-            "B": "Decimal to Binary",
-            "C": "Hexadecimal to Binary",
-            "D": "Binary to Hexadecimal"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 79,
-          "question": "The place values in the binary number system are based on powers of?",
-          "options": {
-            "A": "10",
-            "B": "8",
-            "C": "16",
-            "D": "2"
-          },
-          "answer": "D",
-          "image": null
-        },
-        {
-          "id": 80,
-          "question": "A nibble is half a byte and consists of?",
-          "options": {
-            "A": "2 bits",
-            "B": "4 bits",
-            "C": "6 bits",
-            "D": "8 bits"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 81,
-          "question": "Which of the following is NOT a function of an Operating System?",
-          "options": {
-            "A": "Managing processes",
-            "B": "Formatting text in a document",
-            "C": "Managing memory",
-            "D": "Providing a user interface"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 82,
-          "question": "A CLI is more powerful for advanced users because it?",
-          "options": {
-            "A": "Is easier to learn for beginners",
-            "B": "Uses icons and menus",
-            "C": "Allows for faster, direct text commands",
-            "D": "Requires less typing"
-          },
-          "answer": "C",
-          "image": null
-        },
-        {
-          "id": 83,
-          "question": "Which of the following storage types is optical and uses a laser to read data?",
-          "options": {
-            "A": "HDD",
-            "B": "SSD",
-            "C": "USB Flash Drive",
-            "D": "Blu-ray Disc"
-          },
-          "answer": "D",
-          "image": null
-        },
-        {
-          "id": 84,
-          "question": "The term 'non-volatile' means that storage?",
-          "options": {
-            "A": "Is very fast",
-            "B": "Is used for currently running programs",
-            "C": "Retains data even when power is off",
-            "D": "Loses data when power is off"
-          },
-          "answer": "C",
-          "image": null
-        },
-        {
-          "id": 85,
-          "question": "The ENIAC and UNIVAC I are examples of which generation of computers?",
-          "options": {
-            "A": "First Generation",
-            "B": "Second Generation",
-            "C": "Third Generation",
-            "D": "Fourth Generation"
-          },
-          "answer": "A",
-          "image": null
-        },
-        {
-          "id": 86,
-          "question": "Which of the following is an example of application software?",
-          "options": {
-            "A": "Windows 10",
-            "B": "Linux kernel",
-            "C": "Google Chrome browser",
-            "D": "BIOS"
-          },
-          "answer": "C",
-          "image": null
-        },
-        {
-          "id": 87,
-          "question": "An operating system that allows many users to connect and run many programs at the same time is a?",
-          "options": {
-            "A": "Single-user, multi-tasking OS",
-            "B": "Multi-user, multi-tasking OS",
-            "C": "Real-time OS",
-            "D": "Mobile OS"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 88,
-          "question": "The Octal number system is Base 8, meaning it uses digits from 0 to?",
-          "options": {
-            "A": "7",
-            "B": "8",
-            "C": "9",
-            "D": "10"
-          },
-          "answer": "A",
-          "image": null
-        },
-        {
-          "id": 89,
-          "question": "Which of the following is a correct statement about the relationship between hardware and software?",
-          "options": {
-            "A": "Hardware is the instructions, software is the physical machine",
-            "B": "Software tells the hardware what to do",
-            "C": "Software can function without any hardware",
-            "D": "Hardware is more important than software"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 90,
-          "question": "When a computer is turned off, the contents of which type of memory are erased?",
-          "options": {
-            "A": "HDD",
-            "B": "SSD",
-            "C": "RAM",
-            "D": "ROM"
-          },
-          "answer": "C",
-          "image": null
-        },
-        {
-          "id": 91,
-          "question": "The primary function of the Power Supply Unit (PSU) is to?",
-          "options": {
-            "A": "Store the operating system",
-            "B": "Process graphical data",
-            "C": "Convert wall AC power to low-voltage DC for components",
-            "D": "Connect all the components together"
-          },
-          "answer": "C",
-          "image": null
-        },
-        {
-          "id": 92,
-          "question": "An example of good ergonomic practice is?",
-          "options": {
-            "A": "Slouching in your chair",
-            "B": "Placing the monitor high above eye level",
-            "C": "Keeping wrists straight when typing",
-            "D": "Working in a dark room"
-          },
-          "answer": "C",
-          "image": null
-        },
-        {
-          "id": 93,
-          "question": "What is the decimal equivalent of the binary number 1111₂?",
-          "options": {
-            "A": "8₁₀",
-            "B": "12₁₀",
-            "C": "15₁₀",
-            "D": "16₁₀"
-          },
-          "answer": "C",
-          "image": null
-        },
-        {
-          "id": 94,
-          "question": "What is the hexadecimal equivalent of the binary number 1111₂?",
-          "options": {
-            "A": "8₁₆",
-            "B": "A₁₆",
-            "C": "E₁₆",
-            "D": "F₁₆"
-          },
-          "answer": "D",
-          "image": null
-        },
-        {
-          "id": 95,
-          "question": "A student wants to permanently store their project files. Which type of memory is most suitable?",
-          "options": {
-            "A": "RAM",
-            "B": "CPU Cache",
-            "C": "Register",
-            "D": "SSD"
-          },
-          "answer": "D",
-          "image": null
-        },
-        {
-          "id": 96,
-          "question": "Which computer generation was dominated by machines that used transistors, making them smaller and more reliable than their predecessors?",
-          "options": {
-            "A": "First Generation",
-            "B": "Second Generation",
-            "C": "Third Generation",
-            "D": "Fourth Generation"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 97,
-          "question": "The part of the CPU that performs arithmetic and logical operations is the?",
-          "options": {
-            "A": "Control Unit",
-            "B": "Arithmetic Logic Unit (ALU)",
-            "C": "Register",
-            "D": "Cache"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 98,
-          "question": "One Kilobyte (KB) is technically equal to?",
-          "options": {
-            "A": "1000 bytes",
-            "B": "1024 bytes",
-            "C": "8 bits",
-            "D": "1000 bits"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 99,
-          "question": "The primary purpose of running regular antivirus scans is an example of?",
-          "options": {
-            "A": "Corrective hardware maintenance",
-            "B": "Preventive software maintenance",
-            "C": "Ergonomics",
-            "D": "Data backup"
-          },
-          "answer": "B",
-          "image": null
-        },
-        {
-          "id": 100,
-          "question": "The main difference between a system device (like the motherboard) and a peripheral device (like a printer) is that the system device is?",
-          "options": {
-            "A": "Usually external and adds functionality",
-            "B": "Usually internal and essential for the computer to function",
-            "C": "Always wireless",
-            "D": "More expensive than a peripheral"
-          },
-          "answer": "B",
-          "image": null
-        }
+const staticObjectivesQuestions = [
+
+  {
+    "id": 1,
+    "question": "A signal that represents data in a continuous, infinitely variable form is known as?",
+    "options": {
+      "A": "Digital",
+      "B": "Binary",
+      "C": "Analog",
+      "D": "Discrete"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 2,
+    "question": "A standard light switch (ON or OFF) is a good analogy for which type of signal?",
+    "options": {
+      "A": "Analog",
+      "B": "Digital",
+      "C": "Continuous",
+      "D": "Variable"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 3,
+    "question": "Digital technologies process data by representing it as?",
+    "options": {
+      "A": "Continuous waves",
+      "B": "Voltage levels only",
+      "C": "Binary code (0s and 1s)",
+      "D": "Decimal numbers"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 4,
+    "question": "Which of the following is NOT part of the scope of digital technologies?",
+    "options": {
+      "A": "Cloud Computing",
+      "B": "Artificial Intelligence",
+      "C": "Hydroponics",
+      "D": "Internet of Things (IoT)"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 5,
+    "question": "An early counting tool that stored data by the position of beads was the?",
+    "options": {
+      "A": "Pascaline",
+      "B": "Abacus",
+      "C": "ENIAC",
+      "D": "Analytical Engine"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 6,
+    "question": "Charles Babbage's design for the Analytical Engine was significant because it was the blueprint for the modern computer, containing a 'Mill' (CPU) and a 'Store' (Memory). This design was conceived in?",
+    "options": {
+      "A": "1642",
+      "B": "1890",
+      "C": "1837",
+      "D": "1941"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 7,
+    "question": "The first generation of computers was characterized by the use of?",
+    "options": {
+      "A": "Transistors",
+      "B": "Integrated Circuits",
+      "C": "Microprocessors",
+      "D": "Vacuum Tubes"
+    },
+    "answer": "D",
+    "image": null
+  },
+  {
+    "id": 8,
+    "question": "The transistor, which replaced the vacuum tube, was invented at?",
+    "options": {
+      "A": "IBM",
+      "B": "Bell Labs",
+      "C": "Harvard University",
+      "D": "MIT"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 9,
+    "question": "Which computer generation saw the introduction of Integrated Circuits (ICs), placing many transistors on a single silicon chip?",
+    "options": {
+      "A": "First Generation",
+      "B": "Second Generation",
+      "C": "Third Generation",
+      "D": "Fourth Generation"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 10,
+    "question": "The fifth generation of computers is defined by the development of?",
+    "options": {
+      "A": "Transistors",
+      "B": "Microprocessors",
+      "C": "Artificial Intelligence (AI)",
+      "D": "Vacuum Tubes"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 11,
+    "question": "The Decimal number system is also known as?",
+    "options": {
+      "A": "Base 2",
+      "B": "Base 8",
+      "C": "Base 10",
+      "D": "Base 16"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 12,
+    "question": "Computers use the Binary system because it represents two states which correspond to?",
+    "options": {
+      "A": "Positive and negative voltage",
+      "B": "ON and OFF electrical states",
+      "C": "High and low frequencies",
+      "D": "Read and Write operations"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 13,
+    "question": "The Hexadecimal number system uses how many unique digits?",
+    "options": {
+      "A": "2",
+      "B": "8",
+      "C": "10",
+      "D": "16"
+    },
+    "answer": "D",
+    "image": null
+  },
+  {
+    "id": 14,
+    "question": "Hexadecimal numbers are often used in computing as a shorthand for representing?",
+    "options": {
+      "A": "Decimal numbers",
+      "B": "Binary numbers",
+      "C": "Octal numbers",
+      "D": "Analog signals"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 15,
+    "question": "Convert the binary number 1010₂ to decimal.",
+    "options": {
+      "A": "5₁₀",
+      "B": "8₁₀",
+      "C": "10₁₀",
+      "D": "16₁₀"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 16,
+    "question": "Convert the decimal number 13₁₀ to binary.",
+    "options": {
+      "A": "1011₂",
+      "B": "1101₂",
+      "C": "1110₂",
+      "D": "1001₂"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 17,
+    "question": "To convert a binary number to hexadecimal, you group the binary digits into sets of?",
+    "options": {
+      "A": "Two",
+      "B": "Three",
+      "C": "Four",
+      "D": "Eight"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 18,
+    "question": "Convert the binary number 11011010₂ to hexadecimal.",
+    "options": {
+      "A": "6C₁₆",
+      "B": "8D₁₆",
+      "C": "DA₁₆",
+      "D": "AD₁₆"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 19,
+    "question": "According to the von Neumann architecture, a computer has four main parts. Which of the following is NOT one of them?",
+    "options": {
+      "A": "CPU",
+      "B": "Memory",
+      "C": "Power Supply",
+      "D": "Output Devices"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 20,
+    "question": "A keyboard is classified as which type of device?",
+    "options": {
+      "A": "Output",
+      "B": "Processing",
+      "C": "Storage",
+      "D": "Input"
+    },
+    "answer": "D",
+    "image": null
+  },
+  {
+    "id": 21,
+    "question": "The CPU is often described as the \"brain\" of the computer. Its speed is primarily measured in?",
+    "options": {
+      "A": "Gigabytes (GB)",
+      "B": "Gigahertz (GHz)",
+      "C": "Watts (W)",
+      "D": "Megapixels (MP)"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 22,
+    "question": "A GPU (Graphics Processing Unit) is a specialized processor optimized for handling?",
+    "options": {
+      "A": "Mathematical calculations for the OS",
+      "B": "Complex visual data for gaming and video editing",
+      "C": "Network traffic routing",
+      "D": "Power distribution to components"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 23,
+    "question": "RAM (Random Access Memory) is considered volatile because it?",
+    "options": {
+      "A": "Is very slow to access data",
+      "B": "Loses all stored data when power is turned off",
+      "C": "Has moving parts that can break",
+      "D": "Stores data permanently"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 24,
+    "question": "Which of the following is an example of non-volatile secondary storage?",
+    "options": {
+      "A": "RAM",
+      "B": "CPU cache",
+      "C": "Solid State Drive (SSD)",
+      "D": "Register"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 25,
+    "question": "An SSD (Solid State Drive) is superior to an HDD (Hard Disk Drive) mainly because it?",
+    "options": {
+      "A": "Has a larger storage capacity",
+      "B": "Is cheaper to manufacture",
+      "C": "Has no moving parts and is much faster",
+      "D": "Uses magnetic platters"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 26,
+    "question": "The main circuit board that connects all internal components of a computer is the?",
+    "options": {
+      "A": "CPU",
+      "B": "PSU",
+      "C": "Motherboard",
+      "D": "RAM"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 27,
+    "question": "Software is defined as a set of?",
+    "options": {
+      "A": "Physical components that make up a computer",
+      "B": "Instructions that tells the hardware what to do",
+      "C": "Devices connected to the computer externally",
+      "D": "Cables and connectors for peripherals"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 28,
+    "question": "Which of the following is an example of System Software?",
+    "options": {
+      "A": "Microsoft Word",
+      "B": "Google Chrome",
+      "C": "Linux Operating System",
+      "D": "FIFA Game"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 29,
+    "question": "A device driver acts as a?",
+    "options": {
+      "A": "Physical connector for a peripheral",
+      "B": "Translator between the OS and a hardware device",
+      "C": "Program for creating spreadsheets",
+      "D": "Type of antivirus software"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 30,
+    "question": "Microsoft Excel is an example of which category of application software?",
+    "options": {
+      "A": "Word processor",
+      "B": "Spreadsheet",
+      "C": "Presentation software",
+      "D": "Database"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 31,
+    "question": "In the 3-layer model of a computing system, the Application Software sits on top of the?",
+    "options": {
+      "A": "Hardware",
+      "B": "User",
+      "C": "System Software (OS)",
+      "D": "Firmware"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 32,
+    "question": "The OS function that makes it seem like you are multitasking by scheduling tasks for the CPU is called?",
+    "options": {
+      "A": "Memory Management",
+      "B": "File Management",
+      "C": "Process Management",
+      "D": "Security Management"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 33,
+    "question": "Which OS function ensures that two programs do not try to use the same space in RAM?",
+    "options": {
+      "A": "File Management",
+      "B": "Memory Management",
+      "C": "Hardware Management",
+      "D": "User Interface Management"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 34,
+    "question": "A Graphical User Interface (GUI) typically uses which acronym to describe its components?",
+    "options": {
+      "A": "HTML",
+      "B": "HTTP",
+      "C": "WIMP (Windows, Icons, Menus, Pointers)",
+      "D": "BIOS"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 35,
+    "question": "A Real-Time Operating System (RTOS) is critical for which type of application?",
+    "options": {
+      "A": "Browsing the internet",
+      "B": "Word processing",
+      "C": "A car's anti-lock braking system",
+      "D": "Playing a video game"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 36,
+    "question": "Preventive maintenance on hardware involves?",
+    "options": {
+      "A": "Replacing a faulty hard drive",
+      "B": "Running a virus scan",
+      "C": "Cleaning dust from fans and vents",
+      "D": "Updating the operating system"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 37,
+    "question": "A device that protects a computer from power spikes is a?",
+    "options": {
+      "A": "Power strip",
+      "B": "Surge protector",
+      "C": "USB hub",
+      "D": "Cooling fan"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 38,
+    "question": "According to the 3-2-1 backup rule, you should have one copy of your data stored?",
+    "options": {
+      "A": "On your main hard drive",
+      "B": "On two different types of media",
+      "C": "Off-site",
+      "D": "In a password-protected folder"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 39,
+    "question": "The science of designing a workspace to be safe, comfortable, and efficient is called?",
+    "options": {
+      "A": "Ergonomics",
+      "B": "Aesthetics",
+      "C": "Kinesiology",
+      "D": "Physiology"
+    },
+    "answer": "A",
+    "image": null
+  },
+  {
+    "id": 40,
+    "question": "The \"20-20-20 Rule\" helps prevent?",
+    "options": {
+      "A": "Repetitive Strain Injury",
+      "B": "Back pain",
+      "C": "Eye strain (Computer Vision Syndrome)",
+      "D": "Hearing loss"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 41,
+    "question": "The smallest unit of data a computer can process is a?",
+    "options": {
+      "A": "Byte",
+      "B": "Bit",
+      "C": "Kilobyte",
+      "D": "Nibble"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 42,
+    "question": "A group of 8 bits is called a?",
+    "options": {
+      "A": "Nibble",
+      "B": "Word",
+      "C": "Byte",
+      "D": "Kilobyte"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 43,
+    "question": "ASCII is an early character encoding standard. Its main limitation was that it could only represent?",
+    "options": {
+      "A": "Numbers, not letters",
+      "B": "256 different characters",
+      "C": "English characters and symbols",
+      "D": "All characters from every language"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 44,
+    "question": "Unicode was created to solve the problem of?",
+    "options": {
+      "A": "Representing too many characters inefficiently",
+      "B": "ASCII being too large for early computers",
+      "C": "Representing characters from all the world's languages and emojis",
+      "D": "Storing images in a standard format"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 45,
+    "question": "In a bitmap image, the image is made up of a grid of tiny dots called?",
+    "options": {
+      "A": "Vectors",
+      "B": "Pixels",
+      "C": "Bytes",
+      "D": "Resolutions"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 46,
+    "question": "If you scale a vector image to be very large, what happens to its quality?",
+    "options": {
+      "A": "It becomes pixelated and blurry",
+      "B": "It loses all colour",
+      "C": "It maintains perfect sharpness",
+      "D": "The file size increases dramatically"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 47,
+    "question": "The process of converting an analog sound wave into digital data by taking thousands of \"snapshots\" per second is called?",
+    "options": {
+      "A": "Quantization",
+      "B": "Sampling",
+      "C": "Rendering",
+      "D": "Encoding"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 48,
+    "question": "A higher sample rate when converting sound results in?",
+    "options": {
+      "A": "Lower quality and smaller file size",
+      "B": "Higher quality and larger file size",
+      "C": "No change in quality",
+      "D": "The file being in mono only"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 49,
+    "question": "The part of the CPU that performs arithmetic and logical operations is the?",
+    "options": {
+      "A": "Control Unit",
+      "B": "Arithmetic Logic Unit (ALU)",
+      "C": "Register",
+      "D": "Cache"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 50,
+    "question": "The main difference between a system device (like the motherboard) and a peripheral device (like a printer) is that the system device is?",
+    "options": {
+      "A": "Usually external and adds functionality",
+      "B": "Usually internal and essential for the computer to function",
+      "C": "Always wireless",
+      "D": "More expensive than a peripheral"
+    },
+    "answer": "B",
+    "image": null
+  }
 ];
 
 
@@ -1936,7 +1337,7 @@
         };
        
         // ================== TIMER ==================
-        let timeLeft = 60 * 30; // 60 minutes
+        let timeLeft = 60 * 45; // 60 minutes
         const timerEl = document.getElementById('timer');
         const timerInterval = setInterval(() => {
             let min = Math.floor(timeLeft / 60);
