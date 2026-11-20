@@ -109,8 +109,8 @@
             opacity: 0.9;
         }
        
-        /* Bold styling for Third Term heading */
-        .exam-info-header .third-term-bold {
+        /* Bold styling for First Term heading */
+        .exam-info-header .First-term-bold {
             font-weight: 900;
             font-size: 32px;
             color: #ffeb3b;
@@ -520,7 +520,7 @@
         .exam-title-regular {
             font-weight: 700;
         }
-        .third-term-bold {
+        .First-term-bold {
             font-weight: 900;
             font-size: 34px;
             color: #ffeb3b;
@@ -548,7 +548,7 @@
         <div class="exam-info-header">   
             <h2 id="examInfoHeader">
                 <span class="exam-title-regular">EXAMINATION RESULTS</span>
-                <span class="third-term-bold">— THIRD TERM —</span>
+                <span class="First-term-bold">— First TERM —</span>
             </h2>
             <p id="examDetails">Loading exam information...</p>
         </div>
@@ -581,7 +581,7 @@
         <div class="score-container">
             <h2 class="score-title">
                 <span class="exam-title-regular">EXAMINATION RESULT</span>
-                <span style="font-weight:900; color:#4a0080; font-size:36px; display:inline-block; margin-left:8px;">— THIRD TERM —</span>
+                <span style="font-weight:900; color:#4a0080; font-size:36px; display:inline-block; margin-left:8px;">— First TERM —</span>
             </h2>
             <div id="scoreCircle" class="score-circle" style="background: linear-gradient(blue, aqua, fuchsia);">
                 <span id="scoreValue">0</span>/<span id="totalQuestions">0</span>
@@ -687,7 +687,7 @@
                 percentage: percentage,
                 grade: grade,
                 date: new Date().toISOString(),
-                term: 'Third Term',
+                term: 'First Term',
                 school: 'Canaanland Model Schools'
             };
             
@@ -744,12 +744,12 @@
             const examInfo = localStorage.getItem('examInfo') || '';
             const examSubject = localStorage.getItem('examSubject') || '';
            
-            // Display exam information with bold Third Term
+            // Display exam information with bold First Term
             const headerElement = document.getElementById('examInfoHeader');
             const subjectText = examSubject ? `${examSubject.toUpperCase()}` : 'EXAMINATION';
             headerElement.innerHTML = `
                 <span class="exam-title-regular">${subjectText} RESULTS</span>
-                <span class="third-term-bold">— THIRD TERM —</span>
+                <span class="First-term-bold">— First TERM —</span>
             `;
            
             document.getElementById('examDetails').textContent = examInfo || 'Exam Results';
@@ -828,7 +828,7 @@
             if (scoreTitle) {
                 scoreTitle.innerHTML = `
                     <span class="exam-title-regular">EXAMINATION RESULT</span>
-                    <span style="font-weight:900; color:#4a0080; font-size:36px; display:inline-block; margin-left:8px;">— THIRD TERM —</span>
+                    <span style="font-weight:900; color:#4a0080; font-size:36px; display:inline-block; margin-left:8px;">— First TERM —</span>
                 `;
             }
         });
