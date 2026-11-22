@@ -1,0 +1,1999 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="fav_icon2.ico">
+    <title>cbt.canaanlandmodelgroupofschools.org - SS3 LITERATURE IN ENGLISH  Exam</title>
+    <script>
+         // Disable back navigation
+    history.pushState(null, null, location.href);
+    window.onpopstate = function () {
+        history.go(1);
+    };
+
+     let backClickCount = 0;
+            let allowBack = false;
+
+            history.pushState(null, null, location.href);
+
+            window.onpopstate = function () {
+                if (!allowBack) {
+                    backClickCount++;
+
+                    if (backClickCount >= 50) {
+                        allowBack = true;
+                        alert("You have tried 50 times. Going back now...");
+                        history.back();
+                        return;
+                    }
+
+                    showBackModal();
+                }
+            };
+
+            function showBackModal() {
+                document.getElementById("backModalOverlay").style.display = "flex";
+                document.getElementById("passwordContainer").style.display = "none";
+                document.getElementById("backPassword").value = "";
+               
+                document.getElementById("modalButtons").innerHTML = `
+                    <button onclick="handleYes()" style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; background: limegreen; color: white; font-size: 16px; cursor: pointer;">Yes</button>
+                    <button onclick="closeBackModal()" style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; background: crimson; color: white; font-size: 16px; cursor: pointer;">No</button>
+                `;
+            }
+
+            function closeBackModal() {
+                document.getElementById("backModalOverlay").style.display = "none";
+                history.pushState(null, null, location.href);
+            }
+
+            function handleYes() {
+                document.getElementById("passwordContainer").style.display = "block";
+                document.getElementById("modalButtons").innerHTML = `
+                    <button onclick="checkPassword()" style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; background: limegreen; color: white; font-size: 16px; cursor: pointer;">Submit</button>
+                    <button onclick="closeBackModal()" style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; background: crimson; color: white; font-size: 16px; cursor: pointer;">Cancel</button>
+                `;
+            }
+
+            function checkPassword() {
+                const correctPassword = "admin123";
+                const enteredPassword = document.getElementById("backPassword").value;
+
+                if (enteredPassword === correctPassword) {
+                    allowBack = true;
+                    document.getElementById("backModalOverlay").style.display = "none";
+                    history.back();
+                } else {
+                    alert("Incorrect password. Staying on this page.");
+                    closeBackModal();
+                }
+            }
+    </script>
+</head>
+         <div id="backModalOverlay" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.8); color: #fff; font-family: Arial, sans-serif; justify-content: center; align-items: center; flex-direction: column;">
+                <div id="backModal" style="background: #222; padding: 30px; border-radius: 10px; text-align: center; width: 90%; max-width: 400px;">
+                    <p style="font-size: 18px; margin: 0 0 10px;">Do you really want to go back?</p>
+
+                    <div id="passwordContainer" style="display: none;">
+                        <p style="margin-top: 10px;">Enter password to go back:</p>
+                        <input type="password" id="backPassword" placeholder="Enter password"
+                            style="padding: 10px; width: 80%; margin-top: 10px; border-radius: 5px; border: none; font-size: 16px;">
+                    </div>
+
+                    <div id="modalButtons" style="margin-top: 20px;">
+                        <button onclick="handleYes()" style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; background: limegreen; color: white; font-size: 16px; cursor: pointer;">Yes</button>
+                        <button onclick="closeBackModal()" style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; background: crimson; color: white; font-size: 16px; cursor: pointer;">No</button>
+                    </div>
+                </div>
+            </div>
+                      
+
+    <style>
+        body {
+            position: relative;
+            z-index: 1;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8f0;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('img/Ctemplogo.jpg') no-repeat center center;
+            background-size: 300px 300px;
+            opacity: 0.1;
+            z-index: 0;
+            pointer-events: none;
+        }
+        #logout-container {
+            text-align: right;
+            padding: 10px;
+            background: #2c3e50;
+        }
+        #datetime {
+            color:blue;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            margin: 10px 0;
+        }
+        #logout {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 5px;
+        }
+        #header {
+            padding: 20px;
+            background: linear-gradient(to right,blue, fuchsia);
+            color: white;
+            border-bottom: 5px solid #ff9800;
+        }
+        #logo img {
+            max-width: 200px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        #student-info {
+            margin-top: 20px;
+            text-align: center;
+        }
+        #student-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto 10px;
+            border: 3px solid white;
+            background: #ddd;
+        }
+        #welcome-message {
+            color: #ffeb3b;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        #userAnswerCount {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border-radius: 8px;
+            color: white;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            width: 200px;
+            z-index: 100;
+        }
+        #answeredLabel {
+            color: lime;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+        #unansweredLabel {
+            color: red;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+        .container {
+            margin: 20px auto;
+            width: 80%;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        #questionText {
+            width: 98%;
+            min-height: 100px;
+            resize: none;
+            padding: 15px;
+            font-size: 18px;
+            color: red; /*#333;*/
+            background-color: lime;/* #f9f9f9;*/
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin-bottom: 15px;
+            font-family: Arial, "Segoe UI Symbol", "Apple Symbols", sans-serif;
+        }
+        .option-group {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            padding: 12px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .option-group:hover {
+            background-color: #e8f5e8;
+        }
+        .option-group input {
+            margin-right: 15px;
+            transform: scale(1.3);
+        }
+        .option-group label {
+            font-weight: bold;
+            font-size: 16px;
+            color: #333;
+            font-family: Arial, "Segoe UI Symbol", "Apple Symbols", sans-serif;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .btn-cool {
+            padding: 12px 25px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            background: #2e7d32;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-weight: bold;
+        }
+        .btn-cool:hover {
+            background: #1b5e20;
+        }
+        .questionButtons {
+            margin: 15px 0;
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5px;
+        }
+        .question-btn {
+            margin: 3px;
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid #444;
+            cursor: pointer;
+            font-weight: bold;
+            background-color: #eee;
+            min-width: 40px;
+            transition: all 0.3s;
+        }
+        .question-btn:hover {
+            background-color: #d0f0d0;
+        }
+        #timer {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e74c3c;
+            text-align: center;
+            margin: 10px 0;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            border: 2px solid #e74c3c;
+        }
+        .section-toggle {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .section-btn {
+            padding: 12px 24px;
+            margin: 0 10px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .section-btn.active {
+            background-color: #2e7d32;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .section-btn:not(.active) {
+            background-color: #e0e0e0;
+            color: #333;
+        }
+        #theorySection {
+            display: none;
+            background: #fff9e6;
+            color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px auto;
+            width: 80%;
+            border: 2px solid #ff9800;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        #theoryQuestionText {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 15px;
+            line-height: 1.6;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 5px;
+            border-left: 5px solid #ff9800;
+            font-family: Arial, sans-serif;
+        }
+        #theoryAnswer {
+            width: 100%;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            resize: vertical;
+            min-height: 200px;
+            font-family: Arial, sans-serif;
+            margin-bottom: 15px;
+        }
+        .theory-nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .theory-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .theory-save-btn {
+            background-color: #28a745;
+            color: white;
+        }
+        .theory-save-btn:hover {
+            background-color: #218838;
+        }
+        .theory-prev-btn, .theory-next-btn {
+            background-color: #007bff;
+            color: white;
+        }
+        .theory-prev-btn:hover, .theory-next-btn:hover {
+            background-color: #0069d9;
+        }
+        .theory-submit-btn {
+            background-color: #dc3545;
+            color: white;
+        }
+        .theory-submit-btn:hover {
+            background-color: #c82333;
+        }
+        .theory-status {
+            text-align: center;
+            margin: 10px 0;
+            font-weight: bold;
+            color: #333;
+            padding: 10px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+        }
+        .windows-activate {
+            text-align: center;
+            margin-top: 30px;
+            color: #333;
+            font-size: 14px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+        }
+        .exam-info {
+            text-align: center;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #2c3e50;
+            font-size: 18px;
+        }
+        /* Math symbols styling */
+        sup, sub {
+            font-size: 0.75em;
+            line-height: 1;
+        }
+        sup {
+            vertical-align: super;
+        }
+        sub {
+            vertical-align: sub;
+        }
+        /* Theory Question Images */
+        .theory-image-container {
+            margin: 15px 0;
+            text-align: center;
+        }
+        .theory-image-wrapper {
+            display: inline-block;
+            max-width: 100%;
+            padding: 10px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .theory-question-image {
+            max-width: 100%;
+            max-height: 300px;
+            height: auto;
+            border-radius: 5px;
+            display: block;
+            margin: 0 auto;
+            background: #f0f0f0;
+            padding: 10px;
+        }
+        .image-caption {
+            font-style: italic;
+            color: #666;
+            margin-top: 8px;
+            font-size: 14px;
+            text-align: center;
+        }
+        /* Objective question images */
+        #questionImageContainer {
+            text-align: center;
+            margin: 15px 0;
+        }
+        .question-image {
+            max-width: 100%;
+            max-height: 250px;
+            height: auto;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            padding: 5px;
+            background: white;
+        }
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+         .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            background: aqua;
+            padding: 10px 0;
+        }
+    
+        /* Moving text animation */
+        .marquee-text {
+            display: inline-block;
+            color: fuchsia;
+            font-size: 24px;
+            font-weight: bold;
+            animation: marquee 10s linear infinite;
+        }
+
+        /* Keyframes for moving text */
+        @keyframes marquee {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+
+        /* Logo container - makes it a flex container for horizontal layout */
+#logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    padding: 20px 0;
+}
+
+/* Style for the center/main logo */
+#logo img:not(.logo-left img):not(.logo-right img) {
+    max-width: 200px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+/* Left logo container */
+.logo-left {
+    flex: 0 0 auto;
+    z-index: 1;
+    margin-left: 20px;
+}
+
+/* Right logo container */
+.logo-right {
+    flex: 0 0 auto;
+    z-index: 1;
+    margin-right: 20px;
+}
+
+/* Logo images inside left and right containers */
+.logo-left img,
+.logo-right img {
+    max-width: 100px;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect for left and right logos */
+.logo-left img:hover,
+.logo-right img:hover {
+    transform: scale(1.1);
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+    #logo {
+        flex-direction: column;
+        gap: 15px;
+        padding: 10px 0;
+    }
+    
+    #logo img:not(.logo-left img):not(.logo-right img) {
+        position: static;
+        transform: none;
+        margin: 10px auto;
+    }
+    
+    .logo-left, .logo-right {
+        margin: 5px 0;
+    }
+    
+    .logo-left img,
+    .logo-right img {
+        max-width: 80px;
+    }
+}
+
+
+
+    </style>
+</head>
+<body oncontextmenu="return false">
+    <div id="header">
+        <div id="logout-container">
+            <button id="logout" onclick="logout()">Logout</button>
+                 <div class="marquee-container">
+        <span class="marquee-text">CANAANLAND  GROUP OF SCHOOLS :  GOD IS OUR STRENGTH</span>
+    </div>
+        </div>
+        <div id="logo">
+            <img src="img/Ctemplogo.png" alt="COLLEGE CBT PORTAL">
+
+               <div class="logo-left">
+                <img src="img/9ja1.png" alt="Nigeria Logo" >
+            </div>
+
+            <div class="logo-right">
+                <img src="img/nappps.png" alt="NAPPS Logo" >
+            </div>
+        </div>
+
+           
+            
+
+        <div id="student-info">
+            <center><strong>ATTENTION! CLICK ON SUBMIT BUTTON BEFORE YOUR TIME IS UP TO SAVE YOUR SCORE</strong></center>
+            <center><p id="datetime"></p></center>
+              <div id="welcome-message">
+            <label id="usernameDisplay"></label>
+        </div>
+         <div class="student-info">
+          <img id="userImage" src="img/default_user.jpg" alt="Student Image" style="width:120px; height:120px; border-radius:50%; border:3px solid #008000; display:block; margin:0 auto;">
+      
+          <h2 id="username">Student Name</h2>
+           </div>
+
+     
+
+    
+        <center><h3>CANAANLAND  GROUP OF SCHOOLS EKUTE QUARTERS  ADO EKITI </h3></center> 
+        <center><h3>FIRST TERM EXAMINATION 2026/2027 ACADEMIC SESSION</h3></center>
+       
+        <!-- SECTION TOGGLE BUTTONS -->
+        <div class="section-toggle">
+            <button id="objectivesBtn" class="section-btn active" onclick="showSection('objectives')">OBJECTIVE QUESTIONS</button>
+            <button id="theoryBtn" class="section-btn" onclick="showSection('theory')">THEORY QUESTIONS</button>
+        </div>
+       
+        <div class="exam-info">
+            Exam: <span id="examInfo" style="color: lime;">  SS3 LITERATURE IN ENGLISH   (FIRST TERM)</span>
+        </div>
+       
+        <div id="timer"></div>
+    </div>
+   
+    <!-- OBJECTIVES SECTION -->
+    <div id="objectivesSection">
+        <div class="container">
+            <h5 style="color: #d35400; text-align: center;">INSTRUCTIONS: READ THE QUESTIONS CAREFULLY BEFORE YOU CHOOSE YOUR ANSWER</h5>
+            <div class="scroll-container">
+                <div id="questionText"></div>
+            </div>
+           
+            <div id="questionImageContainer"></div>
+           
+            <div class="option-group">
+                <label class="option"><strong>A.</strong><input type="radio" name="option" value="A"> <span id="optA"></span></label>
+            </div>
+            <div class="option-group">
+                <label class="option"><strong>B.</strong><input type="radio" name="option" value="B"> <span id="optB"></span></label>
+            </div>
+            <div class="option-group">
+                <label class="option"><strong>C.</strong><input type="radio" name="option" value="C"> <span id="optC"></span></label>
+            </div>
+            <div class="option-group">
+                <label class="option"><strong>D.</strong><input type="radio" name="option" value="D"> <span id="optD"></span></label>
+            </div>
+        </div>
+       
+        <div class="nav-buttons">
+            <button onclick="prevQuestion()" class="btn-cool">Previous</button>
+            <button onclick="nextQuestion()" class="btn-cool">Next</button>
+            <button onclick="submitExam()" class="btn-cool">Submit Objectives</button>
+        </div>
+       
+        <!-- Question navigation buttons -->
+        <div class="container">
+            <div id="questionButtons" class="questionButtons"></div>
+        </div>
+    </div>
+   
+    <!-- THEORY SECTION -->
+    <div id="theorySection">
+        <h3 style="text-align: center; color: #d35400; margin-bottom: 20px;">THEORY QUESTIONS SECTION</h3>
+        <div class="theory-status" id="theoryStatus">
+            Question 1 of 5 | Saved: 0/5
+        </div>
+        <div id="theoryQuestionContainer">
+            <p id="theoryQuestionText">Loading theory questions...</p>
+            <div id="theoryImageContainer"></div>
+            <textarea id="theoryAnswer" rows="8" placeholder="Write your detailed answer here..."></textarea>
+            <div class="theory-nav-buttons">
+                <button onclick="prevTheoryQuestion()" class="theory-btn theory-prev-btn">Previous</button>
+                <button onclick="saveTheoryAnswer()" class="theory-btn theory-save-btn">Save Answer</button>
+                <button onclick="nextTheoryQuestion()" class="theory-btn theory-next-btn">Next</button>
+                <button onclick="submitTheoryExam()" class="theory-btn theory-submit-btn">Submit Theory</button>
+            </div>
+        </div>
+    </div>
+   
+    <div id="userAnswerCount">
+        <p id="answeredLabel">Answered: 0/5</p>
+        <p id="unansweredLabel">Unanswered: 5/5</p>
+    </div>
+             <div class="marquee-container">
+        <span class="marquee-text"> SS3 LITERATURE IN ENGLISH FOR FIRST TERM EXAMINATIONS 2026/20267 ACADEMIC SESSION</span>
+    </div>
+   
+    <div class="windows-activate">
+        <p> &copy; cbt.<span style="color: red;">canaanlandmodelgroupof</span><span style="color: green;">schools</span>.org</p>
+    </div>
+
+
+    <script>
+           
+            
+    
+        // ================== STATIC QUESTIONS DATA ==================
+  const staticObjectivesQuestions = [
+  {
+    "id": 1,
+    "question": "William Shakespeare's primary historical source for Antony and Cleopatra was ______.",
+    "options": {
+      "A": "Holinshed's Chronicles",
+      "B": "Plutarch's Lives of the Noble Greeks and Romans",
+      "C": "Boccaccio's Decameron",
+      "D": "Chaucer's Canterbury Tales"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 2,
+    "question": "The Second Triumvirate was formed after the death of ______.",
+    "options": {
+      "A": "Pompey",
+      "B": "Mark Antony",
+      "C": "Julius Caesar",
+      "D": "Lepidus"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 3,
+    "question": "The three members of the Second Triumvirate were ______.",
+    "options": {
+      "A": "Antony, Brutus, and Cassius",
+      "B": "Antony, Octavius, and Lepidus",
+      "C": "Octavius, Pompey, and Antony",
+      "D": "Antony, Octavius, and Cicero"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 4,
+    "question": "The Globe Theatre, where Shakespeare's plays were performed, was an example of a(n) ______ theatre.",
+    "options": {
+      "A": "proscenium arch",
+      "B": "open-air",
+      "C": "indoor",
+      "D": "thrust"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 5,
+    "question": "Antony and Cleopatra was written around the year ______.",
+    "options": {
+      "A": "1599-1600",
+      "B": "1606-1607",
+      "C": "1611-1612",
+      "D": "1590-1591"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 6,
+    "question": "The play Antony and Cleopatra is classified as both a tragedy and a ______.",
+    "options": {
+      "A": "history play",
+      "B": "comedy",
+      "C": "Roman play",
+      "D": "problem play"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 7,
+    "question": "The Jacobean Era refers to the reign of King ______.",
+    "options": {
+      "A": "Henry VIII",
+      "B": "Edward VI",
+      "C": "James I",
+      "D": "Charles I"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 8,
+    "question": "In the play's thematic conflict, Rome primarily represents the values of ______.",
+    "options": {
+      "A": "love, passion, and pleasure",
+      "B": "duty, honour, and order",
+      "C": "art, music, and poetry",
+      "D": "trade, commerce, and wealth"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 9,
+    "question": "Egypt, in the play's central conflict, is personified by ______.",
+    "options": {
+      "A": "Octavius Caesar",
+      "B": "Enobarbus",
+      "C": "Octavia",
+      "D": "Cleopatra"
+    },
+    "answer": "D",
+    "image": null
+  },
+  {
+    "id": 10,
+    "question": "The Roman world in the play is primarily personified by ______.",
+    "options": {
+      "A": "Mark Antony",
+      "B": "Octavius Caesar",
+      "C": "Lepidus",
+      "D": "Sextus Pompey"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 11,
+    "question": "Which of the following best describes the \"Renaissance\" period?",
+    "options": {
+      "A": "A time of religious persecution",
+      "B": "A period of exploration, discovery, and artistic creativity",
+      "C": "An era of political stability and peace",
+      "D": "A time of economic decline"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 12,
+    "question": "The assassination of Julius Caesar took place in ______.",
+    "options": {
+      "A": "30 BC",
+      "B": "44 BC",
+      "C": "31 BC",
+      "D": "49 BC"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 13,
+    "question": "The \"masculine\" principle in the play is represented by ______.",
+    "options": {
+      "A": "Egypt",
+      "B": "Cleopatra",
+      "C": "Rome",
+      "D": "The Nile"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 14,
+    "question": "The \"feminine\" principle in the play is represented by ______.",
+    "options": {
+      "A": "Rome",
+      "B": "Octavia",
+      "C": "Egypt",
+      "D": "Caesar"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 15,
+    "question": "Shakespeare transformed his historical source material into a ______.",
+    "options": {
+      "A": "historical chronicle",
+      "B": "political treatise",
+      "C": "poetic drama",
+      "D": "prose narrative"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 16,
+    "question": "The Roman Republic was in chaos following the death of ______.",
+    "options": {
+      "A": "Mark Antony",
+      "B": "Octavius Caesar",
+      "C": "Julius Caesar",
+      "D": "Cicero"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 17,
+    "question": "Lepidus, the third triumvir, is described as ______.",
+    "options": {
+      "A": "strong and ambitious",
+      "B": "wealthy but weak",
+      "C": "young and calculating",
+      "D": "brave and noble"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 18,
+    "question": "The conflict between Antony and Octavius determines the future of the ______.",
+    "options": {
+      "A": "Egyptian empire",
+      "B": "Roman world",
+      "C": "Greek city-states",
+      "D": "Parthian empire"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 19,
+    "question": "The values of \"Stoicism\" in the play are associated with ______.",
+    "options": {
+      "A": "Egypt",
+      "B": "Rome",
+      "C": "Alexandria",
+      "D": "The Nile"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 20,
+    "question": "The term \"oriental\" in the play refers to the world of ______.",
+    "options": {
+      "A": "Rome",
+      "B": "Egypt",
+      "C": "Greece",
+      "D": "Spain"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 21,
+    "question": "Mark Antony's tragic flaw is his ______.",
+    "options": {
+      "A": "ambition",
+      "B": "jealousy",
+      "C": "infatuation with Cleopatra",
+      "D": "pride in his military prowess"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 22,
+    "question": "Which character describes Antony as a \"strumpet's fool\"?",
+    "options": {
+      "A": "Enobarbus",
+      "B": "Philo and Demetrius",
+      "C": "Octavius Caesar",
+      "D": "Lepidus"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 23,
+    "question": "Cleopatra is described as having \"______ variety.\"",
+    "options": {
+      "A": "endless",
+      "B": "infinite",
+      "C": "boundless",
+      "D": "eternal"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 24,
+    "question": "The character who serves as the play's \"chorus\" or commentator is ______.",
+    "options": {
+      "A": "Agrippa",
+      "B": "Enobarbus",
+      "C": "Proculeius",
+      "D": "Eros"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 25,
+    "question": "Octavius Caesar is characterized as ______.",
+    "options": {
+      "A": "passionate and impulsive",
+      "B": "cold, calculating, and ruthless",
+      "C": "generous and forgiving",
+      "D": "weak and easily manipulated"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 26,
+    "question": "Enobarbus delivers the famous speech beginning with \"The barge she sat in, like a burnish'd throne…\" in Act ______.",
+    "options": {
+      "A": "I, Scene 2",
+      "B": "II, Scene 2",
+      "C": "III, Scene 2",
+      "D": "IV, Scene 2"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 27,
+    "question": "Octavia, Caesar's sister, is described by Enobarbus as having \"a holy, cold, and still ______.\"",
+    "options": {
+      "A": "conversation",
+      "B": "disposition",
+      "C": "manner",
+      "D": "behaviour"
+    },
+    "answer": "A",
+    "image": null
+  },
+  {
+    "id": 28,
+    "question": "Cleopatra is referred to as the \"serpent of old ______.\"",
+    "options": {
+      "A": "Rome",
+      "B": "Egypt",
+      "C": "Nile",
+      "D": "Alexandria"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 29,
+    "question": "Who among the following characters dies of a \"broken heart\"?",
+    "options": {
+      "A": "Antony",
+      "B": "Enobarbus",
+      "C": "Cleopatra",
+      "D": "Eros"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 30,
+    "question": "Antony's loyal attendant who kills himself rather than kill Antony is ______.",
+    "options": {
+      "A": "Enobarbus",
+      "B": "Eros",
+      "C": "Canidius",
+      "D": "Ventidius"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 31,
+    "question": "Which character proposes the political marriage between Antony and Octavia?",
+    "options": {
+      "A": "Lepidus",
+      "B": "Enobarbus",
+      "C": "Agrippa",
+      "D": "Mecaenas"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 32,
+    "question": "Cleopatra's most loyal attendants are ______.",
+    "options": {
+      "A": "Alexas and Mardian",
+      "B": "Charmian and Iras",
+      "C": "Diomed and Seleucus",
+      "D": "Octavia and Livia"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 33,
+    "question": "The character who betrays Antony by lying on oath is ______.",
+    "options": {
+      "A": "Enobarbus",
+      "B": "Canidius",
+      "C": "Richard Rich (Note: This character is from A Man for All Seasons)",
+      "D": "None of the above"
+    },
+    "answer": "D",
+    "image": null
+  },
+  {
+    "id": 34,
+    "question": "Antony's \"Roman\" side is shamed back to life by news of ______.",
+    "options": {
+      "A": "Cleopatra's betrayal",
+      "B": "Fulvia's death and Pompey's threat",
+      "C": "Caesar's victory",
+      "D": "Lepidus's arrest"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 35,
+    "question": "Cleopatra beats and threatens a knife at a messenger who brings news of ______.",
+    "options": {
+      "A": "Caesar's victory",
+      "B": "Antony's marriage to Octavia",
+      "C": "Antony's death",
+      "D": "Pompey's rebellion"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 36,
+    "question": "The character who tries to make peace between Antony and Caesar in Act II is ______.",
+    "options": {
+      "A": "Enobarbus",
+      "B": "Agrippa",
+      "C": "Lepidus",
+      "D": "Mecaenas"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 37,
+    "question": "Which character says, \"Let Rome in Tiber melt…\"?",
+    "options": {
+      "A": "Cleopatra",
+      "B": "Antony",
+      "C": "Enobarbus",
+      "D": "Caesar"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 38,
+    "question": "Antony's wife at the beginning of the play is ______.",
+    "options": {
+      "A": "Octavia",
+      "B": "Fulvia",
+      "C": "Livia",
+      "D": "Portia"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 39,
+    "question": "The character who represents the \"ideal\" Roman woman is ______.",
+    "options": {
+      "A": "Cleopatra",
+      "B": "Charmian",
+      "C": "Octavia",
+      "D": "Iras"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 40,
+    "question": "Sextus Pompey is a ______.",
+    "options": {
+      "A": "Roman general loyal to Antony",
+      "B": "naval rebel challenging the Triumvirate",
+      "C": "Egyptian ambassador",
+      "D": "Parthian king"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 41,
+    "question": "The Battle of Actium is the play's ______.",
+    "options": {
+      "A": "exposition",
+      "B": "climax or turning point",
+      "C": "resolution",
+      "D": "inciting incident"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 42,
+    "question": "At the Battle of Actium, Antony chooses to fight at sea because ______.",
+    "options": {
+      "A": "his navy is stronger",
+      "B": "Cleopatra insists",
+      "C": "Caesar challenges him",
+      "D": "his soldiers advise him"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 43,
+    "question": "During the Battle of Actium, Antony shamefully ______.",
+    "options": {
+      "A": "surrenders to Caesar",
+      "B": "kills himself",
+      "C": "follows Cleopatra's fleeing ships",
+      "D": "betrays his men to Caesar"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 44,
+    "question": "Enobarbus deserts Antony because ______.",
+    "options": {
+      "A": "he hates Cleopatra",
+      "B": "his reason tells him Antony is lost",
+      "C": "Caesar bribes him",
+      "D": "Antony insults him"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 45,
+    "question": "When Antony learns of Enobarbus's desertion, he ______.",
+    "options": {
+      "A": "curses him",
+      "B": "sends his treasure after him",
+      "C": "orders his execution",
+      "D": "ignores it"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 46,
+    "question": "Cleopatra sends a false message of her death to Antony because ______.",
+    "options": {
+      "A": "she wants to test his love",
+      "B": "she fears his rage",
+      "C": "she plans to join him in death",
+      "D": "Caesar orders her to"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 47,
+    "question": "Antony's suicide is described as \"botched\" because ______.",
+    "options": {
+      "A": "he fails to die immediately",
+      "B": "Eros refuses to kill him",
+      "C": "he changes his mind",
+      "D": "Cleopatra saves him"
+    },
+    "answer": "A",
+    "image": null
+  },
+  {
+    "id": 48,
+    "question": "Antony dies in the arms of ______.",
+    "options": {
+      "A": "Eros",
+      "B": "Enobarbus",
+      "C": "Cleopatra",
+      "D": "Caesar"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 49,
+    "question": "After Antony's death, Cleopatra hides in her ______.",
+    "options": {
+      "A": "palace",
+      "B": "monument",
+      "C": "barge",
+      "D": "temple"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 50,
+    "question": "Caesar's true intention for Cleopatra is to ______.",
+    "options": {
+      "A": "make her his queen",
+      "B": "kill her immediately",
+      "C": "parade her in his triumph in Rome",
+      "D": "exile her to a distant island"
+    },
+    "answer": "C",
+    "image": null
+  }
+];
+
+const staticTheoryQuestions = [
+  {
+    "id": 1,
+    "question": "Discuss the central thematic conflict of \"Rome vs. Egypt\" in Antony and Cleopatra. In your answer, identify the values associated with each world, the characters that personify them, and explain how Antony is torn between these two opposing forces.",
+    "marks": null,
+    "image": null
+  },
+  {
+    "id": 2,
+    "question": "Analyse the character of Cleopatra, showing how she embodies \"infinite variety.\" Refer to specific scenes in the play to illustrate her manipulative, theatrical, passionate, and courageous qualities. Do you consider her a true romantic or a cunning politician? Justify your view.",
+    "marks": null,
+    "image": null
+  },
+  {
+    "id": 3,
+    "question": "Examine the role and significance of Enobarbus in Antony and Cleopatra. Discuss his function as a chorus, his famous \"barge\" speech, and the tragic significance of his desertion and subsequent death. What does his fate reveal about the play's themes?",
+    "marks": null,
+    "image": null
+  },
+  {
+    "id": 4,
+    "question": "Describe the events of the Battle of Actium (Act III) and explain why it is the turning point of the play. How does Antony's decision at this battle affect his honour, his reputation, and his relationship with his soldiers?",
+    "marks": null,
+    "image": null
+  },
+  {
+    "id": 5,
+    "question": "Contrast the characters of Mark Antony and Octavius Caesar. In your answer, discuss their different values, motivations, and leadership styles. What do they each represent in the play's larger thematic structure?",
+    "marks": null,
+    "image": null
+  },
+  {
+    "id": 6,
+    "question": "Read the passage below carefully and answer the questions that follow.\nThe old man sat alone on the park bench, his eyes fixed on the children playing in the distance. Their laughter floated towards him like fragments of a forgotten melody. He clutched a faded photograph in his trembling hands, his thumb tracing the outline of a young woman's face. The autumn leaves fell around him, a silent carpet of gold and brown, and the chill in the air seemed to seep into his very bones. He was waiting, as he had waited every day for the past five years, for a letter that never came, for a daughter who had long since stopped writing.\na) Identify the setting of this passage.\nb) What is the mood of the passage? Support your answer with evidence from the text.\nc) Describe the old man's characterization. How does the author reveal his emotional state?\nd) Identify and explain the effect of two literary devices used in the passage.",
+    "marks": null,
+    "image": null
+  },
+  {
+    "id": 7,
+    "question": "Read the poem below carefully and answer the questions that follow.\nThe Road Not Taken (Stanza 1 & 2) - Robert Frost\nTwo roads diverged in a yellow wood,\nAnd sorry I could not travel both\nAnd be one traveler, long I stood\nAnd looked down one as far as I could\nTo where it bent in the undergrowth;\nThen took the other, as just as fair,\nAnd having perhaps the better claim,\nBecause it was grassy and wanted wear;\nThough as for that the passing there\nHad worn them really about the same,\na) What is the theme of this poem?\nb) Describe the tone of the speaker.\nc) Identify and explain two figures of speech used in the poem.\nd) What does the \"road\" symbolize in the poem?",
+    "marks": null,
+    "image": null
+  },
+  {
+    "id": 8,
+    "question": "a) Define the following literary terms and give one example of each: (i) Simile (ii) Personification (iii) Paradox (iv) Alliteration (v) Dramatic Irony.\nb) Explain the P.E.E. method of essay writing. Why is it important for answering literature questions effectively?\nc) Differentiate between the exam verbs \"explain\" and \"discuss.\"",
+    "marks": null,
+    "image": null
+  },
+  {
+    "id": 9,
+    "question": "Read the passage below and answer the questions that follow.\nENOBARBUS:\nThe barge she sat in, like a burnish'd throne,\nBurn'd on the water: the poop was beaten gold;\nPurple the sails, and so perfumed that\nThe winds were love-sick with them; the oars were silver,\nWhich to the tune of flutes kept stroke, and made\nThe water which they beat to follow faster,\nAs amorous of their strokes. For her own person,\nIt beggar'd all description…\na) Who is the speaker, and to whom is he speaking?\nb) What event is being described in this speech?\nc) What is the significance of this speech in the play? What does it reveal about Cleopatra?\nd) Identify two literary devices used in the passage and explain their effect.",
+    "marks": null,
+    "image": null
+  },
+  {
+    "id": 10,
+    "question": "\"The lovers lose the world but gain a more valuable, immortal victory.\" Discuss this statement with close reference to the deaths of Antony and Cleopatra in Acts IV and V. How do they achieve a kind of victory over Octavius Caesar?",
+    "marks": null,
+    "image": null
+  }
+];
+
+       // ================== APPLICATION VARIABLES ==================
+        let questions = [];
+        let currentQuestion = 0;
+        let userAnswers = [];
+        let theoryQuestions = [];
+        let currentTheory = 0;
+        let theoryAnswers = [];
+        let currentSection = 'objectives';
+       
+        // ================== INITIALIZATION ==================
+        window.onload = function () {
+            // Extract exam info from the page
+            const examInfoElement = document.getElementById('examInfo');
+            if (examInfoElement) {
+                const examInfoText = examInfoElement.textContent;
+                // Parse the text to extract subject and class
+                // This is a simple example - adjust based on your actual text format
+                localStorage.setItem('examSubject', 'EXAM');
+                localStorage.setItem('examClass', 'RESULT');
+            }
+            localStorage.setItem('examTerm', 'THIRD TERM 2025/2026');
+      
+             const username = sessionStorage.getItem('username');
+                const image = sessionStorage.getItem('image');
+
+                if (!username) {
+                  window.location.href = 'index.html';
+                } else {
+                  document.getElementById('username').innerText = username;
+                  
+              
+                /*document.getElementById('userImage').src =
+              'img/' + (sessionStorage.getItem('image') || 'default_user.jpg');*/
+                }
+            document.getElementById('userImage').src = sessionStorage.getItem('image') || 'img/default_user.jpg';
+           
+            // Load static questions
+            questions = staticObjectivesQuestions;
+            theoryQuestions = staticTheoryQuestions;
+           
+            userAnswers = new Array(questions.length);
+            theoryAnswers = new Array(theoryQuestions.length).fill('');
+           
+            updateDateTime();
+            setInterval(updateDateTime, 1000);
+           
+            displayQuestion();
+            renderQuestionButtons();
+            countUserSelections();
+            updateTheoryStatus();
+        };
+       
+                    // ================== TIMER ==================
+                let timeLeft = 60 * 90; // 90 minutes in seconds
+                const timerEl = document.getElementById('timer');
+                const timerInterval = setInterval(() => {
+                    const hours = Math.floor(timeLeft / 3600);
+                    const minutes = Math.floor((timeLeft % 3600) / 60);
+                    const seconds = timeLeft % 60;
+                    
+                    // Build display string
+                    let display = '';
+                    if (hours > 0) {
+                        display += `${hours} Hr:`;
+                    }
+                    if (minutes > 0 || hours > 0) { // show minutes if any hour or minute >0
+                        display += `${minutes} Min: `;
+                    }
+                    display += `${seconds} Sec`;
+                    
+                    timerEl.textContent = `Time Remaining: ${display}`;
+                    timeLeft--;
+                   
+                    // Change color when time is running out (less than 5 minutes)
+                    if (timeLeft < 300) { // 5 minutes = 300 seconds
+                        timerEl.style.color = 'red';
+                        timerEl.style.animation = 'pulse 1s infinite';
+                    }
+                   
+                    if (timeLeft < 0) {
+                        clearInterval(timerInterval);
+                        alert("Time is up! Your exam will be submitted automatically.");
+                        submitExam();
+                    }
+                }, 1000);
+
+                            // ================== MATH SYMBOL MAPPING ==================
+            function mapMathSymbol(text) {
+                if (!text) return '';
+                
+                return text
+                    .replace(/&theta;/g, 'θ')
+                    .replace(/&Theta;/g, 'Θ')
+                    .replace(/&pi;/g, 'π')
+                    .replace(/&Pi;/g, 'Π')
+                    .replace(/&alpha;/g, 'α')
+                    .replace(/&beta;/g, 'β')
+                    .replace(/&gamma;/g, 'γ')
+                    .replace(/&delta;/g, 'δ')
+                    .replace(/&epsilon;/g, 'ε')
+                    .replace(/&phi;/g, 'φ')
+                    .replace(/&omega;/g, 'ω')
+                    .replace(/&mu;/g, 'μ')
+                    .replace(/&sigma;/g, 'σ')
+                    .replace(/&lambda;/g, 'λ')
+                    .replace(/&radic;/g, '√')
+                    .replace(/&infin;/g, '∞')
+                    .replace(/&int;/g, '∫')
+                    .replace(/&sum;/g, '∑')
+                    .replace(/&prod;/g, '∏')
+                    .replace(/&part;/g, '∂')
+                    .replace(/&deg;/g, '°')
+                    .replace(/&times;/g, '×')
+                    .replace(/&divide;/g, '÷')
+                    .replace(/&plusmn;/g, '±')
+                    .replace(/&le;/g, '≤')
+                    .replace(/&ge;/g, '≥')
+                    .replace(/&ne;/g, '≠')
+                    .replace(/&frac12;/g, '½')
+                    .replace(/&frac14;/g, '¼')
+                    .replace(/&frac34;/g, '¾')
+                    // Convert plain text powers like ^3 to <sup>3</sup> (only if not already HTML)
+                    .replace(/\^(\d+)/g, '<sup>$1</sup>')
+                    .replace(/\^\(([^)]+)\)/g, '<sup>$1</sup>')
+                    // Convert plain text indices like _3 to <sub>3</sub>
+                    .replace(/_(\d+)/g, '<sub>$1</sub>')
+                    .replace(/_\(([^)]+)\)/g, '<sub>$1</sub>');
+            }
+
+            // ================== THEORY QUESTIONS ==================
+            function displayTheoryQuestion() {
+                if (theoryQuestions.length === 0) {
+                    document.getElementById('theoryQuestionText').innerHTML = "<p>No theory questions available.</p>";
+                    return;
+                }
+               
+                const tq = theoryQuestions[currentTheory];
+                
+                // Apply math mapping to the question text (including marks)
+                const questionWithMarks = `${currentTheory + 1}. ${tq.question} ${tq.marks ? `[${tq.marks} marks]` : ''}`;
+                document.getElementById('theoryQuestionText').innerHTML = mapMathSymbol(questionWithMarks);
+                    
+                document.getElementById('theoryAnswer').value = theoryAnswers[currentTheory] || "";
+               
+                // Handle theory question image
+                const theoryImageContainer = document.getElementById('theoryImageContainer');
+                if (tq.image) {
+                    // Also apply mapping to the caption if it exists
+                    const caption = tq.imageCaption ? mapMathSymbol(tq.imageCaption) : 'Diagram for question';
+                    theoryImageContainer.innerHTML = `
+                        <div class="theory-image-wrapper">
+                            <img src="${tq.image}" alt="Theory Question Diagram" class="theory-question-image">
+                            <div class="image-caption">${caption}</div>
+                        </div>
+                    `;
+                } else {
+                    theoryImageContainer.innerHTML = '';
+                }
+               
+                updateTheoryStatus();
+            }
+
+            function updateTheoryStatus() {
+                const savedCount = theoryAnswers.filter(answer => answer.trim() !== "").length;
+                document.getElementById("theoryStatus").innerText =
+                    `Question ${currentTheory + 1} of ${theoryQuestions.length} | Saved: ${savedCount}/${theoryQuestions.length}`;
+            }
+
+            function saveTheoryAnswer() {
+                const answer = document.getElementById('theoryAnswer').value.trim();
+                theoryAnswers[currentTheory] = answer;
+                localStorage.setItem(`theoryAnswer_${currentTheory}`, answer);
+                updateTheoryStatus();
+                alert("Theory answer saved successfully!");
+            }
+
+            function nextTheoryQuestion() {
+                if (currentTheory < theoryQuestions.length - 1) {
+                    currentTheory++;
+                    displayTheoryQuestion();
+                } else {
+                    alert("You've reached the last theory question.");
+                }
+            }
+
+            function prevTheoryQuestion() {
+                if (currentTheory > 0) {
+                    currentTheory--;
+                    displayTheoryQuestion();
+                }
+            }
+
+            function submitTheoryExam() {
+                const savedCount = theoryAnswers.filter(answer => answer.trim() !== "").length;
+                const confirmSubmit = confirm(
+                    `Theory section completed!\n\n` +
+                    `You have answered ${savedCount} out of ${theoryQuestions.length} theory questions.\n\n` +
+                    `Are you sure you want to submit?`
+                );
+               
+                if (confirmSubmit) {
+                    alert("Theory answers submitted successfully!");
+                }
+            }
+                   
+                    // ================== SECTION TOGGLE ==================
+                    function showSection(section) {
+                        currentSection = section;
+                        // Update button states
+                        document.getElementById('objectivesBtn').classList.toggle('active', section === 'objectives');
+                        document.getElementById('theoryBtn').classList.toggle('active', section === 'theory');
+                       
+                        // Show/hide sections
+                        document.getElementById('objectivesSection').style.display = section === 'objectives' ? 'block' : 'none';
+                        document.getElementById('theorySection').style.display = section === 'theory' ? 'block' : 'none';
+                       
+                        // Update navigation
+                        if (section === 'theory') {
+                            displayTheoryQuestion();
+                        }
+                    }
+       
+        // ================== MATH SYMBOL MAPPING ==================
+        function mapMathSymbol(text) {
+            if (!text) return '';
+           
+            return text
+                .replace(/&theta;/g, 'θ')
+                .replace(/&Theta;/g, 'Θ')
+                .replace(/&pi;/g, 'π')
+                .replace(/&Pi;/g, 'Π')
+                .replace(/&alpha;/g, 'α')
+                .replace(/&beta;/g, 'β')
+                .replace(/&gamma;/g, 'γ')
+                .replace(/&delta;/g, 'δ')
+                .replace(/&epsilon;/g, 'ε')
+                .replace(/&phi;/g, 'φ')
+                .replace(/&omega;/g, 'ω')
+                .replace(/&mu;/g, 'μ')
+                .replace(/&sigma;/g, 'σ')
+                .replace(/&lambda;/g, 'λ')
+                .replace(/&radic;/g, '√')
+                .replace(/&infin;/g, '∞')
+                .replace(/&int;/g, '∫')
+                .replace(/&sum;/g, '∑')
+                .replace(/&prod;/g, '∏')
+                .replace(/&part;/g, '∂')
+                .replace(/&deg;/g, '°')
+                .replace(/&times;/g, '×')
+                .replace(/&divide;/g, '÷')
+                .replace(/&plusmn;/g, '±')
+                .replace(/&le;/g, '≤')
+                .replace(/&ge;/g, '≥')
+                .replace(/&ne;/g, '≠')
+                .replace(/&frac12;/g, '½')
+                .replace(/&frac14;/g, '¼')
+                .replace(/&frac34;/g, '¾')
+                .replace(/\^(\d+)/g, '<sup>$1</sup>')
+                .replace(/\^\(([^)]+)\)/g, '<sup>$1</sup>')
+                .replace(/_(\d+)/g, '<sub>$1</sub>')
+                .replace(/_\(([^)]+)\)/g, '<sub>$1</sub>');
+        }
+       
+        // ================== OBJECTIVES FUNCTIONS ==================
+        function saveAnswer() {
+            const selected = document.querySelector('input[name="option"]:checked');
+            if (selected) {
+                userAnswers[currentQuestion] = selected.value;
+                countUserSelections();
+            }
+        }
+       
+        function displayQuestion() {
+            if (currentQuestion >= questions.length) return;
+           
+            const q = questions[currentQuestion];
+           
+            // Apply math symbol mapping
+            const questionText = mapMathSymbol(q.question);
+            const optA = mapMathSymbol(q.options.A);
+            const optB = mapMathSymbol(q.options.B);
+            const optC = mapMathSymbol(q.options.C);
+            const optD = mapMathSymbol(q.options.D);
+           
+            // Display question and options
+            document.getElementById('questionText').innerHTML = `${currentQuestion + 1}. ${questionText}`;
+            document.getElementById('optA').innerHTML = optA;
+            document.getElementById('optB').innerHTML = optB;
+            document.getElementById('optC').innerHTML = optC;
+            document.getElementById('optD').innerHTML = optD;
+           
+            // Handle question image
+            const imageContainer = document.getElementById('questionImageContainer');
+            if (q.image) {
+                imageContainer.innerHTML = `
+                    <div class="theory-image-wrapper">
+                        <img src="${q.image}" alt="Question Diagram" class="question-image">
+                    </div>
+                `;
+            } else {
+                imageContainer.innerHTML = '';
+            }
+           
+            // Clear and set radio buttons
+            const radios = document.getElementsByName('option');
+            radios.forEach(r => r.checked = false);
+           
+            if (userAnswers[currentQuestion]) {
+                document.querySelector(`input[name="option"][value="${userAnswers[currentQuestion]}"]`).checked = true;
+            }
+           
+            highlightCurrentButton();
+        }
+       
+        function nextQuestion() {
+            saveAnswer();
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                displayQuestion();
+            }
+        }
+       
+        function prevQuestion() {
+            saveAnswer();
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                displayQuestion();
+            }
+        }
+       
+        function renderQuestionButtons() {
+            const container = document.getElementById('questionButtons');
+            container.innerHTML = '';
+           
+            for (let i = 0; i < questions.length; i++) {
+                const btn = document.createElement('button');
+                btn.textContent = i + 1;
+                btn.className = 'question-btn';
+                btn.onclick = () => {
+                    saveAnswer();
+                    currentQuestion = i;
+                    displayQuestion();
+                };
+                container.appendChild(btn);
+            }
+            highlightCurrentButton();
+        }
+       
+        function highlightCurrentButton() {
+            document.querySelectorAll('.question-btn').forEach((btn, index) => {
+                const answered = userAnswers[index] !== undefined;
+                const current = index === currentQuestion;
+               
+                btn.style.backgroundColor = current ? '#5cb85c' : (answered ? '#337ab7' : '#eee');
+                btn.style.color = current || answered ? 'white' : 'black';
+                btn.style.border = current ? '2px solid #2e7d32' : '1px solid #444';
+            });
+        }
+       
+        function countUserSelections() {
+            let totalQuestions = questions.length;
+            let answeredCount = userAnswers.filter(answer => answer !== undefined).length;
+            let unansweredCount = totalQuestions - answeredCount;
+           
+            document.getElementById("answeredLabel").innerText = `Answered: ${answeredCount}/${totalQuestions}`;
+            document.getElementById("unansweredLabel").innerText = `Unanswered: ${unansweredCount}`;
+        }
+       
+
+   
+         function submitExam() {
+            saveAnswer();
+            showResult();
+        }
+       
+
+
+                    function showResult() {
+                        clearInterval(timerInterval);
+                        let score = 0;
+                        questions.forEach((q, i) => {
+                            if (userAnswers[i] === q.answer) score++;
+                        });
+                        
+                        const username = sessionStorage.getItem('username') || "Guest";
+                        const cls = sessionStorage.getItem('class');
+                        const sub = sessionStorage.getItem('subject');
+                        
+                        localStorage.setItem("examUser", username);
+                        localStorage.setItem("examScore", score);
+                        localStorage.setItem("totalQuestions", questions.length);
+                        localStorage.setItem("pendingClass", cls);
+                        localStorage.setItem("pendingSubject", sub);
+                        localStorage.setItem("pendingUsername", username);
+                        
+                        const examInfo = sessionStorage.getItem('examInfo') || 'TEST - RESULT (SECOND TERM)';
+                        localStorage.setItem("examInfo", examInfo);
+                        
+                        // Build the record
+                        const record = {
+                            username: username,
+                            class: cls,
+                            subject: sub,
+                            score: score,
+                            totalQuestions: questions.length,
+                            percentage: ((score / questions.length) * 100).toFixed(2) + '%',
+                            examInfo: examInfo,
+                            timestamp: new Date().toISOString()
+                        };
+                        
+                        // ------------------ 🌐 SEND TO GOOGLE SHEETS ------------------
+                        const API_URL = 'https://script.google.com/macros/s/AKfycbzW4zlbuW16fAFRcwg4ow8b6IAQEp4e2zIqLjL7zhdkkHvEDrDwwxT0PX46dwBIiXgm/exec'; // ← paste your web app URL here
+                        
+                        fetch(API_URL, {
+                            method: 'POST',
+                            mode: 'no-cors',        // required because Apps Script doesn't send CORS headers
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(record)
+                        }).catch(err => console.error('Failed to send to cloud:', err));
+                        // ---------------------------------------------------------------
+                        
+                        // (Optional) Keep local backup
+                        let records = JSON.parse(localStorage.getItem('examRecords') || '[]');
+                        records.push(record);
+                        localStorage.setItem('examRecords', JSON.stringify(records));
+                        
+                        // Download JSON (your existing code)
+                        const scoreDetails = {
+                            ...record,
+                            userAnswers: userAnswers,
+                            correctAnswers: questions.map(q => q.answer)
+                        };
+                        
+                        const blob = new Blob([JSON.stringify(scoreDetails, null, 2)], { type: 'application/json' });
+                        const url = URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = `exam_results_${username}_${new Date().getTime()}.json`;
+                        a.style.display = 'none';
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+                        URL.revokeObjectURL(url);
+                        
+                        console.log(`Exam completed. Waiting for confirmation.`);
+                        alert(`Objective Exam Completed!\nYour Score: ${score} out of ${questions.length}\n\nClick OK to view your results.`);
+                        window.location.href = "results.html";
+                    }
+
+
+
+            // Add these helper functions to your exam page
+            function getExamAttempts(cls) {
+                const key = `${cls}_exam_attempts`;
+                const stored = localStorage.getItem(key);
+                return stored ? JSON.parse(stored) : {};
+            }
+
+            function saveExamAttempts(cls, data) {
+                const key = `${cls}_exam_attempts`;
+                localStorage.setItem(key, JSON.stringify(data));
+            }
+                   
+        // ================== THEORY QUESTIONS ==================
+        /*function displayTheoryQuestion() {
+            if (theoryQuestions.length === 0) {
+                document.getElementById('theoryQuestionText').innerText = "No theory questions available.";
+                return;
+            }
+           
+            const tq = theoryQuestions[currentTheory];
+           
+            // Display question text (without math symbol mapping for theory)
+            document.getElementById('theoryQuestionText').innerText = mapMathSymbol(`${currentTheory + 1}. ${tq.question} ${tq.marks ? `[${tq.marks} marks]` : ''}`);
+                
+            document.getElementById('theoryAnswer').value = theoryAnswers[currentTheory] || "";
+           
+            // Handle theory question image
+            const theoryImageContainer = document.getElementById('theoryImageContainer');
+            if (tq.image) {
+                theoryImageContainer.innerHTML = `
+                    <div class="theory-image-wrapper">
+                        <img src="${tq.image}" alt="Theory Question Diagram" class="theory-question-image">
+                        <div class="image-caption">${tq.imageCaption || 'Diagram for question'}</div>
+                    </div>
+                `;
+            } else {
+                theoryImageContainer.innerHTML = '';
+            }
+           
+            updateTheoryStatus();
+        }
+       
+        function updateTheoryStatus() {
+            const savedCount = theoryAnswers.filter(answer => answer.trim() !== "").length;
+            document.getElementById("theoryStatus").innerText =
+                `Question ${currentTheory + 1} of ${theoryQuestions.length} | Saved: ${savedCount}/${theoryQuestions.length}`;
+        }
+       
+        function saveTheoryAnswer() {
+            const answer = document.getElementById('theoryAnswer').value.trim();
+            theoryAnswers[currentTheory] = answer;
+            localStorage.setItem(`theoryAnswer_${currentTheory}`, answer);
+            updateTheoryStatus();
+            alert("Theory answer saved successfully!");
+        }
+       
+        function nextTheoryQuestion() {
+            if (currentTheory < theoryQuestions.length - 1) {
+                currentTheory++;
+                displayTheoryQuestion();
+            } else {
+                alert("You've reached the last theory question.");
+            }
+        }
+       
+        function prevTheoryQuestion() {
+            if (currentTheory > 0) {
+                currentTheory--;
+                displayTheoryQuestion();
+            }
+        }
+       
+        function submitTheoryExam() {
+            const savedCount = theoryAnswers.filter(answer => answer.trim() !== "").length;
+            const confirmSubmit = confirm(
+                `Theory section completed!\n\n` +
+                `You have answered ${savedCount} out of ${theoryQuestions.length} theory questions.\n\n` +
+                `Are you sure you want to submit?`
+            );
+           
+            if (confirmSubmit) {
+                alert("Theory answers submitted successfully!");
+            }
+        }*/
+       
+        // ================== DATE & TIME ==================
+        function updateDateTime() {
+            let now = new Date();
+            let day = now.getDate();
+            let month = now.toLocaleString('default', { month: 'long' });
+            let year = now.getFullYear();
+            let suffix = "th";
+           
+            if (day === 1 || day === 21 || day === 31) suffix = "st";
+            else if (day === 2 || day === 22) suffix = "nd";
+            else if (day === 3 || day === 23) suffix = "rd";
+           
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
+            let seconds = now.getSeconds();
+            let ampm = hours >= 12 ? "PM" : "AM";
+            hours = hours % 12 || 12;
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+           
+            let formattedDateTime = `${month} ${day}${suffix} ${year}, ${hours}:${minutes}:${seconds} ${ampm}`;
+            document.getElementById("datetime").innerText = formattedDateTime;
+        }
+       
+        // ================== KEYBOARD SHORTCUTS ==================
+        document.addEventListener('keydown', function (event) {
+            if (currentSection === 'objectives') {
+                const key = event.key.toUpperCase();
+               
+                // Answer selection for objectives
+                if (['A', 'B', 'C', 'D'].includes(key)) {
+                    const radio = document.querySelector(`input[name="option"][value="${key}"]`);
+                    if (radio) {
+                        radio.checked = true;
+                        saveAnswer();
+                    }
+                }
+               
+                // Navigation with arrows
+                if (event.key === 'ArrowRight') {
+                    nextQuestion();
+                } else if (event.key === 'ArrowLeft') {
+                    prevQuestion();
+                }
+            } else if (currentSection === 'theory') {
+                // Navigation for theory
+                if (event.key === 'ArrowRight') {
+                    nextTheoryQuestion();
+                } else if (event.key === 'ArrowLeft') {
+                    prevTheoryQuestion();
+                }
+               
+                // Save with Ctrl+S
+                if (event.ctrlKey && event.key === 's') {
+                    event.preventDefault();
+                    saveTheoryAnswer();
+                }
+            }
+        });
+       
+        // ================== ANTI-CHEAT & LOGOUT ==================
+        document.addEventListener('keydown', function (event) {
+            const key = event.key.toLowerCase();
+            if ((event.ctrlKey && (key === 'p' || key === 's')) && currentSection === 'objectives') {
+                event.preventDefault();
+                alert("Right-click and view source are disabled during examination.");
+                return false;
+            }
+        });
+       
+        document.addEventListener('contextmenu', (event) => {
+            event.preventDefault();
+            alert("Right-click is disabled during examination.");
+        });
+       
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+                (e.ctrlKey && e.shiftKey && e.key === 'J') || (e.ctrlKey && e.key === 'u')) {
+                e.preventDefault();
+                alert("Developer tools are disabled during examination.");
+            }
+        });
+       
+        function logout() {
+            const confirmLogout = confirm("Are you sure you want to logout? Your progress may be lost.");
+            if (confirmLogout) {
+                window.location.href = "index.html";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1999 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="fav_icon2.ico">
+    <title>cbt.canaanlandmodelgroupofschools.org - SS1 LIVESTOCK FARMING  Exam</title>
+    <script>
+         // Disable back navigation
+    history.pushState(null, null, location.href);
+    window.onpopstate = function () {
+        history.go(1);
+    };
+
+     let backClickCount = 0;
+            let allowBack = false;
+
+            history.pushState(null, null, location.href);
+
+            window.onpopstate = function () {
+                if (!allowBack) {
+                    backClickCount++;
+
+                    if (backClickCount >= 50) {
+                        allowBack = true;
+                        alert("You have tried 50 times. Going back now...");
+                        history.back();
+                        return;
+                    }
+
+                    showBackModal();
+                }
+            };
+
+            function showBackModal() {
+                document.getElementById("backModalOverlay").style.display = "flex";
+                document.getElementById("passwordContainer").style.display = "none";
+                document.getElementById("backPassword").value = "";
+               
+                document.getElementById("modalButtons").innerHTML = `
+                    <button onclick="handleYes()" style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; background: limegreen; color: white; font-size: 16px; cursor: pointer;">Yes</button>
+                    <button onclick="closeBackModal()" style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; background: crimson; color: white; font-size: 16px; cursor: pointer;">No</button>
+                `;
+            }
+
+            function closeBackModal() {
+                document.getElementById("backModalOverlay").style.display = "none";
+                history.pushState(null, null, location.href);
+            }
+
+            function handleYes() {
+                document.getElementById("passwordContainer").style.display = "block";
+                document.getElementById("modalButtons").innerHTML = `
+                    <button onclick="checkPassword()" style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; background: limegreen; color: white; font-size: 16px; cursor: pointer;">Submit</button>
+                    <button onclick="closeBackModal()" style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; background: crimson; color: white; font-size: 16px; cursor: pointer;">Cancel</button>
+                `;
+            }
+
+            function checkPassword() {
+                const correctPassword = "admin123";
+                const enteredPassword = document.getElementById("backPassword").value;
+
+                if (enteredPassword === correctPassword) {
+                    allowBack = true;
+                    document.getElementById("backModalOverlay").style.display = "none";
+                    history.back();
+                } else {
+                    alert("Incorrect password. Staying on this page.");
+                    closeBackModal();
+                }
+            }
+    </script>
+</head>
+         <div id="backModalOverlay" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.8); color: #fff; font-family: Arial, sans-serif; justify-content: center; align-items: center; flex-direction: column;">
+                <div id="backModal" style="background: #222; padding: 30px; border-radius: 10px; text-align: center; width: 90%; max-width: 400px;">
+                    <p style="font-size: 18px; margin: 0 0 10px;">Do you really want to go back?</p>
+
+                    <div id="passwordContainer" style="display: none;">
+                        <p style="margin-top: 10px;">Enter password to go back:</p>
+                        <input type="password" id="backPassword" placeholder="Enter password"
+                            style="padding: 10px; width: 80%; margin-top: 10px; border-radius: 5px; border: none; font-size: 16px;">
+                    </div>
+
+                    <div id="modalButtons" style="margin-top: 20px;">
+                        <button onclick="handleYes()" style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; background: limegreen; color: white; font-size: 16px; cursor: pointer;">Yes</button>
+                        <button onclick="closeBackModal()" style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; background: crimson; color: white; font-size: 16px; cursor: pointer;">No</button>
+                    </div>
+                </div>
+            </div>
+                      
+
+    <style>
+        body {
+            position: relative;
+            z-index: 1;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8f0;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('img/Ctemplogo.jpg') no-repeat center center;
+            background-size: 300px 300px;
+            opacity: 0.1;
+            z-index: 0;
+            pointer-events: none;
+        }
+        #logout-container {
+            text-align: right;
+            padding: 10px;
+            background: #2c3e50;
+        }
+        #datetime {
+            color:blue;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            margin: 10px 0;
+        }
+        #logout {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 5px;
+        }
+        #header {
+            padding: 20px;
+            background: linear-gradient(to right,blue, fuchsia);
+            color: white;
+            border-bottom: 5px solid #ff9800;
+        }
+        #logo img {
+            max-width: 200px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        #student-info {
+            margin-top: 20px;
+            text-align: center;
+        }
+        #student-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto 10px;
+            border: 3px solid white;
+            background: #ddd;
+        }
+        #welcome-message {
+            color: #ffeb3b;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        #userAnswerCount {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border-radius: 8px;
+            color: white;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            width: 200px;
+            z-index: 100;
+        }
+        #answeredLabel {
+            color: lime;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+        #unansweredLabel {
+            color: red;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+        .container {
+            margin: 20px auto;
+            width: 80%;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        #questionText {
+            width: 98%;
+            min-height: 100px;
+            resize: none;
+            padding: 15px;
+            font-size: 18px;
+            color: red; /*#333;*/
+            background-color: lime;/* #f9f9f9;*/
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin-bottom: 15px;
+            font-family: Arial, "Segoe UI Symbol", "Apple Symbols", sans-serif;
+        }
+        .option-group {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            padding: 12px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .option-group:hover {
+            background-color: #e8f5e8;
+        }
+        .option-group input {
+            margin-right: 15px;
+            transform: scale(1.3);
+        }
+        .option-group label {
+            font-weight: bold;
+            font-size: 16px;
+            color: #333;
+            font-family: Arial, "Segoe UI Symbol", "Apple Symbols", sans-serif;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .btn-cool {
+            padding: 12px 25px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            background: #2e7d32;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-weight: bold;
+        }
+        .btn-cool:hover {
+            background: #1b5e20;
+        }
+        .questionButtons {
+            margin: 15px 0;
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5px;
+        }
+        .question-btn {
+            margin: 3px;
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid #444;
+            cursor: pointer;
+            font-weight: bold;
+            background-color: #eee;
+            min-width: 40px;
+            transition: all 0.3s;
+        }
+        .question-btn:hover {
+            background-color: #d0f0d0;
+        }
+        #timer {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e74c3c;
+            text-align: center;
+            margin: 10px 0;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            border: 2px solid #e74c3c;
+        }
+        .section-toggle {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .section-btn {
+            padding: 12px 24px;
+            margin: 0 10px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .section-btn.active {
+            background-color: #2e7d32;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .section-btn:not(.active) {
+            background-color: #e0e0e0;
+            color: #333;
+        }
+        #theorySection {
+            display: none;
+            background: #fff9e6;
+            color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px auto;
+            width: 80%;
+            border: 2px solid #ff9800;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        #theoryQuestionText {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 15px;
+            line-height: 1.6;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 5px;
+            border-left: 5px solid #ff9800;
+            font-family: Arial, sans-serif;
+        }
+        #theoryAnswer {
+            width: 100%;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            resize: vertical;
+            min-height: 200px;
+            font-family: Arial, sans-serif;
+            margin-bottom: 15px;
+        }
+        .theory-nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .theory-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .theory-save-btn {
+            background-color: #28a745;
+            color: white;
+        }
+        .theory-save-btn:hover {
+            background-color: #218838;
+        }
+        .theory-prev-btn, .theory-next-btn {
+            background-color: #007bff;
+            color: white;
+        }
+        .theory-prev-btn:hover, .theory-next-btn:hover {
+            background-color: #0069d9;
+        }
+        .theory-submit-btn {
+            background-color: #dc3545;
+            color: white;
+        }
+        .theory-submit-btn:hover {
+            background-color: #c82333;
+        }
+        .theory-status {
+            text-align: center;
+            margin: 10px 0;
+            font-weight: bold;
+            color: #333;
+            padding: 10px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+        }
+        .windows-activate {
+            text-align: center;
+            margin-top: 30px;
+            color: #333;
+            font-size: 14px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+        }
+        .exam-info {
+            text-align: center;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #2c3e50;
+            font-size: 18px;
+        }
+        /* Math symbols styling */
+        sup, sub {
+            font-size: 0.75em;
+            line-height: 1;
+        }
+        sup {
+            vertical-align: super;
+        }
+        sub {
+            vertical-align: sub;
+        }
+        /* Theory Question Images */
+        .theory-image-container {
+            margin: 15px 0;
+            text-align: center;
+        }
+        .theory-image-wrapper {
+            display: inline-block;
+            max-width: 100%;
+            padding: 10px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .theory-question-image {
+            max-width: 100%;
+            max-height: 300px;
+            height: auto;
+            border-radius: 5px;
+            display: block;
+            margin: 0 auto;
+            background: #f0f0f0;
+            padding: 10px;
+        }
+        .image-caption {
+            font-style: italic;
+            color: #666;
+            margin-top: 8px;
+            font-size: 14px;
+            text-align: center;
+        }
+        /* Objective question images */
+        #questionImageContainer {
+            text-align: center;
+            margin: 15px 0;
+        }
+        .question-image {
+            max-width: 100%;
+            max-height: 250px;
+            height: auto;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            padding: 5px;
+            background: white;
+        }
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+         .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            background: aqua;
+            padding: 10px 0;
+        }
+    
+        /* Moving text animation */
+        .marquee-text {
+            display: inline-block;
+            color: fuchsia;
+            font-size: 24px;
+            font-weight: bold;
+            animation: marquee 10s linear infinite;
+        }
+
+        /* Keyframes for moving text */
+        @keyframes marquee {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+
+        /* Logo container - makes it a flex container for horizontal layout */
+#logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    padding: 20px 0;
+}
+
+/* Style for the center/main logo */
+#logo img:not(.logo-left img):not(.logo-right img) {
+    max-width: 200px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+/* Left logo container */
+.logo-left {
+    flex: 0 0 auto;
+    z-index: 1;
+    margin-left: 20px;
+}
+
+/* Right logo container */
+.logo-right {
+    flex: 0 0 auto;
+    z-index: 1;
+    margin-right: 20px;
+}
+
+/* Logo images inside left and right containers */
+.logo-left img,
+.logo-right img {
+    max-width: 100px;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect for left and right logos */
+.logo-left img:hover,
+.logo-right img:hover {
+    transform: scale(1.1);
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+    #logo {
+        flex-direction: column;
+        gap: 15px;
+        padding: 10px 0;
+    }
+    
+    #logo img:not(.logo-left img):not(.logo-right img) {
+        position: static;
+        transform: none;
+        margin: 10px auto;
+    }
+    
+    .logo-left, .logo-right {
+        margin: 5px 0;
+    }
+    
+    .logo-left img,
+    .logo-right img {
+        max-width: 80px;
+    }
+}
+
+
+
+    </style>
+</head>
+<body oncontextmenu="return false">
+    <div id="header">
+        <div id="logout-container">
+            <button id="logout" onclick="logout()">Logout</button>
+                 <div class="marquee-container">
+        <span class="marquee-text">CANAANLAND  GROUP OF SCHOOLS :  GOD IS OUR STRENGTH</span>
+    </div>
+        </div>
+        <div id="logo">
+            <img src="img/Ctemplogo.png" alt="COLLEGE CBT PORTAL">
+
+               <div class="logo-left">
+                <img src="img/9ja1.png" alt="Nigeria Logo" >
+            </div>
+
+            <div class="logo-right">
+                <img src="img/nappps.png" alt="NAPPS Logo" >
+            </div>
+        </div>
+
+           
+            
+
+        <div id="student-info">
+            <center><strong>ATTENTION! CLICK ON SUBMIT BUTTON BEFORE YOUR TIME IS UP TO SAVE YOUR SCORE</strong></center>
+            <center><p id="datetime"></p></center>
+              <div id="welcome-message">
+            <label id="usernameDisplay"></label>
+        </div>
+         <div class="student-info">
+          <img id="userImage" src="img/default_user.jpg" alt="Student Image" style="width:120px; height:120px; border-radius:50%; border:3px solid #008000; display:block; margin:0 auto;">
+      
+          <h2 id="username">Student Name</h2>
+           </div>
+
+     
+
+    
+        <center><h3>CANAANLAND  GROUP OF SCHOOLS EKUTE QUARTERS  ADO EKITI </h3></center> 
+        <center><h3>FIRST TERM EXAMINATION 2026/2027 ACADEMIC SESSION</h3></center>
+       
+        <!-- SECTION TOGGLE BUTTONS -->
+        <div class="section-toggle">
+            <button id="objectivesBtn" class="section-btn active" onclick="showSection('objectives')">OBJECTIVE QUESTIONS</button>
+            <button id="theoryBtn" class="section-btn" onclick="showSection('theory')">THEORY QUESTIONS</button>
+        </div>
+       
+        <div class="exam-info">
+            Exam: <span id="examInfo" style="color: lime;">  SS1 LIVESTOCK FARMING   (FIRST TERM)</span>
+        </div>
+       
+        <div id="timer"></div>
+    </div>
+   
+    <!-- OBJECTIVES SECTION -->
+    <div id="objectivesSection">
+        <div class="container">
+            <h5 style="color: #d35400; text-align: center;">INSTRUCTIONS: READ THE QUESTIONS CAREFULLY BEFORE YOU CHOOSE YOUR ANSWER</h5>
+            <div class="scroll-container">
+                <div id="questionText"></div>
+            </div>
+           
+            <div id="questionImageContainer"></div>
+           
+            <div class="option-group">
+                <label class="option"><strong>A.</strong><input type="radio" name="option" value="A"> <span id="optA"></span></label>
+            </div>
+            <div class="option-group">
+                <label class="option"><strong>B.</strong><input type="radio" name="option" value="B"> <span id="optB"></span></label>
+            </div>
+            <div class="option-group">
+                <label class="option"><strong>C.</strong><input type="radio" name="option" value="C"> <span id="optC"></span></label>
+            </div>
+            <div class="option-group">
+                <label class="option"><strong>D.</strong><input type="radio" name="option" value="D"> <span id="optD"></span></label>
+            </div>
+        </div>
+       
+        <div class="nav-buttons">
+            <button onclick="prevQuestion()" class="btn-cool">Previous</button>
+            <button onclick="nextQuestion()" class="btn-cool">Next</button>
+            <button onclick="submitExam()" class="btn-cool">Submit Objectives</button>
+        </div>
+       
+        <!-- Question navigation buttons -->
+        <div class="container">
+            <div id="questionButtons" class="questionButtons"></div>
+        </div>
+    </div>
+   
+    <!-- THEORY SECTION -->
+    <div id="theorySection">
+        <h3 style="text-align: center; color: #d35400; margin-bottom: 20px;">THEORY QUESTIONS SECTION</h3>
+        <div class="theory-status" id="theoryStatus">
+            Question 1 of 5 | Saved: 0/5
+        </div>
+        <div id="theoryQuestionContainer">
+            <p id="theoryQuestionText">Loading theory questions...</p>
+            <div id="theoryImageContainer"></div>
+            <textarea id="theoryAnswer" rows="8" placeholder="Write your detailed answer here..."></textarea>
+            <div class="theory-nav-buttons">
+                <button onclick="prevTheoryQuestion()" class="theory-btn theory-prev-btn">Previous</button>
+                <button onclick="saveTheoryAnswer()" class="theory-btn theory-save-btn">Save Answer</button>
+                <button onclick="nextTheoryQuestion()" class="theory-btn theory-next-btn">Next</button>
+                <button onclick="submitTheoryExam()" class="theory-btn theory-submit-btn">Submit Theory</button>
+            </div>
+        </div>
+    </div>
+   
+    <div id="userAnswerCount">
+        <p id="answeredLabel">Answered: 0/5</p>
+        <p id="unansweredLabel">Unanswered: 5/5</p>
+    </div>
+             <div class="marquee-container">
+        <span class="marquee-text"> SS1 LIVESTOCK FARMING FOR FIRST TERM EXAMINATIONS 2026/20267 ACADEMIC SESSION</span>
+    </div>
+   
+    <div class="windows-activate">
+        <p> &copy; cbt.<span style="color: red;">canaanlandmodelgroupof</span><span style="color: green;">schools</span>.org</p>
+    </div>
+
+
+    <script>
+           
+            
+    
+        // ================== STATIC QUESTIONS DATA ==================
+  const staticObjectivesQuestions = [
+  {
+    "id": 1,
+    "question": "The scientific and purposeful practice of breeding, raising, and managing domestic animals for economic production is called?",
+    "options": {
+      "A": "Agriculture",
+      "B": "Livestock farming",
+      "C": "Crop production",
+      "D": "Horticulture"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 2,
+    "question": "Which of the following is a primary product obtained from cattle?",
+    "options": {
+      "A": "Wool",
+      "B": "Eggs",
+      "C": "Milk",
+      "D": "Feathers"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 3,
+    "question": "Keeping animals like cattle or donkeys for plowing and transportation is an example of using them for?",
+    "options": {
+      "A": "Food",
+      "B": "Fibre",
+      "C": "Labour (draught power)",
+      "D": "Cultural status"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 4,
+    "question": "Livestock products are the best sources of high-biological-value protein because they contain?",
+    "options": {
+      "A": "All the essential amino acids",
+      "B": "Large amounts of carbohydrates",
+      "C": "All the fat-soluble vitamins",
+      "D": "High levels of dietary fibre"
+    },
+    "answer": "A",
+    "image": null
+  },
+  {
+    "id": 5,
+    "question": "Which vital nutrient, difficult to find in plant-based diets and essential for nerve function, is provided by livestock products?",
+    "options": {
+      "A": "Vitamin C",
+      "B": "Vitamin B12",
+      "C": "Vitamin A",
+      "D": "Iron (Non-heme)"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 6,
+    "question": "The export of \"Morocco leather\" from Nigeria is based on the skin of which animal?",
+    "options": {
+      "A": "Cattle",
+      "B": "Sheep",
+      "C": "Goats",
+      "D": "Pigs"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 7,
+    "question": "Animal waste, such as dung and poultry droppings, is agriculturally important as?",
+    "options": {
+      "A": "A source of foreign exchange",
+      "B": "A raw material for industry",
+      "C": "A high-protein feed ingredient",
+      "D": "An organic fertilizer (manure)"
+    },
+    "answer": "D",
+    "image": null
+  },
+  {
+    "id": 8,
+    "question": "In many traditional Nigerian societies, owning a large herd of cattle is primarily a sign of?",
+    "options": {
+      "A": "Religious piety",
+      "B": "Educational status",
+      "C": "Wealth and social standing",
+      "D": "Political ambition"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 9,
+    "question": "The primary product obtained from poultry farming is?",
+    "options": {
+      "A": "Wool and mutton",
+      "B": "Meat and eggs",
+      "C": "Hides and skin",
+      "D": "Milk and cheese"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 10,
+    "question": "Which animal is primarily raised for its lean meat and fur?",
+    "options": {
+      "A": "Pig",
+      "B": "Sheep",
+      "C": "Rabbit",
+      "D": "Cattle"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 11,
+    "question": "Farming with the main goal of feeding one's immediate family, using low technology, is known as?",
+    "options": {
+      "A": "Commercial farming",
+      "B": "Subsistence farming",
+      "C": "Intensive farming",
+      "D": "Arable farming"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 12,
+    "question": "A key feature of commercial livestock farming is the use of?",
+    "options": {
+      "A": "Indigenous breeds only",
+      "B": "Family labor",
+      "C": "High-tech methods and exotic breeds",
+      "D": "Free-range systems"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 13,
+    "question": "A farmer raising 5,000 broilers in a deep litter house with automated feeders is practicing?",
+    "options": {
+      "A": "Subsistence farming",
+      "B": "Nomadic pastoralism",
+      "C": "Commercial farming",
+      "D": "Subsistence agriculture"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 14,
+    "question": "Indigenous breeds of livestock are preferred in subsistence farming because they are?",
+    "options": {
+      "A": "Very productive",
+      "B": "Hardy and disease-resistant",
+      "C": "Easy to sell for a high price",
+      "D": "Imported from other countries"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 15,
+    "question": "A \"feed mill\" is an industry directly related to the scope of livestock farming that produces?",
+    "options": {
+      "A": "Veterinary drugs",
+      "B": "Animal feed",
+      "C": "Leather goods",
+      "D": "Dairy products"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 16,
+    "question": "The traditional livestock system associated with the Fulani people and their Zebu cattle is called?",
+    "options": {
+      "A": "Village free-range",
+      "B": "Intensive farming",
+      "C": "Nomadic pastoralism",
+      "D": "Ranching"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 17,
+    "question": "\"Transhumance\" is a specific type of pastoralism characterized by?",
+    "options": {
+      "A": "Keeping animals in one place all year",
+      "B": "Seasonal movement of animals in search of pasture and water",
+      "C": "Complete confinement of animals in houses",
+      "D": "Raising animals exclusively for religious sacrifices"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 18,
+    "question": "A major characteristic of Zebu cattle kept in the nomadic system is their?",
+    "options": {
+      "A": "High milk production",
+      "B": "Inability to walk long distances",
+      "C": "Hardiness and disease resistance",
+      "D": "Requirement for intensive housing"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 19,
+    "question": "The most common system for keeping poultry, goats, and sheep in rural areas where they scavenge for food is the?",
+    "options": {
+      "A": "Battery cage system",
+      "B": "Deep litter system",
+      "C": "Village free-range system",
+      "D": "Feedlot system"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 20,
+    "question": "A major disadvantage of the village free-range system is the high vulnerability of animals to?",
+    "options": {
+      "A": "High feed costs",
+      "B": "Predators and diseases like Newcastle",
+      "C": "Imported breeds",
+      "D": "Artificial insemination"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 21,
+    "question": "The introduction of exotic breeds like the Holstein-Friesian was meant to?",
+    "options": {
+      "A": "Increase the hardiness of local stock",
+      "B": "Reduce the need for veterinary care",
+      "C": "Increase the output of milk and meat",
+      "D": "Preserve indigenous genetic resources"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 22,
+    "question": "A major problem with raising exotic breeds like the Holstein in Nigeria is their?",
+    "options": {
+      "A": "High resistance to local diseases",
+      "B": "Low feed conversion rate",
+      "C": "Lack of adaptation to the tropical climate and diseases",
+      "D": "Inability to reproduce"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 23,
+    "question": "Broiler chickens are specifically bred for?",
+    "options": {
+      "A": "High egg production",
+      "B": "Rapid meat production",
+      "C": "Producing day-old chicks",
+      "D": "Draught purposes"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 24,
+    "question": "The \"battery cage\" system is primarily designed for?",
+    "options": {
+      "A": "Broilers",
+      "B": "Laying hens",
+      "C": "Piglets",
+      "D": "Calves"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 25,
+    "question": "The primary research institute in Nigeria for animal breeding, nutrition, and production is?",
+    "options": {
+      "A": "NVRI, Vom",
+      "B": "NAPRI, Shika-Zaria",
+      "C": "IAR&T, Ibadan",
+      "D": "NIHORT, Ibadan"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 26,
+    "question": "The National Veterinary Research Institute (NVRI), responsible for vaccine production, is located in?",
+    "options": {
+      "A": "Shika, Zaria",
+      "B": "Ibadan",
+      "C": "Vom, Plateau State",
+      "D": "Kainji"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 27,
+    "question": "\"Operation Feed the Nation (OFN)\" was a past government program aimed at?",
+    "options": {
+      "A": "Exporting livestock products",
+      "B": "Boosting all forms of agricultural production",
+      "C": "Regulating veterinary medicine",
+      "D": "Building modern abattoirs"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 28,
+    "question": "The primary basis for classifying livestock into ruminants and non-ruminants is the structure of their?",
+    "options": {
+      "A": "Hooves",
+      "B": "Teeth",
+      "C": "Reproductive system",
+      "D": "Digestive system (stomach)"
+    },
+    "answer": "D",
+    "image": null
+  },
+  {
+    "id": 29,
+    "question": "Animals with a complex, four-compartment stomach are known as?",
+    "options": {
+      "A": "Monogastric",
+      "B": "Polygastric (ruminants)",
+      "C": "Avian",
+      "D": "Porcine"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 30,
+    "question": "Which of the following animals is a ruminant?",
+    "options": {
+      "A": "Pig",
+      "B": "Chicken",
+      "C": "Goat",
+      "D": "Rabbit"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 31,
+    "question": "The largest compartment of the ruminant stomach, which acts as a fermentation vat, is the?",
+    "options": {
+      "A": "Reticulum",
+      "B": "Omasum",
+      "C": "Abomasum",
+      "D": "Rumen"
+    },
+    "answer": "D",
+    "image": null
+  },
+  {
+    "id": 32,
+    "question": "Microbes in the rumen allow ruminants to digest which substance that other animals cannot?",
+    "options": {
+      "A": "Starch",
+      "B": "Protein",
+      "C": "Cellulose (fibre)",
+      "D": "Fat"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 33,
+    "question": "The compartment of the ruminant stomach known as the \"true stomach\" that secretes digestive acids and enzymes is the?",
+    "options": {
+      "A": "Rumen",
+      "B": "Reticulum",
+      "C": "Omasum",
+      "D": "Abomasum"
+    },
+    "answer": "D",
+    "image": null
+  },
+  {
+    "id": 34,
+    "question": "The process of a ruminant regurgitating food, re-chewing it, and re-swallowing it is called?",
+    "options": {
+      "A": "Fermentation",
+      "B": "Rumination (chewing the cud)",
+      "C": "Digestion",
+      "D": "Absorption"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 35,
+    "question": "Non-ruminant animals are also referred to as?",
+    "options": {
+      "A": "Polygastric",
+      "B": "Monogastric",
+      "C": "Bovine",
+      "D": "Ovine"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 36,
+    "question": "Which of the following is a non-ruminant farm animal?",
+    "options": {
+      "A": "Sheep",
+      "B": "Goat",
+      "C": "Cattle",
+      "D": "Pig"
+    },
+    "answer": "D",
+    "image": null
+  },
+  {
+    "id": 37,
+    "question": "Unlike ruminants, pigs and poultry cannot survive on grass alone because they?",
+    "options": {
+      "A": "Lack the enzymes to digest protein",
+      "B": "Cannot digest cellulose",
+      "C": "Require more water",
+      "D": "Have a four-chambered stomach"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 38,
+    "question": "Non-ruminants compete directly with humans for food because their diet is largely based on?",
+    "options": {
+      "A": "Grasses and forage",
+      "B": "Grains like maize",
+      "C": "Agricultural by-products only",
+      "D": "Minerals and vitamins"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 39,
+    "question": "An animal like a rabbit, which is non-ruminant but can digest some fibre using a large cecum, is sometimes called a?",
+    "options": {
+      "A": "Ruminant",
+      "B": "Pseudo-ruminant",
+      "C": "Polygastric",
+      "D": "Carnivore"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 40,
+    "question": "The practice of rabbits eating their own soft, night-time feces to re-digest food is known as?",
+    "options": {
+      "A": "Rumination",
+      "B": "Coprophagy",
+      "C": "Fermentation",
+      "D": "Mastication"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 41,
+    "question": "The main reason for providing housing for livestock is to?",
+    "options": {
+      "A": "Increase the cost of production",
+      "B": "Confine, protect, and manage the animals",
+      "C": "Make the farm look more beautiful",
+      "D": "Reduce the need for feeding"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 42,
+    "question": "In siting a livestock building, the \"East-West Orientation\" means the long axis of the building faces?",
+    "options": {
+      "A": "North-South",
+      "B": "East-West",
+      "C": "North-East",
+      "D": "South-West"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 43,
+    "question": "The purpose of the East-West orientation is to?",
+    "options": {
+      "A": "Maximize exposure to the morning sun",
+      "B": "Minimize the amount of hot direct sun hitting the long walls",
+      "C": "Allow wind to blow directly into the building",
+      "D": "Make roof construction easier"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 44,
+    "question": "A well-ventilated livestock house helps to remove harmful gases like?",
+    "options": {
+      "A": "Oxygen",
+      "B": "Carbon dioxide",
+      "C": "Ammonia",
+      "D": "Hydrogen"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 45,
+    "question": "\"Overstocking\" a livestock house, or keeping too many animals, leads to?",
+    "options": {
+      "A": "Improved hygiene",
+      "B": "Faster disease spread and stress",
+      "C": "Better feed conversion",
+      "D": "Reduced need for ventilation"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 46,
+    "question": "The floor of a livestock house should be sloped to ensure good?",
+    "options": {
+      "A": "Ventilation",
+      "B": "Security",
+      "C": "Drainage",
+      "D": "Insulation"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 47,
+    "question": "A concrete floor in a piggery is essential because it is?",
+    "options": {
+      "A": "Cheap and easy to lay",
+      "B": "Porous and absorbs waste",
+      "C": "Smooth, durable, and easy to clean",
+      "D": "Warm and comfortable for the pigs"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 48,
+    "question": "In a poultry deep litter system, the floor is covered with a material like?",
+    "options": {
+      "A": "Sand",
+      "B": "Concrete",
+      "C": "Wood shavings",
+      "D": "Straw"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 49,
+    "question": "In a battery cage system for layers, how are eggs collected?",
+    "options": {
+      "A": "By hand from a nest box",
+      "B": "They roll forward on the sloped wire floor",
+      "C": "They fall through the cage floor",
+      "D": "The hen must be caught to collect the egg"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 50,
+    "question": "A \"farrowing pen\" in a piggery is specially designed for?",
+    "options": {
+      "A": "Adult male boars",
+      "B": "Weaned piglets",
+      "C": "Pregnant sows and their newborn piglets",
+      "D": "Fattening pigs"
+    },
+    "answer": "C",
+    "image": null
+  }
+];
+
+const staticTheoryQuestions = [
+  {
+    "id": 1,
+    "question": "(a) Define Livestock Farming.\n(b) Discuss four economic importances of livestock farming to the Nigerian economy.\n(c) In a tabular form, state five differences between subsistence and commercial livestock farming.",
+    "marks": null,
+    "image": null
+  },
+  {
+    "id": 2,
+    "question": "(a) What is Nomadic Pastoralism?\n(b) Describe the village free-range system of keeping poultry, stating two of its disadvantages.\n(c) Explain the roles of the following government institutions in the development of livestock farming in Nigeria: (i) NAPRI (ii) NVRI.\n(d) State two reasons why exotic breeds of cattle, like the Holstein-Friesian, are not always successful when introduced to Nigeria.",
+    "marks": null,
+    "image": null
+  },
+  {
+    "id": 3,
+    "question": "(a) What is the primary basis for classifying farm animals into ruminants and non-ruminants?\n(b) List the four compartments of the ruminant stomach in their correct order.\n(c) Describe the function of the Rumen and the Abomasum.\n(d) Explain why a cow can survive on a diet of only grass, while a pig cannot. Use the terms \"cellulose\" and \"monogastric\" in your explanation.",
+    "marks": null,
+    "image": null
+  },
+  {
+    "id": 4,
+    "question": "(a) State five principles of good livestock housing.\n(b) Describe the \"Deep Litter\" system of poultry housing, stating the type of bird it is most suitable for and the material used for the litter.\n(c) Explain the main features of a \"Battery Cage\" system and give two reasons why it is used for layers.\n(d) What is a \"farrowing crate\" and what is its purpose in a piggery?",
+    "marks": null,
+    "image": null
+  },
+  {
+    "id": 5,
+    "question": "(a) List the six essential classes of animal feed (nutrients).\n(b) State the primary function of each of the following in animal nutrition: (i) Carbohydrates (ii) Proteins (iii) Fats and Oils.\n(c) Give two examples of feed ingredients for each of the following: (i) Plant-based protein sources (ii) Mineral supplements (for Calcium/Phosphorus).\n(d) Why is water considered the most essential nutrient for livestock?",
+    "marks": null,
+    "image": null
+  },
+  {
+    "id": 6,
+    "question": "(a) Define a balanced ration.\n(b) Explain how each of the following factors affects the formulation of a ration for a farm animal: (i) Age of the animal (ii) Purpose of the animal (e.g., egg production) (iii) Cost of ingredients.\n(c) Describe the ideal conditions for storing animal feed and list two rules a farmer should follow in the feed store.",
+    "marks": null,
+    "image": null
+  },
+  {
+    "id": 7,
+    "question": "(a) What is \"Aflatoxin\" and what causes it?\n(b) Explain why it is dangerous to feed aflatoxin-contaminated feed to livestock.\n(c) What does \"FIFO\" mean in feed storage, and why is it important to follow this rule?\n(d) Describe three signs of a well-managed feed store.",
+    "marks": null,
+    "image": null
+  },
+  {
+    "id": 8,
+    "question": "(a) What is \"Selection\" in animal breeding?\n(b) Describe the three main methods of selection, stating one advantage of each.\n(c) List three disadvantages of natural breeding.",
+    "marks": null,
+    "image": null
+  },
+  {
+    "id": 9,
+    "question": "(a) Differentiate between Artificial Insemination (AI) and Natural Breeding.\n(b) Outline four advantages of Artificial Insemination (AI) over natural breeding.\n(c) State two disadvantages of Artificial Insemination.\n(d) What is \"heat detection\" and why is it critical for the success of AI?",
+    "marks": null,
+    "image": null
+  },
+  {
+    "id": 10,
+    "question": "(a) Distinguish between inbreeding, line breeding, and crossbreeding.\n(b) What is \"inbreeding depression\"? List three negative effects of inbreeding on a livestock population.\n(c) Define \"hybrid vigor\" (heterosis). Using a specific Nigerian example, explain how a farmer can use crossbreeding to improve their cattle.",
+    "marks": null,
+    "image": null
+  }
+];
+
+       // ================== APPLICATION VARIABLES ==================
+        let questions = [];
+        let currentQuestion = 0;
+        let userAnswers = [];
+        let theoryQuestions = [];
+        let currentTheory = 0;
+        let theoryAnswers = [];
+        let currentSection = 'objectives';
+       
+        // ================== INITIALIZATION ==================
+        window.onload = function () {
+            // Extract exam info from the page
+            const examInfoElement = document.getElementById('examInfo');
+            if (examInfoElement) {
+                const examInfoText = examInfoElement.textContent;
+                // Parse the text to extract subject and class
+                // This is a simple example - adjust based on your actual text format
+                localStorage.setItem('examSubject', 'EXAM');
+                localStorage.setItem('examClass', 'RESULT');
+            }
+            localStorage.setItem('examTerm', 'THIRD TERM 2025/2026');
+      
+             const username = sessionStorage.getItem('username');
+                const image = sessionStorage.getItem('image');
+
+                if (!username) {
+                  window.location.href = 'index.html';
+                } else {
+                  document.getElementById('username').innerText = username;
+                  
+              
+                /*document.getElementById('userImage').src =
+              'img/' + (sessionStorage.getItem('image') || 'default_user.jpg');*/
+                }
+            document.getElementById('userImage').src = sessionStorage.getItem('image') || 'img/default_user.jpg';
+           
+            // Load static questions
+            questions = staticObjectivesQuestions;
+            theoryQuestions = staticTheoryQuestions;
+           
+            userAnswers = new Array(questions.length);
+            theoryAnswers = new Array(theoryQuestions.length).fill('');
+           
+            updateDateTime();
+            setInterval(updateDateTime, 1000);
+           
+            displayQuestion();
+            renderQuestionButtons();
+            countUserSelections();
+            updateTheoryStatus();
+        };
+       
+                    // ================== TIMER ==================
+                let timeLeft = 60 * 90; // 90 minutes in seconds
+                const timerEl = document.getElementById('timer');
+                const timerInterval = setInterval(() => {
+                    const hours = Math.floor(timeLeft / 3600);
+                    const minutes = Math.floor((timeLeft % 3600) / 60);
+                    const seconds = timeLeft % 60;
+                    
+                    // Build display string
+                    let display = '';
+                    if (hours > 0) {
+                        display += `${hours} Hr:`;
+                    }
+                    if (minutes > 0 || hours > 0) { // show minutes if any hour or minute >0
+                        display += `${minutes} Min: `;
+                    }
+                    display += `${seconds} Sec`;
+                    
+                    timerEl.textContent = `Time Remaining: ${display}`;
+                    timeLeft--;
+                   
+                    // Change color when time is running out (less than 5 minutes)
+                    if (timeLeft < 300) { // 5 minutes = 300 seconds
+                        timerEl.style.color = 'red';
+                        timerEl.style.animation = 'pulse 1s infinite';
+                    }
+                   
+                    if (timeLeft < 0) {
+                        clearInterval(timerInterval);
+                        alert("Time is up! Your exam will be submitted automatically.");
+                        submitExam();
+                    }
+                }, 1000);
+
+                            // ================== MATH SYMBOL MAPPING ==================
+            function mapMathSymbol(text) {
+                if (!text) return '';
+                
+                return text
+                    .replace(/&theta;/g, 'θ')
+                    .replace(/&Theta;/g, 'Θ')
+                    .replace(/&pi;/g, 'π')
+                    .replace(/&Pi;/g, 'Π')
+                    .replace(/&alpha;/g, 'α')
+                    .replace(/&beta;/g, 'β')
+                    .replace(/&gamma;/g, 'γ')
+                    .replace(/&delta;/g, 'δ')
+                    .replace(/&epsilon;/g, 'ε')
+                    .replace(/&phi;/g, 'φ')
+                    .replace(/&omega;/g, 'ω')
+                    .replace(/&mu;/g, 'μ')
+                    .replace(/&sigma;/g, 'σ')
+                    .replace(/&lambda;/g, 'λ')
+                    .replace(/&radic;/g, '√')
+                    .replace(/&infin;/g, '∞')
+                    .replace(/&int;/g, '∫')
+                    .replace(/&sum;/g, '∑')
+                    .replace(/&prod;/g, '∏')
+                    .replace(/&part;/g, '∂')
+                    .replace(/&deg;/g, '°')
+                    .replace(/&times;/g, '×')
+                    .replace(/&divide;/g, '÷')
+                    .replace(/&plusmn;/g, '±')
+                    .replace(/&le;/g, '≤')
+                    .replace(/&ge;/g, '≥')
+                    .replace(/&ne;/g, '≠')
+                    .replace(/&frac12;/g, '½')
+                    .replace(/&frac14;/g, '¼')
+                    .replace(/&frac34;/g, '¾')
+                    // Convert plain text powers like ^3 to <sup>3</sup> (only if not already HTML)
+                    .replace(/\^(\d+)/g, '<sup>$1</sup>')
+                    .replace(/\^\(([^)]+)\)/g, '<sup>$1</sup>')
+                    // Convert plain text indices like _3 to <sub>3</sub>
+                    .replace(/_(\d+)/g, '<sub>$1</sub>')
+                    .replace(/_\(([^)]+)\)/g, '<sub>$1</sub>');
+            }
+
+            // ================== THEORY QUESTIONS ==================
+            function displayTheoryQuestion() {
+                if (theoryQuestions.length === 0) {
+                    document.getElementById('theoryQuestionText').innerHTML = "<p>No theory questions available.</p>";
+                    return;
+                }
+               
+                const tq = theoryQuestions[currentTheory];
+                
+                // Apply math mapping to the question text (including marks)
+                const questionWithMarks = `${currentTheory + 1}. ${tq.question} ${tq.marks ? `[${tq.marks} marks]` : ''}`;
+                document.getElementById('theoryQuestionText').innerHTML = mapMathSymbol(questionWithMarks);
+                    
+                document.getElementById('theoryAnswer').value = theoryAnswers[currentTheory] || "";
+               
+                // Handle theory question image
+                const theoryImageContainer = document.getElementById('theoryImageContainer');
+                if (tq.image) {
+                    // Also apply mapping to the caption if it exists
+                    const caption = tq.imageCaption ? mapMathSymbol(tq.imageCaption) : 'Diagram for question';
+                    theoryImageContainer.innerHTML = `
+                        <div class="theory-image-wrapper">
+                            <img src="${tq.image}" alt="Theory Question Diagram" class="theory-question-image">
+                            <div class="image-caption">${caption}</div>
+                        </div>
+                    `;
+                } else {
+                    theoryImageContainer.innerHTML = '';
+                }
+               
+                updateTheoryStatus();
+            }
+
+            function updateTheoryStatus() {
+                const savedCount = theoryAnswers.filter(answer => answer.trim() !== "").length;
+                document.getElementById("theoryStatus").innerText =
+                    `Question ${currentTheory + 1} of ${theoryQuestions.length} | Saved: ${savedCount}/${theoryQuestions.length}`;
+            }
+
+            function saveTheoryAnswer() {
+                const answer = document.getElementById('theoryAnswer').value.trim();
+                theoryAnswers[currentTheory] = answer;
+                localStorage.setItem(`theoryAnswer_${currentTheory}`, answer);
+                updateTheoryStatus();
+                alert("Theory answer saved successfully!");
+            }
+
+            function nextTheoryQuestion() {
+                if (currentTheory < theoryQuestions.length - 1) {
+                    currentTheory++;
+                    displayTheoryQuestion();
+                } else {
+                    alert("You've reached the last theory question.");
+                }
+            }
+
+            function prevTheoryQuestion() {
+                if (currentTheory > 0) {
+                    currentTheory--;
+                    displayTheoryQuestion();
+                }
+            }
+
+            function submitTheoryExam() {
+                const savedCount = theoryAnswers.filter(answer => answer.trim() !== "").length;
+                const confirmSubmit = confirm(
+                    `Theory section completed!\n\n` +
+                    `You have answered ${savedCount} out of ${theoryQuestions.length} theory questions.\n\n` +
+                    `Are you sure you want to submit?`
+                );
+               
+                if (confirmSubmit) {
+                    alert("Theory answers submitted successfully!");
+                }
+            }
+                   
+                    // ================== SECTION TOGGLE ==================
+                    function showSection(section) {
+                        currentSection = section;
+                        // Update button states
+                        document.getElementById('objectivesBtn').classList.toggle('active', section === 'objectives');
+                        document.getElementById('theoryBtn').classList.toggle('active', section === 'theory');
+                       
+                        // Show/hide sections
+                        document.getElementById('objectivesSection').style.display = section === 'objectives' ? 'block' : 'none';
+                        document.getElementById('theorySection').style.display = section === 'theory' ? 'block' : 'none';
+                       
+                        // Update navigation
+                        if (section === 'theory') {
+                            displayTheoryQuestion();
+                        }
+                    }
+       
+        // ================== MATH SYMBOL MAPPING ==================
+        function mapMathSymbol(text) {
+            if (!text) return '';
+           
+            return text
+                .replace(/&theta;/g, 'θ')
+                .replace(/&Theta;/g, 'Θ')
+                .replace(/&pi;/g, 'π')
+                .replace(/&Pi;/g, 'Π')
+                .replace(/&alpha;/g, 'α')
+                .replace(/&beta;/g, 'β')
+                .replace(/&gamma;/g, 'γ')
+                .replace(/&delta;/g, 'δ')
+                .replace(/&epsilon;/g, 'ε')
+                .replace(/&phi;/g, 'φ')
+                .replace(/&omega;/g, 'ω')
+                .replace(/&mu;/g, 'μ')
+                .replace(/&sigma;/g, 'σ')
+                .replace(/&lambda;/g, 'λ')
+                .replace(/&radic;/g, '√')
+                .replace(/&infin;/g, '∞')
+                .replace(/&int;/g, '∫')
+                .replace(/&sum;/g, '∑')
+                .replace(/&prod;/g, '∏')
+                .replace(/&part;/g, '∂')
+                .replace(/&deg;/g, '°')
+                .replace(/&times;/g, '×')
+                .replace(/&divide;/g, '÷')
+                .replace(/&plusmn;/g, '±')
+                .replace(/&le;/g, '≤')
+                .replace(/&ge;/g, '≥')
+                .replace(/&ne;/g, '≠')
+                .replace(/&frac12;/g, '½')
+                .replace(/&frac14;/g, '¼')
+                .replace(/&frac34;/g, '¾')
+                .replace(/\^(\d+)/g, '<sup>$1</sup>')
+                .replace(/\^\(([^)]+)\)/g, '<sup>$1</sup>')
+                .replace(/_(\d+)/g, '<sub>$1</sub>')
+                .replace(/_\(([^)]+)\)/g, '<sub>$1</sub>');
+        }
+       
+        // ================== OBJECTIVES FUNCTIONS ==================
+        function saveAnswer() {
+            const selected = document.querySelector('input[name="option"]:checked');
+            if (selected) {
+                userAnswers[currentQuestion] = selected.value;
+                countUserSelections();
+            }
+        }
+       
+        function displayQuestion() {
+            if (currentQuestion >= questions.length) return;
+           
+            const q = questions[currentQuestion];
+           
+            // Apply math symbol mapping
+            const questionText = mapMathSymbol(q.question);
+            const optA = mapMathSymbol(q.options.A);
+            const optB = mapMathSymbol(q.options.B);
+            const optC = mapMathSymbol(q.options.C);
+            const optD = mapMathSymbol(q.options.D);
+           
+            // Display question and options
+            document.getElementById('questionText').innerHTML = `${currentQuestion + 1}. ${questionText}`;
+            document.getElementById('optA').innerHTML = optA;
+            document.getElementById('optB').innerHTML = optB;
+            document.getElementById('optC').innerHTML = optC;
+            document.getElementById('optD').innerHTML = optD;
+           
+            // Handle question image
+            const imageContainer = document.getElementById('questionImageContainer');
+            if (q.image) {
+                imageContainer.innerHTML = `
+                    <div class="theory-image-wrapper">
+                        <img src="${q.image}" alt="Question Diagram" class="question-image">
+                    </div>
+                `;
+            } else {
+                imageContainer.innerHTML = '';
+            }
+           
+            // Clear and set radio buttons
+            const radios = document.getElementsByName('option');
+            radios.forEach(r => r.checked = false);
+           
+            if (userAnswers[currentQuestion]) {
+                document.querySelector(`input[name="option"][value="${userAnswers[currentQuestion]}"]`).checked = true;
+            }
+           
+            highlightCurrentButton();
+        }
+       
+        function nextQuestion() {
+            saveAnswer();
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                displayQuestion();
+            }
+        }
+       
+        function prevQuestion() {
+            saveAnswer();
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                displayQuestion();
+            }
+        }
+       
+        function renderQuestionButtons() {
+            const container = document.getElementById('questionButtons');
+            container.innerHTML = '';
+           
+            for (let i = 0; i < questions.length; i++) {
+                const btn = document.createElement('button');
+                btn.textContent = i + 1;
+                btn.className = 'question-btn';
+                btn.onclick = () => {
+                    saveAnswer();
+                    currentQuestion = i;
+                    displayQuestion();
+                };
+                container.appendChild(btn);
+            }
+            highlightCurrentButton();
+        }
+       
+        function highlightCurrentButton() {
+            document.querySelectorAll('.question-btn').forEach((btn, index) => {
+                const answered = userAnswers[index] !== undefined;
+                const current = index === currentQuestion;
+               
+                btn.style.backgroundColor = current ? '#5cb85c' : (answered ? '#337ab7' : '#eee');
+                btn.style.color = current || answered ? 'white' : 'black';
+                btn.style.border = current ? '2px solid #2e7d32' : '1px solid #444';
+            });
+        }
+       
+        function countUserSelections() {
+            let totalQuestions = questions.length;
+            let answeredCount = userAnswers.filter(answer => answer !== undefined).length;
+            let unansweredCount = totalQuestions - answeredCount;
+           
+            document.getElementById("answeredLabel").innerText = `Answered: ${answeredCount}/${totalQuestions}`;
+            document.getElementById("unansweredLabel").innerText = `Unanswered: ${unansweredCount}`;
+        }
+       
+
+   
+         function submitExam() {
+            saveAnswer();
+            showResult();
+        }
+       
+
+
+                    function showResult() {
+                        clearInterval(timerInterval);
+                        let score = 0;
+                        questions.forEach((q, i) => {
+                            if (userAnswers[i] === q.answer) score++;
+                        });
+                        
+                        const username = sessionStorage.getItem('username') || "Guest";
+                        const cls = sessionStorage.getItem('class');
+                        const sub = sessionStorage.getItem('subject');
+                        
+                        localStorage.setItem("examUser", username);
+                        localStorage.setItem("examScore", score);
+                        localStorage.setItem("totalQuestions", questions.length);
+                        localStorage.setItem("pendingClass", cls);
+                        localStorage.setItem("pendingSubject", sub);
+                        localStorage.setItem("pendingUsername", username);
+                        
+                        const examInfo = sessionStorage.getItem('examInfo') || 'TEST - RESULT (SECOND TERM)';
+                        localStorage.setItem("examInfo", examInfo);
+                        
+                        // Build the record
+                        const record = {
+                            username: username,
+                            class: cls,
+                            subject: sub,
+                            score: score,
+                            totalQuestions: questions.length,
+                            percentage: ((score / questions.length) * 100).toFixed(2) + '%',
+                            examInfo: examInfo,
+                            timestamp: new Date().toISOString()
+                        };
+                        
+                        // ------------------ 🌐 SEND TO GOOGLE SHEETS ------------------
+                        const API_URL = 'https://script.google.com/macros/s/AKfycbzW4zlbuW16fAFRcwg4ow8b6IAQEp4e2zIqLjL7zhdkkHvEDrDwwxT0PX46dwBIiXgm/exec'; // ← paste your web app URL here
+                        
+                        fetch(API_URL, {
+                            method: 'POST',
+                            mode: 'no-cors',        // required because Apps Script doesn't send CORS headers
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(record)
+                        }).catch(err => console.error('Failed to send to cloud:', err));
+                        // ---------------------------------------------------------------
+                        
+                        // (Optional) Keep local backup
+                        let records = JSON.parse(localStorage.getItem('examRecords') || '[]');
+                        records.push(record);
+                        localStorage.setItem('examRecords', JSON.stringify(records));
+                        
+                        // Download JSON (your existing code)
+                        const scoreDetails = {
+                            ...record,
+                            userAnswers: userAnswers,
+                            correctAnswers: questions.map(q => q.answer)
+                        };
+                        
+                        const blob = new Blob([JSON.stringify(scoreDetails, null, 2)], { type: 'application/json' });
+                        const url = URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = `exam_results_${username}_${new Date().getTime()}.json`;
+                        a.style.display = 'none';
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+                        URL.revokeObjectURL(url);
+                        
+                        console.log(`Exam completed. Waiting for confirmation.`);
+                        alert(`Objective Exam Completed!\nYour Score: ${score} out of ${questions.length}\n\nClick OK to view your results.`);
+                        window.location.href = "results.html";
+                    }
+
+
+
+            // Add these helper functions to your exam page
+            function getExamAttempts(cls) {
+                const key = `${cls}_exam_attempts`;
+                const stored = localStorage.getItem(key);
+                return stored ? JSON.parse(stored) : {};
+            }
+
+            function saveExamAttempts(cls, data) {
+                const key = `${cls}_exam_attempts`;
+                localStorage.setItem(key, JSON.stringify(data));
+            }
+                   
+        // ================== THEORY QUESTIONS ==================
+        /*function displayTheoryQuestion() {
+            if (theoryQuestions.length === 0) {
+                document.getElementById('theoryQuestionText').innerText = "No theory questions available.";
+                return;
+            }
+           
+            const tq = theoryQuestions[currentTheory];
+           
+            // Display question text (without math symbol mapping for theory)
+            document.getElementById('theoryQuestionText').innerText = mapMathSymbol(`${currentTheory + 1}. ${tq.question} ${tq.marks ? `[${tq.marks} marks]` : ''}`);
+                
+            document.getElementById('theoryAnswer').value = theoryAnswers[currentTheory] || "";
+           
+            // Handle theory question image
+            const theoryImageContainer = document.getElementById('theoryImageContainer');
+            if (tq.image) {
+                theoryImageContainer.innerHTML = `
+                    <div class="theory-image-wrapper">
+                        <img src="${tq.image}" alt="Theory Question Diagram" class="theory-question-image">
+                        <div class="image-caption">${tq.imageCaption || 'Diagram for question'}</div>
+                    </div>
+                `;
+            } else {
+                theoryImageContainer.innerHTML = '';
+            }
+           
+            updateTheoryStatus();
+        }
+       
+        function updateTheoryStatus() {
+            const savedCount = theoryAnswers.filter(answer => answer.trim() !== "").length;
+            document.getElementById("theoryStatus").innerText =
+                `Question ${currentTheory + 1} of ${theoryQuestions.length} | Saved: ${savedCount}/${theoryQuestions.length}`;
+        }
+       
+        function saveTheoryAnswer() {
+            const answer = document.getElementById('theoryAnswer').value.trim();
+            theoryAnswers[currentTheory] = answer;
+            localStorage.setItem(`theoryAnswer_${currentTheory}`, answer);
+            updateTheoryStatus();
+            alert("Theory answer saved successfully!");
+        }
+       
+        function nextTheoryQuestion() {
+            if (currentTheory < theoryQuestions.length - 1) {
+                currentTheory++;
+                displayTheoryQuestion();
+            } else {
+                alert("You've reached the last theory question.");
+            }
+        }
+       
+        function prevTheoryQuestion() {
+            if (currentTheory > 0) {
+                currentTheory--;
+                displayTheoryQuestion();
+            }
+        }
+       
+        function submitTheoryExam() {
+            const savedCount = theoryAnswers.filter(answer => answer.trim() !== "").length;
+            const confirmSubmit = confirm(
+                `Theory section completed!\n\n` +
+                `You have answered ${savedCount} out of ${theoryQuestions.length} theory questions.\n\n` +
+                `Are you sure you want to submit?`
+            );
+           
+            if (confirmSubmit) {
+                alert("Theory answers submitted successfully!");
+            }
+        }*/
+       
+        // ================== DATE & TIME ==================
+        function updateDateTime() {
+            let now = new Date();
+            let day = now.getDate();
+            let month = now.toLocaleString('default', { month: 'long' });
+            let year = now.getFullYear();
+            let suffix = "th";
+           
+            if (day === 1 || day === 21 || day === 31) suffix = "st";
+            else if (day === 2 || day === 22) suffix = "nd";
+            else if (day === 3 || day === 23) suffix = "rd";
+           
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
+            let seconds = now.getSeconds();
+            let ampm = hours >= 12 ? "PM" : "AM";
+            hours = hours % 12 || 12;
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+           
+            let formattedDateTime = `${month} ${day}${suffix} ${year}, ${hours}:${minutes}:${seconds} ${ampm}`;
+            document.getElementById("datetime").innerText = formattedDateTime;
+        }
+       
+        // ================== KEYBOARD SHORTCUTS ==================
+        document.addEventListener('keydown', function (event) {
+            if (currentSection === 'objectives') {
+                const key = event.key.toUpperCase();
+               
+                // Answer selection for objectives
+                if (['A', 'B', 'C', 'D'].includes(key)) {
+                    const radio = document.querySelector(`input[name="option"][value="${key}"]`);
+                    if (radio) {
+                        radio.checked = true;
+                        saveAnswer();
+                    }
+                }
+               
+                // Navigation with arrows
+                if (event.key === 'ArrowRight') {
+                    nextQuestion();
+                } else if (event.key === 'ArrowLeft') {
+                    prevQuestion();
+                }
+            } else if (currentSection === 'theory') {
+                // Navigation for theory
+                if (event.key === 'ArrowRight') {
+                    nextTheoryQuestion();
+                } else if (event.key === 'ArrowLeft') {
+                    prevTheoryQuestion();
+                }
+               
+                // Save with Ctrl+S
+                if (event.ctrlKey && event.key === 's') {
+                    event.preventDefault();
+                    saveTheoryAnswer();
+                }
+            }
+        });
+       
+        // ================== ANTI-CHEAT & LOGOUT ==================
+        document.addEventListener('keydown', function (event) {
+            const key = event.key.toLowerCase();
+            if ((event.ctrlKey && (key === 'p' || key === 's')) && currentSection === 'objectives') {
+                event.preventDefault();
+                alert("Right-click and view source are disabled during examination.");
+                return false;
+            }
+        });
+       
+        document.addEventListener('contextmenu', (event) => {
+            event.preventDefault();
+            alert("Right-click is disabled during examination.");
+        });
+       
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+                (e.ctrlKey && e.shiftKey && e.key === 'J') || (e.ctrlKey && e.key === 'u')) {
+                e.preventDefault();
+                alert("Developer tools are disabled during examination.");
+            }
+        });
+       
+        function logout() {
+            const confirmLogout = confirm("Are you sure you want to logout? Your progress may be lost.");
+            if (confirmLogout) {
+                window.location.href = "index.html";
+            }
+        }
+    </script>
+</body>
+</html>
