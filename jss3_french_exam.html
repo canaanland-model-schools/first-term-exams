@@ -1,0 +1,1961 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="fav_icon2.ico">
+    <title>cbt.canaanlandmodelgroupofschools.org - FRENCH Exam</title>
+    <script>
+         // Disable back navigation
+    history.pushState(null, null, location.href);
+    window.onpopstate = function () {
+        history.go(1);
+    };
+
+     let backClickCount = 0;
+            let allowBack = false;
+
+            history.pushState(null, null, location.href);
+
+            window.onpopstate = function () {
+                if (!allowBack) {
+                    backClickCount++;
+
+                    if (backClickCount >= 50) {
+                        allowBack = true;
+                        alert("You have tried 50 times. Going back now...");
+                        history.back();
+                        return;
+                    }
+
+                    showBackModal();
+                }
+            };
+
+            function showBackModal() {
+                document.getElementById("backModalOverlay").style.display = "flex";
+                document.getElementById("passwordContainer").style.display = "none";
+                document.getElementById("backPassword").value = "";
+               
+                document.getElementById("modalButtons").innerHTML = `
+                    <button onclick="handleYes()" style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; background: limegreen; color: white; font-size: 16px; cursor: pointer;">Yes</button>
+                    <button onclick="closeBackModal()" style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; background: crimson; color: white; font-size: 16px; cursor: pointer;">No</button>
+                `;
+            }
+
+            function closeBackModal() {
+                document.getElementById("backModalOverlay").style.display = "none";
+                history.pushState(null, null, location.href);
+            }
+
+            function handleYes() {
+                document.getElementById("passwordContainer").style.display = "block";
+                document.getElementById("modalButtons").innerHTML = `
+                    <button onclick="checkPassword()" style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; background: limegreen; color: white; font-size: 16px; cursor: pointer;">Submit</button>
+                    <button onclick="closeBackModal()" style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; background: crimson; color: white; font-size: 16px; cursor: pointer;">Cancel</button>
+                `;
+            }
+
+            function checkPassword() {
+                const correctPassword = "admin123";
+                const enteredPassword = document.getElementById("backPassword").value;
+
+                if (enteredPassword === correctPassword) {
+                    allowBack = true;
+                    document.getElementById("backModalOverlay").style.display = "none";
+                    history.back();
+                } else {
+                    alert("Incorrect password. Staying on this page.");
+                    closeBackModal();
+                }
+            }
+    </script>
+</head>
+         <div id="backModalOverlay" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.8); color: #fff; font-family: Arial, sans-serif; justify-content: center; align-items: center; flex-direction: column;">
+                <div id="backModal" style="background: #222; padding: 30px; border-radius: 10px; text-align: center; width: 90%; max-width: 400px;">
+                    <p style="font-size: 18px; margin: 0 0 10px;">Do you really want to go back?</p>
+
+                    <div id="passwordContainer" style="display: none;">
+                        <p style="margin-top: 10px;">Enter password to go back:</p>
+                        <input type="password" id="backPassword" placeholder="Enter password"
+                            style="padding: 10px; width: 80%; margin-top: 10px; border-radius: 5px; border: none; font-size: 16px;">
+                    </div>
+
+                    <div id="modalButtons" style="margin-top: 20px;">
+                        <button onclick="handleYes()" style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; background: limegreen; color: white; font-size: 16px; cursor: pointer;">Yes</button>
+                        <button onclick="closeBackModal()" style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; background: crimson; color: white; font-size: 16px; cursor: pointer;">No</button>
+                    </div>
+                </div>
+            </div>
+                      
+
+    <style>
+        body {
+            position: relative;
+            z-index: 1;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8f0;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('img/Ctemplogo.jpg') no-repeat center center;
+            background-size: 300px 300px;
+            opacity: 0.1;
+            z-index: 0;
+            pointer-events: none;
+        }
+        #logout-container {
+            text-align: right;
+            padding: 10px;
+            background: #2c3e50;
+        }
+        #datetime {
+            color: red;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            margin: 10px 0;
+        }
+        #logout {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 5px;
+        }
+        #header {
+            padding: 20px;
+            background: linear-gradient(to right,blue, fuchsia);
+            color: white;
+            border-bottom: 5px solid #ff9800;
+        }
+        #logo img {
+            max-width: 200px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        #student-info {
+            margin-top: 20px;
+            text-align: center;
+        }
+        #student-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto 10px;
+            border: 3px solid white;
+            background: #ddd;
+        }
+        #welcome-message {
+            color: #ffeb3b;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        #userAnswerCount {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border-radius: 8px;
+            color: white;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            width: 200px;
+            z-index: 100;
+        }
+        #answeredLabel {
+            color: lime;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+        #unansweredLabel {
+            color: red;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+        .container {
+            margin: 20px auto;
+            width: 80%;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        #questionText {
+            width: 98%;
+            min-height: 100px;
+            resize: none;
+            padding: 15px;
+            font-size: 18px;
+            color: red; /*#333;*/
+            background-color: white;/* #f9f9f9;*/
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin-bottom: 15px;
+            font-family: Arial, "Segoe UI Symbol", "Apple Symbols", sans-serif;
+        }
+        .option-group {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            padding: 12px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .option-group:hover {
+            background-color: #e8f5e8;
+        }
+        .option-group input {
+            margin-right: 15px;
+            transform: scale(1.3);
+        }
+        .option-group label {
+            font-weight: bold;
+            font-size: 16px;
+            color: #333;
+            font-family: Arial, "Segoe UI Symbol", "Apple Symbols", sans-serif;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .btn-cool {
+            padding: 12px 25px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            background: purple;/*#2e7d32;*/
+            color: red;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-weight: bold;
+        }
+        .btn-cool:hover {
+            background: #1b5e20;
+        }
+        .questionButtons {
+            margin: 15px 0;
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5px;
+        }
+        .question-btn {
+            margin: 3px;
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid #444;
+            cursor: pointer;
+            font-weight: bold;
+            background-color: #eee;
+            min-width: 40px;
+            transition: all 0.3s;
+        }
+        .question-btn:hover {
+            background-color: #d0f0d0;
+        }
+        #timer {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e74c3c;
+            text-align: center;
+            margin: 10px 0;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            border: 2px solid #e74c3c;
+        }
+        .section-toggle {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .section-btn {
+            padding: 12px 24px;
+            margin: 0 10px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .section-btn.active {
+            background-color: #2e7d32;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .section-btn:not(.active) {
+            background-color: #e0e0e0;
+            color: #333;
+        }
+        #theorySection {
+            display: none;
+            background: #fff9e6;
+            color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px auto;
+            width: 80%;
+            border: 2px solid #ff9800;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        #theoryQuestionText {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 15px;
+            line-height: 1.6;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 5px;
+            border-left: 5px solid #ff9800;
+            font-family: Arial, sans-serif;
+        }
+        #theoryAnswer {
+            width: 100%;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            resize: vertical;
+            min-height: 200px;
+            font-family: Arial, sans-serif;
+            margin-bottom: 15px;
+        }
+        .theory-nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .theory-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .theory-save-btn {
+            background-color: #28a745;
+            color: white;
+        }
+        .theory-save-btn:hover {
+            background-color: #218838;
+        }
+        .theory-prev-btn, .theory-next-btn {
+            background-color: #007bff;
+            color: white;
+        }
+        .theory-prev-btn:hover, .theory-next-btn:hover {
+            background-color: #0069d9;
+        }
+        .theory-submit-btn {
+            background-color: #dc3545;
+            color: white;
+        }
+        .theory-submit-btn:hover {
+            background-color: #c82333;
+        }
+        .theory-status {
+            text-align: center;
+            margin: 10px 0;
+            font-weight: bold;
+            color: #333;
+            padding: 10px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+        }
+        .windows-activate {
+            text-align: center;
+            margin-top: 30px;
+            color: #333;
+            font-size: 14px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+        }
+        .exam-info {
+            text-align: center;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #2c3e50;
+            font-size: 18px;
+        }
+        /* Math symbols styling */
+        sup, sub {
+            font-size: 0.75em;
+            line-height: 1;
+        }
+        sup {
+            vertical-align: super;
+        }
+        sub {
+            vertical-align: sub;
+        }
+        /* Theory Question Images */
+        .theory-image-container {
+            margin: 15px 0;
+            text-align: center;
+        }
+        .theory-image-wrapper {
+            display: inline-block;
+            max-width: 100%;
+            padding: 10px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .theory-question-image {
+            max-width: 100%;
+            max-height: 300px;
+            height: auto;
+            border-radius: 5px;
+            display: block;
+            margin: 0 auto;
+            background: #f0f0f0;
+            padding: 10px;
+        }
+        .image-caption {
+            font-style: italic;
+            color: #666;
+            margin-top: 8px;
+            font-size: 14px;
+            text-align: center;
+        }
+        /* Objective question images */
+        #questionImageContainer {
+            text-align: center;
+            margin: 15px 0;
+        }
+        .question-image {
+            max-width: 100%;
+            max-height: 250px;
+            height: auto;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            padding: 5px;
+            background: white;
+        }
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+
+
+
+
+         .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            background: deepskyblue;
+            padding: 10px 0;
+        }
+    
+        /* Moving text animation */
+        .marquee-text {
+            display: inline-block;
+            color: red;
+            font-size: 24px;
+            font-weight: bold;
+            animation: marquee 10s linear infinite;
+        }
+
+        /* Keyframes for moving text */
+        @keyframes marquee {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+
+    </style>
+</head>
+<body oncontextmenu="return false">
+    <div id="header">
+        <div id="logout-container">
+            <button id="logout" onclick="logout()">Logout</button>
+                 <div class="marquee-container">
+        <span class="marquee-text">FIRST TERM 2026/2027 SESSION EXAMINATION :CANAANLAND  GROUP OF SCHOOLS :  GOD IS OUR STRENGTH</span>
+    </div>
+        </div>
+        <div id="logo">
+            <img src="img/Ctemplogo.png" alt="COLLEGE CBT PORTAL">
+
+        </div>
+
+           
+            
+
+        <div id="student-info">
+            <center><strong>ATTENTION! CLICK ON SUBMIT BUTTON BEFORE YOUR TIME IS UP TO SAVE YOUR SCORE</strong></center>
+            <center><p id="datetime"></p></center>
+              <div id="welcome-message">
+            <label id="usernameDisplay"></label>
+        </div>
+         <div class="student-info">
+          <img id="userImage" src="img/default_user.jpg" alt="Student Image" style="width:120px; height:120px; border-radius:50%; border:3px solid #008000; display:block; margin:0 auto;">
+      
+          <h2 id="username">Student Name</h2>
+           </div>
+
+     
+
+    
+        <center><h3>CANAANLAND  GROUP OF SCHOOLS EKUTE QUARTERS  ADO EKITI </h3></center> 
+        <center><h3>FIRST TERM EXAMINATION 2026/2027 ACADEMIC SESSION</h3></center>
+       
+        <!-- SECTION TOGGLE BUTTONS -->
+        <div class="section-toggle">
+            <button id="objectivesBtn" class="section-btn active" onclick="showSection('objectives')">OBJECTIVE QUESTIONS</button>
+            <button id="theoryBtn" class="section-btn" onclick="showSection('theory')">THEORY QUESTIONS</button>
+        </div>
+       
+        <div class="exam-info">
+            Exam: <span id="examInfo" style="color: lime;">  FRENCH - JSS3 (FIRST TERM)</span>
+        </div>
+       
+        <div id="timer"></div>
+    </div>
+   
+    <!-- OBJECTIVES SECTION -->
+    <div id="objectivesSection">
+        <div class="container">
+            <h5 style="color: #d35400; text-align: center;">INSTRUCTIONS: READ THE QUESTIONS CAREFULLY BEFORE YOU CHOOSE YOUR ANSWER</h5>
+            <div class="scroll-container">
+                <div id="questionText"></div>
+            </div>
+           
+            <div id="questionImageContainer"></div>
+           
+            <div class="option-group">
+                <label class="option"><strong>A.</strong><input type="radio" name="option" value="A"> <span id="optA"></span></label>
+            </div>
+            <div class="option-group">
+                <label class="option"><strong>B.</strong><input type="radio" name="option" value="B"> <span id="optB"></span></label>
+            </div>
+            <div class="option-group">
+                <label class="option"><strong>C.</strong><input type="radio" name="option" value="C"> <span id="optC"></span></label>
+            </div>
+            <div class="option-group">
+                <label class="option"><strong>D.</strong><input type="radio" name="option" value="D"> <span id="optD"></span></label>
+            </div>
+        </div>
+       
+        <div class="nav-buttons">
+            <button onclick="prevQuestion()" class="btn-cool">Previous</button>
+            <button onclick="nextQuestion()" class="btn-cool">Next</button>
+            <button onclick="submitExam()" class="btn-cool">Submit Objectives</button>
+        </div>
+       
+        <!-- Question navigation buttons -->
+        <div class="container">
+            <div id="questionButtons" class="questionButtons"></div>
+        </div>
+    </div>
+   
+    <!-- THEORY SECTION -->
+    <div id="theorySection">
+        <h3 style="text-align: center; color: #d35400; margin-bottom: 20px;">THEORY QUESTIONS SECTION</h3>
+        <div class="theory-status" id="theoryStatus">
+            Question 1 of 5 | Saved: 0/5
+        </div>
+        <div id="theoryQuestionContainer">
+            <p id="theoryQuestionText">Loading theory questions...</p>
+            <div id="theoryImageContainer"></div>
+            <textarea id="theoryAnswer" rows="8" placeholder="Write your detailed answer here..."></textarea>
+            <div class="theory-nav-buttons">
+                <button onclick="prevTheoryQuestion()" class="theory-btn theory-prev-btn">Previous</button>
+                <button onclick="saveTheoryAnswer()" class="theory-btn theory-save-btn">Save Answer</button>
+                <button onclick="nextTheoryQuestion()" class="theory-btn theory-next-btn">Next</button>
+                <button onclick="submitTheoryExam()" class="theory-btn theory-submit-btn">Submit Theory</button>
+            </div>
+        </div>
+    </div>
+   
+    <div id="userAnswerCount">
+        <p id="answeredLabel">Answered: 0/5</p>
+        <p id="unansweredLabel">Unanswered: 5/5</p>
+    </div>
+             <div class="marquee-container">
+        <span class="marquee-text"> FIRST  TERM  EXAMINATIONS 2026/2027 ACADEMIC SESSION</span>
+    </div>
+   
+    <div class="windows-activate">
+        <p> &copy; cbt.<span style="color: red;">canaanlandmodelgroupof</span><span style="color: green;">schools</span>.org</p>
+    </div>
+
+
+    <script>
+           // Get stored username and image from sessionStorage
+       
+            
+    
+        // ================== STATIC QUESTIONS DATA ==================
+const staticObjectivesQuestions = [
+  {
+    "id": 1,
+    "question": "In French, describing a person's character is known as description…",
+    "options": {
+      "A": "physique.",
+      "B": "morale.",
+      "C": "technique.",
+      "D": "sociale."
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 2,
+    "question": "Which of these words describes someone of medium height?",
+    "options": {
+      "A": "Grand",
+      "B": "Petit",
+      "C": "De taille moyenne",
+      "D": "Mince"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 3,
+    "question": "If a girl has long hair, you say, \"Elle a les cheveux…\"",
+    "options": {
+      "A": "courts.",
+      "B": "raides.",
+      "C": "longs.",
+      "D": "bruns."
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 4,
+    "question": "The French word for a slim person is…",
+    "options": {
+      "A": "gros.",
+      "B": "maigre.",
+      "C": "mince.",
+      "D": "fort."
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 5,
+    "question": "A person with red hair is described as having hair that is…",
+    "options": {
+      "A": "blonds.",
+      "B": "bruns.",
+      "C": "roux.",
+      "D": "noirs."
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 6,
+    "question": "\"Il a les yeux verts\" means he has… eyes.",
+    "options": {
+      "A": "blue",
+      "B": "brown",
+      "C": "green",
+      "D": "black"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 7,
+    "question": "A student who is hardworking is described as…",
+    "options": {
+      "A": "paresseux.",
+      "B": "travailleur.",
+      "C": "bavard.",
+      "D": "timide."
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 8,
+    "question": "The feminine form of \"gentil\" is…",
+    "options": {
+      "A": "gentil.",
+      "B": "gentils.",
+      "C": "gentille.",
+      "D": "gentilles."
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 9,
+    "question": "The correct feminine plural form of the adjective \"grand\" is…",
+    "options": {
+      "A": "grand.",
+      "B": "grande.",
+      "C": "grands.",
+      "D": "grandes."
+    },
+    "answer": "D",
+    "image": null
+  },
+  {
+    "id": 10,
+    "question": "Which of the following sentences is grammatically correct for describing a tall girl?",
+    "options": {
+      "A": "Elle est grand.",
+      "B": "Elle est grande.",
+      "C": "Il est grand.",
+      "D": "Il est grande."
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 11,
+    "question": "According to the BAGS rule, adjectives of size usually come…",
+    "options": {
+      "A": "after the noun.",
+      "B": "before the noun.",
+      "C": "at the end of the sentence.",
+      "D": "before the verb."
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 12,
+    "question": "The adjective in the phrase \"une fille intelligente\" is placed…",
+    "options": {
+      "A": "before the noun.",
+      "B": "after the noun.",
+      "C": "before the verb.",
+      "D": "at the beginning of the sentence."
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 13,
+    "question": "Which of these is an example of an adjective that usually comes BEFORE the noun?",
+    "options": {
+      "A": "intelligent",
+      "B": "grand",
+      "C": "travailleur",
+      "D": "vert"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 14,
+    "question": "\"Le professeur est <u>sérieux</u>.\" The underlined word means…",
+    "options": {
+      "A": "funny.",
+      "B": "serious.",
+      "C": "kind.",
+      "D": "shy."
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 15,
+    "question": "What is the English translation of \"Mon ami est grand et mince\"?",
+    "options": {
+      "A": "My friend is short and slim.",
+      "B": "My friend is tall and slim.",
+      "C": "My brother is tall and slim.",
+      "D": "My friend is tall and strong."
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 16,
+    "question": "Choose the correct adjective to complete the sentence: \"Les élèves sont ______.\"",
+    "options": {
+      "A": "intelligent",
+      "B": "intelligente",
+      "C": "intelligents",
+      "D": "intelligentes"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 17,
+    "question": "The opposite of \"sympathique\" is…",
+    "options": {
+      "A": "gentil.",
+      "B": "drôle.",
+      "C": "méchant.",
+      "D": "poli."
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 18,
+    "question": "How do you say \"My sister is beautiful\" in French?",
+    "options": {
+      "A": "Ma sœur est beau.",
+      "B": "Ma sœur est belle.",
+      "C": "Mon frère est beau.",
+      "D": "Ma sœur est joli."
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 19,
+    "question": "A person who is \"timide\" is…",
+    "options": {
+      "A": "talkative.",
+      "B": "shy.",
+      "C": "polite.",
+      "D": "funny."
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 20,
+    "question": "Which adjective describes someone who loves to talk a lot?",
+    "options": {
+      "A": "Bavard",
+      "B": "Sérieux",
+      "C": "Timide",
+      "D": "Paresseux"
+    },
+    "answer": "A",
+    "image": null
+  },
+  {
+    "id": 21,
+    "question": "What is the French word for a \"beach\"?",
+    "options": {
+      "A": "Une montagne",
+      "B": "Une rivière",
+      "C": "Une plage",
+      "D": "Une forêt"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 22,
+    "question": "\"Un monument historique\" refers to a…",
+    "options": {
+      "A": "natural landscape.",
+      "B": "historical monument.",
+      "C": "national park.",
+      "D": "cultural center."
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 23,
+    "question": "Erin-Ijesha Waterfalls is a famous tourist site in Nigeria known for its…",
+    "options": {
+      "A": "montagnes.",
+      "B": "cascades.",
+      "C": "déserts.",
+      "D": "musées."
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 24,
+    "question": "Yankari National Park is an example of a ______ site.",
+    "options": {
+      "A": "culturel",
+      "B": "naturel",
+      "C": "moderne",
+      "D": "ancien"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 25,
+    "question": "What is the French word for a large river, like the River Niger?",
+    "options": {
+      "A": "Une rivière",
+      "B": "Un fleuve",
+      "C": "Un lac",
+      "D": "Une cascade"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 26,
+    "question": "The French term for a \"desert\" is…",
+    "options": {
+      "A": "une plaine.",
+      "B": "une forêt.",
+      "C": "un désert.",
+      "D": "une colline."
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 27,
+    "question": "\"Le paysage est <u>magnifique</u>.\" The underlined word means…",
+    "options": {
+      "A": "calm.",
+      "B": "ugly.",
+      "C": "magnificent.",
+      "D": "old."
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 28,
+    "question": "A place that is \"calme\" is…",
+    "options": {
+      "A": "noisy and busy.",
+      "B": "peaceful and quiet.",
+      "C": "very old.",
+      "D": "very colorful."
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 29,
+    "question": "Choose the correctly written sentence describing a beautiful beach.",
+    "options": {
+      "A": "La plage est beau.",
+      "B": "La plage est belle.",
+      "C": "Le plage est belle.",
+      "D": "La plage est bel."
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 30,
+    "question": "In French, the Eiffel Tower is known as…",
+    "options": {
+      "A": "Le Louvre.",
+      "B": "La Tour Eiffel.",
+      "C": "Le Mont Saint-Michel.",
+      "D": "La Côte d'Azur."
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 31,
+    "question": "\"Un parc national\" is a place that is often…",
+    "options": {
+      "A": "culturel.",
+      "B": "touristique et naturel.",
+      "C": "moderne.",
+      "D": "historique."
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 32,
+    "question": "Which of these is a famous French museum?",
+    "options": {
+      "A": "Zuma Rock",
+      "B": "Yankari Park",
+      "C": "Le Louvre",
+      "D": "Osun Grove"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 33,
+    "question": "How do you say \"impressive mountains\" in French?",
+    "options": {
+      "A": "Des montagnes impressionnant",
+      "B": "Des montagnes impressionnante",
+      "C": "Des montagnes impressionnants",
+      "D": "Des montagnes impressionnantes"
+    },
+    "answer": "D",
+    "image": null
+  },
+  {
+    "id": 34,
+    "question": "A \"site archéologique\" is a place where you find…",
+    "options": {
+      "A": "modern buildings.",
+      "B": "ancient ruins and artifacts.",
+      "C": "beaches and seas.",
+      "D": "markets and shops."
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 35,
+    "question": "\"La Côte d'Azur\" is a famous ______ in France.",
+    "options": {
+      "A": "national park",
+      "B": "mountain range",
+      "C": "seaside resort region",
+      "D": "historical monument"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 36,
+    "question": "Zuma Rock, located in Niger State, is described as \"un rocher…\"",
+    "options": {
+      "A": "petit.",
+      "B": "géant.",
+      "C": "culturel.",
+      "D": "ancien."
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 37,
+    "question": "Which adjective would best describe a colorful and lively traditional market?",
+    "options": {
+      "A": "Calme",
+      "B": "Historique",
+      "C": "Coloré et animé",
+      "D": "Naturel"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 38,
+    "question": "\"Un village touristique\" is a…",
+    "options": {
+      "A": "big modern city.",
+      "B": "tourist village.",
+      "C": "historical monument.",
+      "D": "national park."
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 39,
+    "question": "The correct masculine plural form for the adjective \"naturel\" is…",
+    "options": {
+      "A": "naturels.",
+      "B": "naturelles.",
+      "C": "naturel.",
+      "D": "naturelle."
+    },
+    "answer": "A",
+    "image": null
+  },
+  {
+    "id": 40,
+    "question": "The sentence \"La Tour Eiffel est un monument historique célèbre\" means…",
+    "options": {
+      "A": "The Eiffel Tower is a new and modern monument.",
+      "B": "The Eiffel Tower is an unknown historical monument.",
+      "C": "The Eiffel Tower is a famous historical monument.",
+      "D": "The Eiffel Tower is a natural tourist site."
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 41,
+    "question": "What is the French verb for \"to wake up\"?",
+    "options": {
+      "A": "Se coucher",
+      "B": "Se lever",
+      "C": "Se réveiller",
+      "D": "S'habiller"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 42,
+    "question": "The expression \"prendre le petit-déjeuner\" means to…",
+    "options": {
+      "A": "have lunch.",
+      "B": "have dinner.",
+      "C": "have breakfast.",
+      "D": "have a snack."
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 43,
+    "question": "How do you say \"I go to bed\" in French?",
+    "options": {
+      "A": "Je me lève.",
+      "B": "Je me couche.",
+      "C": "Je me lave.",
+      "D": "Je me réveille."
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 44,
+    "question": "Which of these is a reflexive verb?",
+    "options": {
+      "A": "Manger",
+      "B": "Dormir",
+      "C": "Se laver",
+      "D": "Aller"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 45,
+    "question": "The reflexive pronoun for \"nous\" is…",
+    "options": {
+      "A": "me.",
+      "B": "te.",
+      "C": "se.",
+      "D": "nous."
+    },
+    "answer": "D",
+    "image": null
+  },
+  {
+    "id": 46,
+    "question": "The French adverb for \"sometimes\" is…",
+    "options": {
+      "A": "souvent.",
+      "B": "toujours.",
+      "C": "parfois.",
+      "D": "rarement."
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 47,
+    "question": "\"Je me lève à 6 heures.\" What does this sentence express?",
+    "options": {
+      "A": "A future plan",
+      "B": "A past event",
+      "C": "A daily routine",
+      "D": "A description of a person"
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 48,
+    "question": "\"Ils ______ les dents après chaque repas.\" (They brush their teeth after every meal).",
+    "options": {
+      "A": "se brosse",
+      "B": "se brossent",
+      "C": "nous brossons",
+      "D": "te brosses"
+    },
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 49,
+    "question": "The correct translation of \"I go to school every day\" is…",
+    "options": {
+      "A": "Je vais à l'école hier.",
+      "B": "Je vais à l'école demain.",
+      "C": "Je vais à l'école tous les jours.",
+      "D": "Je vais à l'école rarement."
+    },
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 50,
+    "question": "\"<u>Le soir</u>, ma famille dîne ensemble.\" The underlined phrase means…",
+    "options": {
+      "A": "in the morning.",
+      "B": "in the afternoon.",
+      "C": "at noon.",
+      "D": "in the evening."
+    },
+    "answer": "D",
+    "image": null
+  }
+];
+
+const staticTheoryQuestions = [
+  {
+    "id": 1,
+    "question": "a) List four (4) French adjectives for describing a person's physical appearance (other than size or eye color) and four (4) for describing their character.\nb) Explain the rule for the agreement of adjectives in French with regards to gender. Provide one example for a masculine noun and one for a feminine noun.\nc) Write one complete sentence in French to describe the character of your favourite teacher.",
+    "marks": null,
+    "image": null
+  },
+  {
+    "id": 2,
+    "question": "a) Define the following terms in French: (i) un paysage (ii) un site touristique.\nb) Name two (2) tourist attractions in Nigeria and two (2) in France, writing them in French as they appear in your lesson note.\nc) Describe the Yankari National Park in two complete French sentences, using at least one adjective that agrees with the noun.",
+    "marks": null,
+    "image": null
+  },
+  {
+    "id": 3,
+    "question": "a) Conjugate the reflexive verb \"se lever\" (to get up) in the present tense for all subject pronouns (je, tu, il/elle, nous, vous, ils/elles).\nb) Using two different frequency adverbs, write two sentences in French about what you do after school.",
+    "marks": null,
+    "image": null
+  },
+  {
+    "id": 4,
+    "question": "a) Differentiate between the uses of the passé composé and the imparfait in French.\nb) Complete the following sentences by conjugating the verbs in brackets correctly (passé composé or imparfait):\ni. Hier, nous ______________ (visiter) le musée.\nii. Quand j'étais petit, je ______________ (jouer) au parc tous les jours.\niii. Il ______________ (faire) beau quand je suis sorti.",
+    "marks": null,
+    "image": null
+  },
+  {
+    "id": 5,
+    "question": "a) Name in French: (i) three (3) different shapes (ii) three (3) different materials.\nb) Write three (3) complete French sentences to describe a pencil. Your description must include its shape, color, material, and usage.",
+    "marks": null,
+    "image": null
+  },
+  {
+    "id": 6,
+    "question": "a) State the formula for forming a comparative of superiority (more… than) and a comparative of equality (as… as) in French.\nb) Compare your house and your friend's house using three different comparative structures (e.g., bigger than, less expensive than, as beautiful as). Write your sentences in French.\nc) Write one French sentence using a superlative to describe the best student in your class.",
+    "marks": null,
+    "image": null
+  },
+  {
+    "id": 7,
+    "question": "a) Write the following dates in French as you would say them (e.g., le premier janvier):\ni. 1st October\nii. 25th December\nb) State the following times in French in complete sentences:\ni. 8:00 a.m.\nii. 3:15 p.m.\niii. 10:45 p.m.",
+    "marks": null,
+    "image": null
+  },
+  {
+    "id": 8,
+    "question": "a) List four (4) time markers (marqueurs de temps) in French that you can use to organize a chronological narrative (e.g., first, then, finally).\nb) Using at least three of the time markers from (a), write a short paragraph of 6-8 sentences in French describing your typical school day (routine au présent).",
+    "marks": null,
+    "image": null
+  },
+  {
+    "id": 9,
+    "question": "Examine the two sentences below and answer the questions that follow:\nSentence A: Ma mère est belle et intelligente.\nSentence B: Hier, je suis allé(e) au marché avec ma mère. Il faisait chaud.\na) From Sentence A, identify two (2) adjectives and state whether they are describing physique or morale.\nb) From Sentence B, identify:\ni. The tense used in \"je suis allé(e)\".\nii. The tense used in \"Il faisait chaud\".\niii. Explain why each tense is used in this context.\nc) Translate Sentence A into English.",
+    "marks": null,
+    "image": null
+  },
+  {
+    "id": 10,
+    "question": "Choisissez un des deux sujets suivants et écrivez une composition de 8 à 10 phrases en français.\n(Choose one of the following two topics and write a composition of 8 to 10 sentences in French.)\nSujet A: Décrivez votre meilleur(e) ami(e). Parlez de son apparence physique (taille, cheveux, yeux) et de son caractère. (Describe your best friend. Talk about their physical appearance and character.)\nSujet B: Racontez votre journée d'hier. Utilisez le passé composé et au moins trois (3) marqueurs de temps. (Narrate your day yesterday. Use the passé composé and at least three (3) time markers.)",
+    "marks": null,
+    "image": null
+  }
+];
+
+
+
+        // ================== APPLICATION VARIABLES ==================
+        let questions = [];
+        let currentQuestion = 0;
+        let userAnswers = [];
+        let theoryQuestions = [];
+        let currentTheory = 0;
+        let theoryAnswers = [];
+        let currentSection = 'objectives';
+       
+        // ================== INITIALIZATION ==================
+        window.onload = function () {
+            // Extract exam info from the page
+            const examInfoElement = document.getElementById('examInfo');
+            if (examInfoElement) {
+                const examInfoText = examInfoElement.textContent;
+                // Parse the text to extract subject and class
+                // This is a simple example - adjust based on your actual text format
+                localStorage.setItem('examSubject', 'EXAM');
+                localStorage.setItem('examClass', 'RESULT');
+            }
+            localStorage.setItem('examTerm', 'FIRST TERM 2026/2027');
+             /*let username = sessionStorage.getItem('username');
+             const userImage = sessionStorage.getItem('image');
+            document.getElementById("usernameDisplay").innerText = "WELCOME:" + " " + username;
+            document.getElementById('userImage').src = "img/student.png";
+            document.getElementById('userName').innerText = username;
+            document.getElementById('userImage').src = userImage;
+
+
+            const username = sessionStorage.getItem('username') || 'Student';
+            const userImageFile = sessionStorage.getItem('image');
+            const userImagePath = userImageFile ? `img/${userImageFile}` : 'img/default_user.jpg';
+
+            // Set username
+            const usernameElements = [document.getElementById('userName'), document.getElementById('usernameDisplay')];
+            usernameElements.forEach(el => { if(el) el.innerText = username; });
+
+            // Set user image
+            const userImageElement = document.getElementById('userImage');
+            if(userImageElement){
+                userImageElement.src = userImagePath;
+                userImageElement.onerror = function(){
+                    this.src = 'img/default_user.jpg'; // fallback if image not found
+                };
+            }*/
+             const username = sessionStorage.getItem('username');
+                const image = sessionStorage.getItem('image');
+
+                if (!username) {
+                  window.location.href = 'index.html';
+                } else {
+                  document.getElementById('username').innerText = username;
+                  
+              
+                //document.getElementById('userImage').src =
+              //'img/' + (sessionStorage.getItem('image') || 'default_user.jpg');
+
+              document.getElementById('userImage').src = sessionStorage.getItem('image') || 'img/default_user.jpg';
+                }
+           
+            // Load static questions
+            questions = staticObjectivesQuestions;
+            theoryQuestions = staticTheoryQuestions;
+           
+            userAnswers = new Array(questions.length);
+            theoryAnswers = new Array(theoryQuestions.length).fill('');
+           
+            updateDateTime();
+            setInterval(updateDateTime, 1000);
+           
+            displayQuestion();
+            renderQuestionButtons();
+            countUserSelections();
+            updateTheoryStatus();
+        };
+       
+        // ================== TIMER ==================
+        let timeLeft = 60 * 45; // 60 minutes
+        const timerEl = document.getElementById('timer');
+        const timerInterval = setInterval(() => {
+            let min = Math.floor(timeLeft / 60);
+            let sec = timeLeft % 60;
+            timerEl.textContent = `Time Remaining: ${min}:${sec < 10 ? '0' + sec : sec}`;
+            timeLeft--;
+           
+            // Change color when time is running out
+            if (timeLeft < 300) { // 5 minutes
+                timerEl.style.color = 'red';
+                timerEl.style.animation = 'pulse 1s infinite';
+            }
+           
+            if (timeLeft < 0) {
+                clearInterval(timerInterval);
+                alert("Time is up! Your exam will be submitted automatically.");
+                submitExam();
+            }
+        }, 1000);
+       
+        // ================== SECTION TOGGLE ==================
+        function showSection(section) {
+            currentSection = section;
+            // Update button states
+            document.getElementById('objectivesBtn').classList.toggle('active', section === 'objectives');
+            document.getElementById('theoryBtn').classList.toggle('active', section === 'theory');
+           
+            // Show/hide sections
+            document.getElementById('objectivesSection').style.display = section === 'objectives' ? 'block' : 'none';
+            document.getElementById('theorySection').style.display = section === 'theory' ? 'block' : 'none';
+           
+            // Update navigation
+            if (section === 'theory') {
+                displayTheoryQuestion();
+            }
+        }
+       
+        // ================== MATH SYMBOL MAPPING ==================
+        function mapMathSymbol(text) {
+            if (!text) return '';
+           
+            return text
+                .replace(/&theta;/g, 'θ')
+                .replace(/&Theta;/g, 'Θ')
+                .replace(/&pi;/g, 'π')
+                .replace(/&Pi;/g, 'Π')
+                .replace(/&alpha;/g, 'α')
+                .replace(/&beta;/g, 'β')
+                .replace(/&gamma;/g, 'γ')
+                .replace(/&delta;/g, 'δ')
+                .replace(/&epsilon;/g, 'ε')
+                .replace(/&phi;/g, 'φ')
+                .replace(/&omega;/g, 'ω')
+                .replace(/&mu;/g, 'μ')
+                .replace(/&sigma;/g, 'σ')
+                .replace(/&lambda;/g, 'λ')
+                .replace(/&radic;/g, '√')
+                .replace(/&infin;/g, '∞')
+                .replace(/&int;/g, '∫')
+                .replace(/&sum;/g, '∑')
+                .replace(/&prod;/g, '∏')
+                .replace(/&part;/g, '∂')
+                .replace(/&deg;/g, '°')
+                .replace(/&times;/g, '×')
+                .replace(/&divide;/g, '÷')
+                .replace(/&plusmn;/g, '±')
+                .replace(/&le;/g, '≤')
+                .replace(/&ge;/g, '≥')
+                .replace(/&ne;/g, '≠')
+                .replace(/&frac12;/g, '½')
+                .replace(/&frac14;/g, '¼')
+                .replace(/&frac34;/g, '¾')
+                .replace(/\^(\d+)/g, '<sup>$1</sup>')
+                .replace(/\^\(([^)]+)\)/g, '<sup>$1</sup>')
+                .replace(/_(\d+)/g, '<sub>$1</sub>')
+                .replace(/_\(([^)]+)\)/g, '<sub>$1</sub>');
+        }
+       
+        // ================== OBJECTIVES FUNCTIONS ==================
+        function saveAnswer() {
+            const selected = document.querySelector('input[name="option"]:checked');
+            if (selected) {
+                userAnswers[currentQuestion] = selected.value;
+                countUserSelections();
+            }
+        }
+       
+        function displayQuestion() {
+            if (currentQuestion >= questions.length) return;
+           
+            const q = questions[currentQuestion];
+           
+            // Apply math symbol mapping
+            const questionText = mapMathSymbol(q.question);
+            const optA = mapMathSymbol(q.options.A);
+            const optB = mapMathSymbol(q.options.B);
+            const optC = mapMathSymbol(q.options.C);
+            const optD = mapMathSymbol(q.options.D);
+           
+            // Display question and options
+            document.getElementById('questionText').innerHTML = `${currentQuestion + 1}. ${questionText}`;
+            document.getElementById('optA').innerHTML = optA;
+            document.getElementById('optB').innerHTML = optB;
+            document.getElementById('optC').innerHTML = optC;
+            document.getElementById('optD').innerHTML = optD;
+           
+            // Handle question image
+            const imageContainer = document.getElementById('questionImageContainer');
+            if (q.image) {
+                imageContainer.innerHTML = `
+                    <div class="theory-image-wrapper">
+                        <img src="${q.image}" alt="Question Diagram" class="question-image">
+                    </div>
+                `;
+            } else {
+                imageContainer.innerHTML = '';
+            }
+           
+            // Clear and set radio buttons
+            const radios = document.getElementsByName('option');
+            radios.forEach(r => r.checked = false);
+           
+            if (userAnswers[currentQuestion]) {
+                document.querySelector(`input[name="option"][value="${userAnswers[currentQuestion]}"]`).checked = true;
+            }
+           
+            highlightCurrentButton();
+        }
+       
+        function nextQuestion() {
+            saveAnswer();
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                displayQuestion();
+            }
+        }
+       
+        function prevQuestion() {
+            saveAnswer();
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                displayQuestion();
+            }
+        }
+       
+        function renderQuestionButtons() {
+            const container = document.getElementById('questionButtons');
+            container.innerHTML = '';
+           
+            for (let i = 0; i < questions.length; i++) {
+                const btn = document.createElement('button');
+                btn.textContent = i + 1;
+                btn.className = 'question-btn';
+                btn.onclick = () => {
+                    saveAnswer();
+                    currentQuestion = i;
+                    displayQuestion();
+                };
+                container.appendChild(btn);
+            }
+            highlightCurrentButton();
+        }
+       
+        function highlightCurrentButton() {
+            document.querySelectorAll('.question-btn').forEach((btn, index) => {
+                const answered = userAnswers[index] !== undefined;
+                const current = index === currentQuestion;
+               
+                btn.style.backgroundColor = current ? '#5cb85c' : (answered ? '#337ab7' : '#eee');
+                btn.style.color = current || answered ? 'white' : 'black';
+                btn.style.border = current ? '2px solid #2e7d32' : '1px solid #444';
+            });
+        }
+       
+        function countUserSelections() {
+            let totalQuestions = questions.length;
+            let answeredCount = userAnswers.filter(answer => answer !== undefined).length;
+            let unansweredCount = totalQuestions - answeredCount;
+           
+            document.getElementById("answeredLabel").innerText = `Answered: ${answeredCount}/${totalQuestions}`;
+            document.getElementById("unansweredLabel").innerText = `Unanswered: ${unansweredCount}`;
+        }
+       
+        /*function submitExam() {
+            saveAnswer();
+            let score = 0;
+            questions.forEach((q, i) => {
+                if (userAnswers[i] === q.answer) score++;
+            });
+           
+            clearInterval(timerInterval);
+            alert(`Objective Exam Completed!\nYour Score: ${score} out of ${questions.length}`);
+        }*/
+         function submitExam() {
+            saveAnswer();
+            showResult();
+        }
+       
+        /*function showResult() {
+            clearInterval(timerInterval);
+            let score = 0;
+            questions.forEach((q, i) => {
+                if (userAnswers[i] === q.answer) score++;
+            });
+           
+            const username = localStorage.getItem("username") || "Guest";
+            localStorage.setItem("examUser", username);
+            localStorage.setItem("examScore", score);
+            localStorage.setItem("totalQuestions", questions.length);
+
+
+            // Save exam data before going to result page
+            localStorage.setItem("student_name", username);
+            localStorage.setItem("student_class", selectedClass);
+            localStorage.setItem("exam_subject", selectedSubject);
+            localStorage.setItem("student_image", studentImageURL);
+            localStorage.setItem("exam_score", score);
+            localStorage.setItem("total_questions", totalQuestions);
+
+                // Redirect to results page
+                window.location.href = "results.html";
+           
+            alert(`Objective Exam Completed!\nYour Score: ${score} out of ${questions.length}`);
+            window.location.href = "results.html";
+        }*/
+        /*function showResult() {
+            clearInterval(timerInterval);
+            let score = 0;
+            questions.forEach((q, i) => {
+                if (userAnswers[i] === q.answer) score++;
+            });
+           
+            const username = localStorage.getItem("username") || "Guest";
+            const cls = sessionStorage.getItem("class");
+            const sub = sessionStorage.getItem("subject");
+           
+            localStorage.setItem("examUser", username);
+            localStorage.setItem("examScore", score);
+            localStorage.setItem("totalQuestions", questions.length);
+            localStorage.setItem("examInfo", document.getElementById('examInfo').textContent.trim());
+           
+            // ✅ Mark exam as completed
+            if (cls && sub) {
+                const attempts = getExamAttempts(cls);
+                if (!attempts[username]) {
+                    attempts[username] = {};
+                }
+                attempts[username][sub] = true;
+                saveExamAttempts(cls, attempts);
+            }
+           
+            alert(`Objective Exam Completed!\nYour Score: ${score} out of ${questions.length}`);
+            window.location.href = "results.html";
+    }*/
+       /*function showResult() {
+                    clearInterval(timerInterval);
+                    let score = 0;
+                    questions.forEach((q, i) => {
+                        if (userAnswers[i] === q.answer) score++;
+                    });
+                   
+                    const username = sessionStorage.getItem('username') || "Guest";
+                    const cls = sessionStorage.getItem('class');
+                    const sub = sessionStorage.getItem('subject');
+                   
+                    localStorage.setItem("examUser", username);
+                    localStorage.setItem("examScore", score);
+                    localStorage.setItem("totalQuestions", questions.length);
+                    localStorage.setItem("pendingClass", cls);
+                    localStorage.setItem("pendingSubject", sub);
+                    localStorage.setItem("pendingUsername", username);
+                   
+                    // ✅ Get exam info from sessionStorage or use default
+                    const examInfo = sessionStorage.getItem('examInfo') || 'EXAMINATION - RERSULT (2ND TERM)';
+                    localStorage.setItem("examInfo", examInfo);
+                   
+                    // ✅ DO NOT mark exam as completed here - wait for confirmation on results page
+                    console.log(`Exam completed but not marked as attempted yet. Waiting for confirmation.`);
+                   
+                    alert(`Objective Exam Completed!\nYour Score: ${score} out of ${questions.length}\n\nClick OK to view your results and confirm your attempt.`);
+                    window.location.href = "results.html";
+        }*/
+
+            /*function showResult() {
+				    clearInterval(timerInterval);
+				    let score = 0;
+				    questions.forEach((q, i) => {
+				        if (userAnswers[i] === q.answer) score++;
+				    });
+				    
+				    const username = sessionStorage.getItem('username') || "Guest";
+				    const cls = sessionStorage.getItem('class');
+				    const sub = sessionStorage.getItem('subject');
+				    
+				    localStorage.setItem("examUser", username);
+				    localStorage.setItem("examScore", score);
+				    localStorage.setItem("totalQuestions", questions.length);
+				    localStorage.setItem("pendingClass", cls);
+				    localStorage.setItem("pendingSubject", sub);
+				    localStorage.setItem("pendingUsername", username);
+				    
+				    // ✅ Get exam info from sessionStorage or use default
+				    const examInfo = sessionStorage.getItem('examInfo') || 'TEST - RESULT (SECOND TERM)';
+				    localStorage.setItem("examInfo", examInfo);
+				    
+				    // ✅ Secretly download score details to downloads folder
+				    const scoreDetails = {
+				        username: username,
+				        class: cls,
+				        subject: sub,
+				        score: score,
+				        totalQuestions: questions.length,
+				        percentage: ((score / questions.length) * 100).toFixed(2) + '%',
+				        examInfo: examInfo,
+				        timestamp: new Date().toISOString(),
+				        userAnswers: userAnswers,
+				        correctAnswers: questions.map(q => q.answer)
+				    };
+				    
+				    // Create a blob with the data
+				    const blob = new Blob([JSON.stringify(scoreDetails, null, 2)], { type: 'application/json' });
+				    const url = URL.createObjectURL(blob);
+				    
+				    // Create a hidden anchor element and trigger download
+				    const a = document.createElement('a');
+				    a.href = url;
+				    a.download = `exam_results_${username}_${new Date().getTime()}.json`;
+				    a.style.display = 'none';
+				    document.body.appendChild(a);
+				    a.click();
+				    
+				    // Clean up
+				    document.body.removeChild(a);
+				    URL.revokeObjectURL(url);
+				    
+				    // ✅ DO NOT mark exam as completed here - wait for confirmation on results page
+				    console.log(`Exam completed but not marked as attempted yet. Waiting for confirmation.`);
+				    
+				    alert(`Objective Exam Completed!\nYour Score: ${score} out of ${questions.length}\n\nClick OK to view your results and confirm your attempt.`);
+				    window.location.href = "results.html";
+				}*/
+                function showResult() {
+                        clearInterval(timerInterval);
+                        let score = 0;
+                        questions.forEach((q, i) => {
+                            if (userAnswers[i] === q.answer) score++;
+                        });
+                        
+                        const username = sessionStorage.getItem('username') || "Guest";
+                        const cls = sessionStorage.getItem('class');
+                        const sub = sessionStorage.getItem('subject');
+                        
+                        localStorage.setItem("examUser", username);
+                        localStorage.setItem("examScore", score);
+                        localStorage.setItem("totalQuestions", questions.length);
+                        localStorage.setItem("pendingClass", cls);
+                        localStorage.setItem("pendingSubject", sub);
+                        localStorage.setItem("pendingUsername", username);
+                        
+                        // Get exam info from sessionStorage or use default
+                        const examInfo = sessionStorage.getItem('examInfo') || 'TEST - RESULT (SECOND TERM)';
+                        localStorage.setItem("examInfo", examInfo);
+                        
+                        // ✅ Build a clean record for history (to be used by records.html)
+                        const record = {
+                            username: username,
+                            class: cls,
+                            subject: sub,
+                            score: score,
+                            totalQuestions: questions.length,
+                            percentage: ((score / questions.length) * 100).toFixed(2) + '%',
+                            examInfo: examInfo,
+                            timestamp: new Date().toISOString()
+                        };
+                        
+                        // ✅ Save this attempt to localStorage (creates/updates examRecords array)
+                        let records = JSON.parse(localStorage.getItem('examRecords') || '[]');
+                        records.push(record);
+                        localStorage.setItem('examRecords', JSON.stringify(records));
+                        
+                        // ✅ Secretly download score details to downloads folder
+                        const scoreDetails = {
+                            ...record,
+                            userAnswers: userAnswers,
+                            correctAnswers: questions.map(q => q.answer)
+                        };
+                        
+                        // Create a blob with the data
+                        const blob = new Blob([JSON.stringify(scoreDetails, null, 2)], { type: 'application/json' });
+                        const url = URL.createObjectURL(blob);
+                        
+                        // Create a hidden anchor element and trigger download
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = `exam_results_${username}_${new Date().getTime()}.json`;
+                        a.style.display = 'none';
+                        document.body.appendChild(a);
+                        a.click();
+                        
+                        // Clean up
+                        document.body.removeChild(a);
+                        URL.revokeObjectURL(url);
+                        
+                        // ✅ DO NOT mark exam as completed here - wait for confirmation on results page
+                        console.log(`Exam completed but not marked as attempted yet. Waiting for confirmation.`);
+                        
+                        alert(`Objective Exam Completed!\nYour Score: ${score} out of ${questions.length}\n\nClick OK to view your results and confirm your attempt.`);
+                        window.location.href = "results.html";
+                    }
+
+
+
+
+            // Add these helper functions to your exam page
+            function getExamAttempts(cls) {
+                const key = `${cls}_exam_attempts`;
+                const stored = localStorage.getItem(key);
+                return stored ? JSON.parse(stored) : {};
+            }
+
+            function saveExamAttempts(cls, data) {
+                const key = `${cls}_exam_attempts`;
+                localStorage.setItem(key, JSON.stringify(data));
+            }
+                   
+        // ================== THEORY QUESTIONS ==================
+        function displayTheoryQuestion() {
+            if (theoryQuestions.length === 0) {
+                document.getElementById('theoryQuestionText').innerText = "No theory questions available.";
+                return;
+            }
+           
+            const tq = theoryQuestions[currentTheory];
+           
+            // Display question text (without math symbol mapping for theory)
+            document.getElementById('theoryQuestionText').innerText = mapMathSymbol(`${currentTheory + 1}. ${tq.question} ${tq.marks ? `[${tq.marks} marks]` : ''}`);
+                
+            document.getElementById('theoryAnswer').value = theoryAnswers[currentTheory] || "";
+           
+            // Handle theory question image
+            const theoryImageContainer = document.getElementById('theoryImageContainer');
+            if (tq.image) {
+                theoryImageContainer.innerHTML = `
+                    <div class="theory-image-wrapper">
+                        <img src="${tq.image}" alt="Theory Question Diagram" class="theory-question-image">
+                        <div class="image-caption">${tq.imageCaption || 'Diagram for question'}</div>
+                    </div>
+                `;
+            } else {
+                theoryImageContainer.innerHTML = '';
+            }
+           
+            updateTheoryStatus();
+        }
+       
+        function updateTheoryStatus() {
+            const savedCount = theoryAnswers.filter(answer => answer.trim() !== "").length;
+            document.getElementById("theoryStatus").innerText =
+                `Question ${currentTheory + 1} of ${theoryQuestions.length} | Saved: ${savedCount}/${theoryQuestions.length}`;
+        }
+       
+        function saveTheoryAnswer() {
+            const answer = document.getElementById('theoryAnswer').value.trim();
+            theoryAnswers[currentTheory] = answer;
+            localStorage.setItem(`theoryAnswer_${currentTheory}`, answer);
+            updateTheoryStatus();
+            alert("Theory answer saved successfully!");
+        }
+       
+        function nextTheoryQuestion() {
+            if (currentTheory < theoryQuestions.length - 1) {
+                currentTheory++;
+                displayTheoryQuestion();
+            } else {
+                alert("You've reached the last theory question.");
+            }
+        }
+       
+        function prevTheoryQuestion() {
+            if (currentTheory > 0) {
+                currentTheory--;
+                displayTheoryQuestion();
+            }
+        }
+       
+        function submitTheoryExam() {
+            const savedCount = theoryAnswers.filter(answer => answer.trim() !== "").length;
+            const confirmSubmit = confirm(
+                `Theory section completed!\n\n` +
+                `You have answered ${savedCount} out of ${theoryQuestions.length} theory questions.\n\n` +
+                `Are you sure you want to submit?`
+            );
+           
+            if (confirmSubmit) {
+                alert("Theory answers submitted successfully!");
+            }
+        }
+       
+        // ================== DATE & TIME ==================
+        function updateDateTime() {
+            let now = new Date();
+            let day = now.getDate();
+            let month = now.toLocaleString('default', { month: 'long' });
+            let year = now.getFullYear();
+            let suffix = "th";
+           
+            if (day === 1 || day === 21 || day === 31) suffix = "st";
+            else if (day === 2 || day === 22) suffix = "nd";
+            else if (day === 3 || day === 23) suffix = "rd";
+           
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
+            let seconds = now.getSeconds();
+            let ampm = hours >= 12 ? "PM" : "AM";
+            hours = hours % 12 || 12;
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+           
+            let formattedDateTime = `${month} ${day}${suffix} ${year}, ${hours}:${minutes}:${seconds} ${ampm}`;
+            document.getElementById("datetime").innerText = formattedDateTime;
+        }
+       
+        // ================== KEYBOARD SHORTCUTS ==================
+        document.addEventListener('keydown', function (event) {
+            if (currentSection === 'objectives') {
+                const key = event.key.toUpperCase();
+               
+                // Answer selection for objectives
+                if (['A', 'B', 'C', 'D'].includes(key)) {
+                    const radio = document.querySelector(`input[name="option"][value="${key}"]`);
+                    if (radio) {
+                        radio.checked = true;
+                        saveAnswer();
+                    }
+                }
+               
+                // Navigation with arrows
+                if (event.key === 'ArrowRight') {
+                    nextQuestion();
+                } else if (event.key === 'ArrowLeft') {
+                    prevQuestion();
+                }
+            } else if (currentSection === 'theory') {
+                // Navigation for theory
+                if (event.key === 'ArrowRight') {
+                    nextTheoryQuestion();
+                } else if (event.key === 'ArrowLeft') {
+                    prevTheoryQuestion();
+                }
+               
+                // Save with Ctrl+S
+                if (event.ctrlKey && event.key === 's') {
+                    event.preventDefault();
+                    saveTheoryAnswer();
+                }
+            }
+        });
+       
+        // ================== ANTI-CHEAT & LOGOUT ==================
+        document.addEventListener('keydown', function (event) {
+            const key = event.key.toLowerCase();
+            if ((event.ctrlKey && (key === 'p' || key === 's')) && currentSection === 'objectives') {
+                event.preventDefault();
+                alert("Right-click and view source are disabled during examination.");
+                return false;
+            }
+        });
+       
+        document.addEventListener('contextmenu', (event) => {
+            event.preventDefault();
+            alert("Right-click is disabled during examination.");
+        });
+       
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+                (e.ctrlKey && e.shiftKey && e.key === 'J') || (e.ctrlKey && e.key === 'u')) {
+                e.preventDefault();
+                alert("Developer tools are disabled during examination.");
+            }
+        });
+       
+        function logout() {
+            const confirmLogout = confirm("Are you sure you want to logout? Your progress may be lost.");
+            if (confirmLogout) {
+                window.location.href = "index.html";
+            }
+        }
+    </script>
+</body>
+</html>
