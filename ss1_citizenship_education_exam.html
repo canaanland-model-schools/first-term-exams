@@ -623,9 +623,8 @@
             
     
         // ================== STATIC QUESTIONS DATA ==================
-
 const staticObjectivesQuestions = [
-  {
+    {
     "id": 1,
     "question": "The complex, reciprocal relationship between an individual and a state, established by law, is known as",
     "options": {
@@ -1227,6 +1226,7 @@ const staticObjectivesQuestions = [
   }
 ];
 
+
 const staticTheoryQuestions = [
   {
     "id": 1,
@@ -1289,6 +1289,7 @@ const staticTheoryQuestions = [
     "image": null
   }
 
+];
         // ================== APPLICATION VARIABLES ==================
         let questions = [];
         let currentQuestion = 0;
@@ -1651,63 +1652,63 @@ const staticTheoryQuestions = [
         }*/
 
             /*function showResult() {
-				    clearInterval(timerInterval);
-				    let score = 0;
-				    questions.forEach((q, i) => {
-				        if (userAnswers[i] === q.answer) score++;
-				    });
-				    
-				    const username = sessionStorage.getItem('username') || "Guest";
-				    const cls = sessionStorage.getItem('class');
-				    const sub = sessionStorage.getItem('subject');
-				    
-				    localStorage.setItem("examUser", username);
-				    localStorage.setItem("examScore", score);
-				    localStorage.setItem("totalQuestions", questions.length);
-				    localStorage.setItem("pendingClass", cls);
-				    localStorage.setItem("pendingSubject", sub);
-				    localStorage.setItem("pendingUsername", username);
-				    
-				    // ✅ Get exam info from sessionStorage or use default
-				    const examInfo = sessionStorage.getItem('examInfo') || 'TEST - RESULT (SECOND TERM)';
-				    localStorage.setItem("examInfo", examInfo);
-				    
-				    // ✅ Secretly download score details to downloads folder
-				    const scoreDetails = {
-				        username: username,
-				        class: cls,
-				        subject: sub,
-				        score: score,
-				        totalQuestions: questions.length,
-				        percentage: ((score / questions.length) * 100).toFixed(2) + '%',
-				        examInfo: examInfo,
-				        timestamp: new Date().toISOString(),
-				        userAnswers: userAnswers,
-				        correctAnswers: questions.map(q => q.answer)
-				    };
-				    
-				    // Create a blob with the data
-				    const blob = new Blob([JSON.stringify(scoreDetails, null, 2)], { type: 'application/json' });
-				    const url = URL.createObjectURL(blob);
-				    
-				    // Create a hidden anchor element and trigger download
-				    const a = document.createElement('a');
-				    a.href = url;
-				    a.download = `exam_results_${username}_${new Date().getTime()}.json`;
-				    a.style.display = 'none';
-				    document.body.appendChild(a);
-				    a.click();
-				    
-				    // Clean up
-				    document.body.removeChild(a);
-				    URL.revokeObjectURL(url);
-				    
-				    // ✅ DO NOT mark exam as completed here - wait for confirmation on results page
-				    console.log(`Exam completed but not marked as attempted yet. Waiting for confirmation.`);
-				    
-				    alert(`Objective Exam Completed!\nYour Score: ${score} out of ${questions.length}\n\nClick OK to view your results and confirm your attempt.`);
-				    window.location.href = "results.html";
-				}*/
+                    clearInterval(timerInterval);
+                    let score = 0;
+                    questions.forEach((q, i) => {
+                        if (userAnswers[i] === q.answer) score++;
+                    });
+                    
+                    const username = sessionStorage.getItem('username') || "Guest";
+                    const cls = sessionStorage.getItem('class');
+                    const sub = sessionStorage.getItem('subject');
+                    
+                    localStorage.setItem("examUser", username);
+                    localStorage.setItem("examScore", score);
+                    localStorage.setItem("totalQuestions", questions.length);
+                    localStorage.setItem("pendingClass", cls);
+                    localStorage.setItem("pendingSubject", sub);
+                    localStorage.setItem("pendingUsername", username);
+                    
+                    // ✅ Get exam info from sessionStorage or use default
+                    const examInfo = sessionStorage.getItem('examInfo') || 'TEST - RESULT (SECOND TERM)';
+                    localStorage.setItem("examInfo", examInfo);
+                    
+                    // ✅ Secretly download score details to downloads folder
+                    const scoreDetails = {
+                        username: username,
+                        class: cls,
+                        subject: sub,
+                        score: score,
+                        totalQuestions: questions.length,
+                        percentage: ((score / questions.length) * 100).toFixed(2) + '%',
+                        examInfo: examInfo,
+                        timestamp: new Date().toISOString(),
+                        userAnswers: userAnswers,
+                        correctAnswers: questions.map(q => q.answer)
+                    };
+                    
+                    // Create a blob with the data
+                    const blob = new Blob([JSON.stringify(scoreDetails, null, 2)], { type: 'application/json' });
+                    const url = URL.createObjectURL(blob);
+                    
+                    // Create a hidden anchor element and trigger download
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `exam_results_${username}_${new Date().getTime()}.json`;
+                    a.style.display = 'none';
+                    document.body.appendChild(a);
+                    a.click();
+                    
+                    // Clean up
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                    
+                    // ✅ DO NOT mark exam as completed here - wait for confirmation on results page
+                    console.log(`Exam completed but not marked as attempted yet. Waiting for confirmation.`);
+                    
+                    alert(`Objective Exam Completed!\nYour Score: ${score} out of ${questions.length}\n\nClick OK to view your results and confirm your attempt.`);
+                    window.location.href = "results.html";
+                }*/
                 function showResult() {
                         clearInterval(timerInterval);
                         let score = 0;
