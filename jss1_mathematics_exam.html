@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="fav_icon2.ico">
-    <title>cbt.canaanlandmodelgroupofschools.org - SS1 MATHEMEMATICS  Exam</title>
+    <title>cbt.canaanlandmodelgroupofschools.org - JSS1 MATHEMEMATICS  Exam</title>
     <script>
          // Disable back navigation
     history.pushState(null, null, location.href);
@@ -624,7 +624,7 @@
         </div>
        
         <div class="exam-info">
-            Exam: <span id="examInfo" style="color: lime;">  SS1 MATHEMEMATICS   (THIRD TERM)</span>
+            Exam: <span id="examInfo" style="color: lime;">  JSS1 MATHEMEMATICS   (THIRD TERM)</span>
         </div>
        
         <div id="timer"></div>
@@ -690,7 +690,7 @@
         <p id="unansweredLabel">Unanswered: 5/5</p>
     </div>
              <div class="marquee-container">
-        <span class="marquee-text"> SS1 MATHEMEMATICS FOR 3RD TERM EXAMINATIONS 2025/2026 ACADEMIC SESSION</span>
+        <span class="marquee-text"> JSS1 MATHEMEMATICS FOR FIRST TERM EXAMINATIONS 2026/2027 ACADEMIC SESSION</span>
     </div>
    
     <div class="windows-activate">
@@ -703,677 +703,674 @@
             
     
         // ================== STATIC QUESTIONS DATA ==================
-   const staticObjectivesQuestions = [
-                                         
+  const staticObjectivesQuestions = [
   {
-      "id": 1,
-      "question": "The formula for the circumference of a circle is:",
-      "options": {
-        "A": "\u03c0r2",
-        "B": "2\u03c0r",
-        "C": "\u03c0d2",
-        "D": "43\u03c0r3"
-      },
-      "answer": "B",
-      "image": null
+    "id": 1,
+    "question": "Which of the following statements about the number 70,403 is TRUE?",
+    "options": {
+      "A": "The digit 7 has a value of 7,000",
+      "B": "The digit 4 is in the hundreds place",
+      "C": "The digit 0 is in the ten-thousands place",
+      "D": "The digit 3 has a value of 3"
     },
-    {
-      "id": 2,
-      "question": "The formula for the area of a circle is:",
-      "options": {
-        "A": "\u03c0r2",
-        "B": "2\u03c0r",
-        "C": "\u03c0d",
-        "D": "43\u03c0r3"
-      },
-      "answer": "A",
-      "image": null
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 2,
+    "question": "If a number is rounded to 45,000 to the nearest thousand, which of the following could be the original number?",
+    "options": {
+      "A": "44,499",
+      "B": "44,999",
+      "C": "45,501",
+      "D": "45,499"
     },
-    {
-      "id": 3,
-      "question": "An arc is defined as:",
-      "options": {
-        "A": "The distance across a circle through the centre",
-        "B": "Any portion of the circumference of a circle",
-        "C": "The space enclosed by a circle",
-        "D": "A straight line joining two points on a circle"
-      },
-      "answer": "B",
-      "image": null
+    "answer": "D",
+    "image": null
+  },
+  {
+    "id": 3,
+    "question": "The expanded form of 9,304 is 9,000 + 300 + 4. This means the missing place value is…",
+    "options": {
+      "A": "ones",
+      "B": "tens",
+      "C": "hundreds",
+      "D": "thousands"
     },
-    {
-      "id": 4,
-      "question": "A sector of a circle is:",
-      "options": {
-        "A": "The region bounded by a chord and an arc",
-        "B": "The region bounded by two radii and an arc",
-        "C": "The region bounded by a diameter and an arc",
-        "D": "The region bounded by two chords"
-      },
-      "answer": "B",
-      "image": null
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 4,
+    "question": "Arrange in descending order: 4,567; 4,576; 4,657; 4,675.",
+    "options": {
+      "A": "4,567, 4,576, 4,657, 4,675",
+      "B": "4,675, 4,657, 4,576, 4,567",
+      "C": "4,657, 4,675, 4,567, 4,576",
+      "D": "4,576, 4,567, 4,675, 4,657"
     },
-    {
-      "id": 5,
-      "question": "The length of an arc that subtends an angle \u03b8 at the centre of a circle of radius r is:",
-      "options": {
-        "A": "\u03b8360\u00d7\u03c0r2",
-        "B": "\u03b8360\u00d72\u03c0r",
-        "C": "\u03b8180\u00d7\u03c0r",
-        "D": "\u03b890\u00d7\u03c0r"
-      },
-      "answer": "B",
-      "image": null
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 5,
+    "question": "Which property of addition is illustrated by (15 + 0) = 15?",
+    "options": {
+      "A": "Commutative property",
+      "B": "Associative property",
+      "C": "Identity property",
+      "D": "Distributive property"
     },
-    {
-      "id": 6,
-      "question": "A circle has a radius of 14 cm. The length of an arc that subtends an angle of 90\u00b0 at the centre is:",
-      "options": {
-        "A": "11 cm",
-        "B": "22 cm",
-        "C": "33 cm",
-        "D": "44 cm"
-      },
-      "answer": "B",
-      "image": null
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 6,
+    "question": "If 5 × (8 + 3) = (5 × 8) + (5 × 3), which property is being demonstrated?",
+    "options": {
+      "A": "Commutative property of multiplication",
+      "B": "Associative property of multiplication",
+      "C": "Distributive property of multiplication over addition",
+      "D": "Identity property of multiplication"
     },
-    {
-      "id": 7,
-      "question": "An arc of length 22 cm is on a circle of radius 14 cm. The angle subtended at the centre is:",
-      "options": {
-        "A": "45\u00b0",
-        "B": "60\u00b0",
-        "C": "90\u00b0",
-        "D": "120\u00b0"
-      },
-      "answer": "C",
-      "image": null
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 7,
+    "question": "The least common multiple (LCM) of 8 and 12 is the same as the LCM of…",
+    "options": {
+      "A": "16 and 24",
+      "B": "4 and 6",
+      "C": "24 and 36",
+      "D": "12 and 16"
     },
-    {
-      "id": 8,
-      "question": "The perimeter of a sector consists of:",
-      "options": {
-        "A": "Arc length only",
-        "B": "Arc length + radius",
-        "C": "Arc length + two radii",
-        "D": "Two radii only"
-      },
-      "answer": "C",
-      "image": null
+    "answer": "A",
+    "image": null
+  },
+  {
+    "id": 8,
+    "question": "Using prime factorization, the LCM of 18, 24, and 36 is…",
+    "options": {
+      "A": "2<sup>3</sup> × 3<sup>2</sup> = 72",
+      "B": "2<sup>2</sup> × 3<sup>3</sup> = 108",
+      "C": "2<sup>3</sup> × 3<sup>3</sup> = 216",
+      "D": "2<sup>2</sup> × 3<sup>2</sup> = 36"
     },
-    {
-      "id": 9,
-      "question": "A sector of a circle has radius 7 cm and angle 60\u00b0. Its perimeter is:",
-      "options": {
-        "A": "443+14 cm",
-        "B": "443+7 cm",
-        "C": "223+14 cm",
-        "D": "223+7 cm"
-      },
-      "answer": "A",
-      "image": null
+    "answer": "A",
+    "image": null
+  },
+  {
+    "id": 9,
+    "question": "The HCF of 42, 56, and 70 is…",
+    "options": {
+      "A": "7",
+      "B": "14",
+      "C": "21",
+      "D": "28"
     },
-    {
-      "id": 10,
-      "question": "The minute hand of a clock is 10 cm long. The distance moved by the tip in 20 minutes is:",
-      "options": {
-        "A": "20\u03c03 cm",
-        "B": "10\u03c03 cm",
-        "C": "40\u03c03 cm",
-        "D": "50\u03c03 cm"
-      },
-      "answer": "A",
-      "image": null
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 10,
+    "question": "If the LCM of two numbers is 60 and their HCF is 5, and one of the numbers is 15, what is the other number?",
+    "options": {
+      "A": "10",
+      "B": "12",
+      "C": "20",
+      "D": "25"
     },
-    {
-      "id": 11,
-      "question": "If the angle at the centre is 120\u00b0 and the radius is 21 cm, the arc length is:",
-      "options": {
-        "A": "22 cm",
-        "B": "44 cm",
-        "C": "66 cm",
-        "D": "88 cm"
-      },
-      "answer": "B",
-      "image": null
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 11,
+    "question": "A number has exactly three factors. Which of the following could be that number?",
+    "options": {
+      "A": "4",
+      "B": "6",
+      "C": "8",
+      "D": "9"
     },
-    {
-      "id": 12,
-      "question": "A bicycle wheel has a radius of 35 cm. The distance covered in 100 revolutions is:",
-      "options": {
-        "A": "110 m",
-        "B": "220 m",
-        "C": "330 m",
-        "D": "440 m"
-      },
-      "answer": "B",
-      "image": null
+    "answer": "D",
+    "image": null
+  },
+  {
+    "id": 12,
+    "question": "Which of the following binary numbers is equivalent to the decimal number 25?",
+    "options": {
+      "A": "11001<sub>2</sub>",
+      "B": "11100<sub>2</sub>",
+      "C": "11010<sub>2</sub>",
+      "D": "10101<sub>2</sub>"
     },
-    {
-      "id": 13,
-      "question": "The angle subtended by an arc of length 11 cm at the centre of a circle of radius 7 cm is:",
-      "options": {
-        "A": "30\u00b0",
-        "B": "45\u00b0",
-        "C": "60\u00b0",
-        "D": "90\u00b0"
-      },
-      "answer": "D",
-      "image": null
+    "answer": "A",
+    "image": null
+  },
+  {
+    "id": 13,
+    "question": "Convert 101101<sub>2</sub> to a decimal number.",
+    "options": {
+      "A": "45",
+      "B": "46",
+      "C": "44",
+      "D": "45"
     },
-    {
-      "id": 14,
-      "question": "A sector has an arc length of 15 cm and radius 5 cm. Its perimeter is:",
-      "options": {
-        "A": "20 cm",
-        "B": "25 cm",
-        "C": "30 cm",
-        "D": "35 cm"
-      },
-      "answer": "B",
-      "image": null
+    "answer": "A",
+    "image": null
+  },
+  {
+    "id": 14,
+    "question": "The binary number that comes immediately after 1011<sub>2</sub> is…",
+    "options": {
+      "A": "1100<sub>2</sub>",
+      "B": "1101<sub>2</sub>",
+      "C": "1110<sub>2</sub>",
+      "D": "10000<sub>2</sub>"
     },
-    {
-      "id": 15,
-      "question": "If the minute hand of a clock is 14 cm long, the distance moved by the tip in 15 minutes is:",
-      "options": {
-        "A": "11 cm",
-        "B": "22 cm",
-        "C": "33 cm",
-        "D": "44 cm"
-      },
-      "answer": "B",
-      "image": null
+    "answer": "A",
+    "image": null
+  },
+  {
+    "id": 15,
+    "question": "In base 2, the place value of the digit '1' in the number 10010<sub>2</sub> is…",
+    "options": {
+      "A": "1",
+      "B": "2",
+      "C": "4",
+      "D": "16"
     },
-    {
-      "id": 16,
-      "question": "The area of a sector of a circle with radius r and angle \u03b8 is:",
-      "options": {
-        "A": "\u03b8360\u00d72\u03c0r",
-        "B": "\u03b8360\u00d7\u03c0r2",
-        "C": "\u03b8180\u00d7\u03c0r2",
-        "D": "\u03b890\u00d7\u03c0r2"
-      },
-      "answer": "B",
-      "image": null
+    "answer": "D",
+    "image": null
+  },
+  {
+    "id": 16,
+    "question": "Which of the following fractions is equivalent to <sup>3</sup>⁄<sub>5</sub>?",
+    "options": {
+      "A": "<sup>9</sup>⁄<sub>15</sub>",
+      "B": "<sup>12</sup>⁄<sub>20</sub>",
+      "C": "<sup>15</sup>⁄<sub>25</sub>",
+      "D": "All of the above"
     },
-    {
-      "id": 17,
-      "question": "A sector has radius 10 cm and angle 135\u00b0. Its area (using \u03c0=3.142) is approximately:",
-      "options": {
-        "A": "117.8 cm\u00b2",
-        "B": "127.8 cm\u00b2",
-        "C": "137.8 cm\u00b2",
-        "D": "147.8 cm\u00b2"
-      },
-      "answer": "A",
-      "image": null
+    "answer": "D",
+    "image": null
+  },
+  {
+    "id": 17,
+    "question": "Arrange the fractions <sup>2</sup>⁄<sub>3</sub>, <sup>3</sup>⁄<sub>4</sub>, and <sup>5</sup>⁄<sub>6</sub> in ascending order.",
+    "options": {
+      "A": "<sup>5</sup>⁄<sub>6</sub>, <sup>3</sup>⁄<sub>4</sub>, <sup>2</sup>⁄<sub>3</sub>",
+      "B": "<sup>2</sup>⁄<sub>3</sub>, <sup>3</sup>⁄<sub>4</sub>, <sup>5</sup>⁄<sub>6</sub>",
+      "C": "<sup>3</sup>⁄<sub>4</sub>, <sup>2</sup>⁄<sub>3</sub>, <sup>5</sup>⁄<sub>6</sub>",
+      "D": "<sup>2</sup>⁄<sub>3</sub>, <sup>5</sup>⁄<sub>6</sub>, <sup>3</sup>⁄<sub>4</sub>"
     },
-    {
-      "id": 18,
-      "question": "The area of a sector of radius 21 cm with angle 60\u00b0 is:",
-      "options": {
-        "A": "154 cm\u00b2",
-        "B": "231 cm\u00b2",
-        "C": "308 cm\u00b2",
-        "D": "462 cm\u00b2"
-      },
-      "answer": "B",
-      "image": null
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 18,
+    "question": "Which fraction is greater, <sup>5</sup>⁄<sub>8</sub> or <sup>7</sup>⁄<sub>12</sub>?",
+    "options": {
+      "A": "<sup>5</sup>⁄<sub>8</sub>",
+      "B": "<sup>7</sup>⁄<sub>12</sub>",
+      "C": "They are equal",
+      "D": "Cannot be determined"
     },
-    {
-      "id": 19,
-      "question": "A chord subtends an angle of 90\u00b0 at the centre of a circle of radius 14 cm. The area of the minor segment is:",
-      "options": {
-        "A": "56 cm\u00b2",
-        "B": "66 cm\u00b2",
-        "C": "76 cm\u00b2",
-        "D": "86 cm\u00b2"
-      },
-      "answer": "A",
-      "image": null
+    "answer": "A",
+    "image": null
+  },
+  {
+    "id": 19,
+    "question": "The missing numerator in the equivalent fraction <sup>7</sup>⁄<sub>9</sub> = ?/45 is…",
+    "options": {
+      "A": "28",
+      "B": "35",
+      "C": "42",
+      "D": "49"
     },
-    {
-      "id": 20,
-      "question": "The formula for the area of a segment is:",
-      "options": {
-        "A": "Area of sector + Area of triangle",
-        "B": "Area of sector - Area of triangle",
-        "C": "Area of circle - Area of sector",
-        "D": "Area of triangle - Area of sector"
-      },
-      "answer": "B",
-      "image": null
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 20,
+    "question": "Simplify <sup>42</sup>⁄<sub>56</sub> to its lowest terms.",
+    "options": {
+      "A": "<sup>6</sup>⁄<sub>8</sub>",
+      "B": "<sup>21</sup>⁄<sub>28</sub>",
+      "C": "<sup>3</sup>⁄<sub>4</sub>",
+      "D": "<sup>7</sup>⁄<sub>8</sub>"
     },
-    {
-      "id": 21,
-      "question": "The area of the triangle in a segment formula is given by:",
-      "options": {
-        "A": "12r2sin\u03b8",
-        "B": "r2sin\u03b8",
-        "C": "12r2cos\u03b8",
-        "D": "r2cos\u03b8"
-      },
-      "answer": "A",
-      "image": null
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 21,
+    "question": "A mixed number 5<sup>3</sup>⁄<sub>8</sub> is equal to the improper fraction…",
+    "options": {
+      "A": "<sup>43</sup>⁄<sub>8</sub>",
+      "B": "<sup>40</sup>⁄<sub>8</sub>",
+      "C": "<sup>15</sup>⁄<sub>8</sub>",
+      "D": "<sup>23</sup>⁄<sub>8</sub>"
     },
-    {
-      "id": 22,
-      "question": "If the radius is 8 cm and the chord subtends 60\u00b0 at the centre, the area of the triangle is:",
-      "options": {
-        "A": "163 cm\u00b2",
-        "B": "323 cm\u00b2",
-        "C": "16 cm\u00b2",
-        "D": "32 cm\u00b2"
-      },
-      "answer": "A",
-      "image": null
+    "answer": "A",
+    "image": null
+  },
+  {
+    "id": 22,
+    "question": "Convert the improper fraction <sup>47</sup>⁄<sub>6</sub> to a mixed number.",
+    "options": {
+      "A": "7<sup>5</sup>⁄<sub>6</sub>",
+      "B": "7<sup>5</sup>⁄<sub>6</sub>",
+      "C": "8<sup>5</sup>⁄<sub>6</sub>",
+      "D": "7<sup>4</sup>⁄<sub>6</sub>"
     },
-    {
-      "id": 23,
-      "question": "A sector of angle 60\u00b0 is cut from a circle of radius 12 cm. Its area is:",
-      "options": {
-        "A": "24\u03c0 cm\u00b2",
-        "B": "48\u03c0 cm\u00b2",
-        "C": "72\u03c0 cm\u00b2",
-        "D": "96\u03c0 cm\u00b2"
-      },
-      "answer": "A",
-      "image": null
+    "answer": "A",
+    "image": null
+  },
+  {
+    "id": 23,
+    "question": "If <sup>3</sup>⁄<sub>7</sub> of a number is 21, what is the number?",
+    "options": {
+      "A": "9",
+      "B": "28",
+      "C": "49",
+      "D": "63"
     },
-    {
-      "id": 24,
-      "question": "When a sector is folded to form a cone, the radius of the sector becomes the:",
-      "options": {
-        "A": "Base radius of the cone",
-        "B": "Slant height of the cone",
-        "C": "Vertical height of the cone",
-        "D": "Diameter of the cone"
-      },
-      "answer": "B",
-      "image": null
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 24,
+    "question": "A student answered <sup>4</sup>⁄<sub>5</sub> of 30 questions correctly. How many questions did he answer correctly?",
+    "options": {
+      "A": "6",
+      "B": "20",
+      "C": "24",
+      "D": "25"
     },
-    {
-      "id": 25,
-      "question": "When a sector is folded to form a cone, the arc length of the sector becomes the:",
-      "options": {
-        "A": "Base radius of the cone",
-        "B": "Slant height of the cone",
-        "C": "Base circumference of the cone",
-        "D": "Vertical height of the cone"
-      },
-      "answer": "C",
-      "image": null
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 25,
+    "question": "Which of the following is NOT a proper fraction?",
+    "options": {
+      "A": "<sup>7</sup>⁄<sub>12</sub>",
+      "B": "<sup>13</sup>⁄<sub>15</sub>",
+      "C": "<sup>11</sup>⁄<sub>9</sub>",
+      "D": "<sup>17</sup>⁄<sub>20</sub>"
     },
-    {
-      "id": 26,
-      "question": "A sector of radius 15 cm and angle 216\u00b0 is folded into a cone. The base radius of the cone is:",
-      "options": {
-        "A": "6 cm",
-        "B": "9 cm",
-        "C": "12 cm",
-        "D": "15 cm"
-      },
-      "answer": "B",
-      "image": null
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 26,
+    "question": "In a class of 40 students, <sup>3</sup>⁄<sub>8</sub> are girls. How many boys are in the class?",
+    "options": {
+      "A": "15",
+      "B": "20",
+      "C": "25",
+      "D": "30"
     },
-    {
-      "id": 27,
-      "question": "The vertical height of the cone in question 26 is:",
-      "options": {
-        "A": "9 cm",
-        "B": "12 cm",
-        "C": "15 cm",
-        "D": "18 cm"
-      },
-      "answer": "B",
-      "image": null
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 27,
+    "question": "A book costs ₦1,250. How much will 15 such books cost?",
+    "options": {
+      "A": "₦17,250",
+      "B": "₦18,250",
+      "C": "₦18,750",
+      "D": "₦19,250"
     },
-    {
-      "id": 28,
-      "question": "The curved surface area of a cone is given by:",
-      "options": {
-        "A": "\u03c0R2",
-        "B": "2\u03c0Rl",
-        "C": "\u03c0Rl",
-        "D": "\u03c0R(R+l)"
-      },
-      "answer": "C",
-      "image": null
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 28,
+    "question": "A trader bought 48 crates of soft drinks. Each crate contains 12 bottles. If he sells each bottle for ₦150, how much will he collect from selling all the bottles?",
+    "options": {
+      "A": "₦57,600",
+      "B": "₦72,000",
+      "C": "₦86,400",
+      "D": "₦96,400"
     },
-    {
-      "id": 29,
-      "question": "A sector of radius 10 cm and angle 144\u00b0 is folded into a cone. The base radius of the cone is:",
-      "options": {
-        "A": "2 cm",
-        "B": "4 cm",
-        "C": "6 cm",
-        "D": "8 cm"
-      },
-      "answer": "B",
-      "image": null
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 29,
+    "question": "A farmer harvested 2,880 oranges. He packs them equally into 24 baskets and sells each basket for ₦2,500. How much money does he make in total?",
+    "options": {
+      "A": "₦50,000",
+      "B": "₦60,000",
+      "C": "₦72,000",
+      "D": "₦86,400"
     },
-    {
-      "id": 30,
-      "question": "The curved surface area of the cone in question 29 is:",
-      "options": {
-        "A": "40\u03c0 cm\u00b2",
-        "B": "50\u03c0 cm\u00b2",
-        "C": "60\u03c0 cm\u00b2",
-        "D": "70\u03c0 cm\u00b2"
-      },
-      "answer": "A",
-      "image": null
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 30,
+    "question": "Evaluate: 2,456 + 3,789 - 1,234",
+    "options": {
+      "A": "4,011",
+      "B": "5,011",
+      "C": "5,111",
+      "D": "6,011"
     },
-    {
-      "id": 31,
-      "question": "The total surface area of a cube of side l is:",
-      "options": {
-        "A": "4l2",
-        "B": "6l2",
-        "C": "l3",
-        "D": "2l2"
-      },
-      "answer": "B",
-      "image": null
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 31,
+    "question": "Find the product of 234 and 56.",
+    "options": {
+      "A": "12,104",
+      "B": "13,104",
+      "C": "13,204",
+      "D": "13,304"
     },
-    {
-      "id": 32,
-      "question": "The total surface area of a cuboid with length l, width w, and height h is:",
-      "options": {
-        "A": "lwh",
-        "B": "2(lw+lh+wh)",
-        "C": "2(l+w+h)",
-        "D": "lw+lh+wh"
-      },
-      "answer": "B",
-      "image": null
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 32,
+    "question": "Divide 3,456 by 12 and add the result to 500.",
+    "options": {
+      "A": "788",
+      "B": "792",
+      "C": "812",
+      "D": "788"
     },
-    {
-      "id": 33,
-      "question": "A cube has a side of 5 cm. Its total surface area is:",
-      "options": {
-        "A": "125 cm\u00b2",
-        "B": "150 cm\u00b2",
-        "C": "175 cm\u00b2",
-        "D": "200 cm\u00b2"
-      },
-      "answer": "B",
-      "image": null
+    "answer": "A",
+    "image": null
+  },
+  {
+    "id": 33,
+    "question": "A rectangular garden measures 25 m by 18 m. What is its perimeter?",
+    "options": {
+      "A": "43 m",
+      "B": "86 m",
+      "C": "96 m",
+      "D": "450 m"
     },
-    {
-      "id": 34,
-      "question": "A cuboid has length 8 cm, width 5 cm, and height 4 cm. Its total surface area is:",
-      "options": {
-        "A": "160 cm\u00b2",
-        "B": "164 cm\u00b2",
-        "C": "168 cm\u00b2",
-        "D": "184 cm\u00b2"
-      },
-      "answer": "D",
-      "image": null
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 34,
+    "question": "The area of the garden in question 33 is…",
+    "options": {
+      "A": "43 m<sup>2</sup>",
+      "B": "86 m<sup>2</sup>",
+      "C": "96 m<sup>2</sup>",
+      "D": "450 m<sup>2</sup>"
     },
-    {
-      "id": 35,
-      "question": "The curved surface area of a cylinder of radius r and height h is:",
-      "options": {
-        "A": "\u03c0r2h",
-        "B": "2\u03c0r2",
-        "C": "2\u03c0rh",
-        "D": "\u03c0r2"
-      },
-      "answer": "C",
-      "image": null
+    "answer": "D",
+    "image": null
+  },
+  {
+    "id": 35,
+    "question": "A shopkeeper bought 250 bags of rice at ₦18,000 each. He sold them at ₦21,000 each. How much profit did he make in total?",
+    "options": {
+      "A": "₦750,000",
+      "B": "₦700,000",
+      "C": "₦650,000",
+      "D": "₦600,000"
     },
-    {
-      "id": 36,
-      "question": "The total surface area of a closed cylinder is:",
-      "options": {
-        "A": "2\u03c0r(r+h)",
-        "B": "\u03c0r(r+h)",
-        "C": "2\u03c0rh+\u03c0r2",
-        "D": "\u03c0r2h"
-      },
-      "answer": "A",
-      "image": null
+    "answer": "A",
+    "image": null
+  },
+  {
+    "id": 36,
+    "question": "A number when multiplied by 7 gives 245. The number is…",
+    "options": {
+      "A": "35",
+      "B": "40",
+      "C": "45",
+      "D": "50"
     },
-    {
-      "id": 37,
-      "question": "A cylinder has radius 7 cm and height 10 cm. Its total surface area is:",
-      "options": {
-        "A": "548 cm\u00b2",
-        "B": "648 cm\u00b2",
-        "C": "748 cm\u00b2",
-        "D": "848 cm\u00b2"
-      },
-      "answer": "C",
-      "image": null
+    "answer": "A",
+    "image": null
+  },
+  {
+    "id": 37,
+    "question": "The sum of three consecutive whole numbers is 48. The smallest of these numbers is…",
+    "options": {
+      "A": "14",
+      "B": "15",
+      "C": "16",
+      "D": "17"
     },
-    {
-      "id": 38,
-      "question": "The curved surface area of a cone with base radius R and slant height l is:",
-      "options": {
-        "A": "\u03c0R2",
-        "B": "2\u03c0Rl",
-        "C": "\u03c0Rl",
-        "D": "\u03c0R(R+l)"
-      },
-      "answer": "C",
-      "image": null
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 38,
+    "question": "Which of the following numbers is divisible by both 3 and 4?",
+    "options": {
+      "A": "116",
+      "B": "124",
+      "C": "132",
+      "D": "146"
     },
-    {
-      "id": 39,
-      "question": "The total surface area of a cone is:",
-      "options": {
-        "A": "\u03c0R2",
-        "B": "\u03c0Rl",
-        "C": "\u03c0R(R+l)",
-        "D": "2\u03c0R(R+l)"
-      },
-      "answer": "C",
-      "image": null
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 39,
+    "question": "The smallest 4-digit number that is divisible by 6 is…",
+    "options": {
+      "A": "1,000",
+      "B": "1,002",
+      "C": "1,004",
+      "D": "1,008"
     },
-    {
-      "id": 40,
-      "question": "The slant height l of a cone is related to the vertical height h and base radius R by:",
-      "options": {
-        "A": "l2=h2\u2212R2",
-        "B": "l2=h2+R2",
-        "C": "l=h+R",
-        "D": "l=hR"
-      },
-      "answer": "B",
-      "image": null
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 40,
+    "question": "How many factors does 36 have?",
+    "options": {
+      "A": "6",
+      "B": "7",
+      "C": "8",
+      "D": "9"
     },
-    {
-      "id": 41,
-      "question": "A cone has base radius 5 cm and vertical height 12 cm. Its slant height is:",
-      "options": {
-        "A": "7 cm",
-        "B": "13 cm",
-        "C": "17 cm",
-        "D": "60 cm"
-      },
-      "answer": "B",
-      "image": null
+    "answer": "D",
+    "image": null
+  },
+  {
+    "id": 41,
+    "question": "Which of the following is a prime number between 40 and 50?",
+    "options": {
+      "A": "41",
+      "B": "43",
+      "C": "47",
+      "D": "All of the above"
     },
-    {
-      "id": 42,
-      "question": "The total surface area of the cone in question 41 is:",
-      "options": {
-        "A": "90\u03c0 cm\u00b2",
-        "B": "100\u03c0 cm\u00b2",
-        "C": "110\u03c0 cm\u00b2",
-        "D": "120\u03c0 cm\u00b2"
-      },
-      "answer": "A",
-      "image": null
+    "answer": "D",
+    "image": null
+  },
+  {
+    "id": 42,
+    "question": "Express 84 as a product of its prime factors.",
+    "options": {
+      "A": "2<sup>2</sup> × 3 × 7",
+      "B": "2 × 3 × 7<sup>2</sup>",
+      "C": "2<sup>2</sup> × 3<sup>2</sup> × 7",
+      "D": "2<sup>3</sup> × 3 × 7"
     },
-    {
-      "id": 43,
-      "question": "The total surface area of a triangular prism is given by:",
-      "options": {
-        "A": "2\u00d7Base Area+Base Perimeter\u00d7Length",
-        "B": "Base Area\u00d7Length",
-        "C": "2\u00d7Base Area",
-        "D": "Base Perimeter\u00d7Length"
-      },
-      "answer": "A",
-      "image": null
+    "answer": "A",
+    "image": null
+  },
+  {
+    "id": 43,
+    "question": "The HCF of two numbers is 12 and their LCM is 144. If one number is 36, the other number is…",
+    "options": {
+      "A": "24",
+      "B": "48",
+      "C": "72",
+      "D": "96"
     },
-    {
-      "id": 44,
-      "question": "The total surface area of a square-based pyramid with base side l and slant height s is:",
-      "options": {
-        "A": "l2+2ls",
-        "B": "l2+4ls",
-        "C": "2l2+2ls",
-        "D": "4l2+2ls"
-      },
-      "answer": "A",
-      "image": null
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 44,
+    "question": "A number is divisible by 9 if the sum of its digits is divisible by…",
+    "options": {
+      "A": "3",
+      "B": "6",
+      "C": "9",
+      "D": "12"
     },
-    {
-      "id": 45,
-      "question": "A square-based pyramid has base side 10 cm and slant height 12 cm. Its total surface area is:",
-      "options": {
-        "A": "220 cm\u00b2",
-        "B": "320 cm\u00b2",
-        "C": "340 cm\u00b2",
-        "D": "440 cm\u00b2"
-      },
-      "answer": "C",
-      "image": null
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 45,
+    "question": "Which of the following numbers is divisible by 11?",
+    "options": {
+      "A": "1,234",
+      "B": "1,331",
+      "C": "1,432",
+      "D": "1,529"
     },
-    {
-      "id": 46,
-      "question": "The volume of a cube of side l is:",
-      "options": {
-        "A": "6l2",
-        "B": "4l3",
-        "C": "l3",
-        "D": "2l3"
-      },
-      "answer": "C",
-      "image": null
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 46,
+    "question": "The value of 5 in 35,678 is 5,000. The value of 5 in 52,134 is…",
+    "options": {
+      "A": "500",
+      "B": "5,000",
+      "C": "50,000",
+      "D": "500,000"
     },
-    {
-      "id": 47,
-      "question": "The volume of a cuboid with length l, width w, and height h is:",
-      "options": {
-        "A": "lwh",
-        "B": "2(lw+lh+wh)",
-        "C": "l+w+h",
-        "D": "l2w2h2"
-      },
-      "answer": "A",
-      "image": null
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 47,
+    "question": "If 3 × (2 + 4) = (3 × 2) + (3 × 4), which property is being used?",
+    "options": {
+      "A": "Commutative",
+      "B": "Associative",
+      "C": "Distributive",
+      "D": "Identity"
     },
-    {
-      "id": 48,
-      "question": "A cube has side 4 cm. Its volume is:",
-      "options": {
-        "A": "16 cm\u00b3",
-        "B": "32 cm\u00b3",
-        "C": "64 cm\u00b3",
-        "D": "96 cm\u00b3"
-      },
-      "answer": "C",
-      "image": null
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 48,
+    "question": "What is the smallest whole number that, when multiplied by 12, gives a product greater than 500?",
+    "options": {
+      "A": "41",
+      "B": "42",
+      "C": "43",
+      "D": "44"
     },
-    {
-      "id": 49,
-      "question": "The volume of a cylinder with radius r and height h is:",
-      "options": {
-        "A": "\u03c0r2h",
-        "B": "2\u03c0rh",
-        "C": "\u03c0r2",
-        "D": "13\u03c0r2h"
-      },
-      "answer": "A",
-      "image": null
+    "answer": "B",
+    "image": null
+  },
+  {
+    "id": 49,
+    "question": "A car travels at an average speed of 65 km per hour. How far will it travel in 8 hours?",
+    "options": {
+      "A": "480 km",
+      "B": "500 km",
+      "C": "520 km",
+      "D": "560 km"
     },
-    {
-      "id": 50,
-      "question": "The volume of a cone with radius r and height h is:",
-      "options": {
-        "A": "\u03c0r2h",
-        "B": "2\u03c0rh",
-        "C": "13\u03c0r2h",
-        "D": "43\u03c0r3"
-      },
-      "answer": "C",
-      "image": null
-    }
+    "answer": "C",
+    "image": null
+  },
+  {
+    "id": 50,
+    "question": "If a dozen eggs cost ₦1,800, how much will 30 eggs cost?",
+    "options": {
+      "A": "₦4,000",
+      "B": "₦4,200",
+      "C": "₦4,500",
+      "D": "₦4,800"
+    },
+    "answer": "C",
+    "image": null
+  }
+];
 
+const staticTheoryQuestions = [
+  {
+    "id": 1,
+    "question": "(a) Write the number 86,429 in words.\n(b) Write the place value of each digit in 86,429.\n(c) Arrange the following numbers in descending order: 23,456; 24,356; 23,546; 24,536; 23,654.\n(d) Round 5,678 to the nearest ten, hundred, and thousand.",
+    "marks": null,
+    "image": null
+  },
+  {
+    "id": 2,
+    "question": "(a) Find the LCM of 12, 18, and 24 using the prime factorization method.\n(b) Find the HCF of 36, 54, and 72 using the prime factorization method.\n(c) The product of two numbers is 288 and their HCF is 6. Find their LCM.",
+    "marks": null,
+    "image": null
+  },
+  {
+    "id": 3,
+    "question": "(a) Convert the following decimal numbers to base 2: (i) 27 (ii) 43.\n(b) Convert the following binary numbers to decimal: (i) 11011<sub>2</sub> (ii) 101101<sub>2</sub>.\n(c) Add the binary numbers 10110<sub>2</sub> and 1101<sub>2</sub> and verify your answer by converting to decimal.",
+    "marks": null,
+    "image": null
+  },
+  {
+    "id": 4,
+    "question": "(a) Simplify the following fractions to their lowest terms: (i) <sup>48</sup>⁄<sub>64</sub> (ii) <sup>63</sup>⁄<sub>81</sub> (iii) <sup>54</sup>⁄<sub>72</sub>.\n(b) Find three equivalent fractions for <sup>5</sup>⁄<sub>8</sub>.\n(c) Which is larger, <sup>7</sup>⁄<sub>12</sub> or <sup>9</sup>⁄<sub>16</sub>? Show your working.",
+    "marks": null,
+    "image": null
+  },
+  {
+    "id": 5,
+    "question": "(a) A bag contains 120 oranges. If <sup>3</sup>⁄<sub>8</sub> of them are bad, how many are good?\n(b) A student spends <sup>1</sup>⁄<sub>5</sub> of his pocket money on transport, <sup>1</sup>⁄<sub>4</sub> on food, and <sup>1</sup>⁄<sub>3</sub> on books. What fraction of his money is left?\n(c) If he had ₦6,000, how much money does he have left?",
+    "marks": null,
+    "image": null
+  },
+  {
+    "id": 6,
+    "question": "(a) Calculate: (i) 5,678 + 3,456 - 2,789 (ii) 7,005 - 3,456 + 2,341.\n(b) Multiply: 567 × 34.\n(c) Divide: 3,888 ÷ 16.",
+    "marks": null,
+    "image": null
+  },
+  {
+    "id": 7,
+    "question": "(a) A rectangular field measures 45 meters by 28 meters. Calculate its perimeter and area.\n(b) A square garden has an area of 144 m<sup>2</sup>. Find its side length and perimeter.\n(c) How many meters of fencing wire are needed to fence a rectangular plot 60 m by 45 m twice?",
+    "marks": null,
+    "image": null
+  },
+  {
+    "id": 8,
+    "question": "(a) A trader bought 25 bags of rice at ₦22,500 per bag. He sold them at ₦25,800 per bag. Calculate his total profit.\n(b) A car travels at a speed of 75 km/h for 4 hours and then at 65 km/h for another 3 hours. What is the total distance traveled?\n(c) If 8 men can complete a job in 15 days, how many men are needed to complete the same job in 10 days?",
+    "marks": null,
+    "image": null
+  },
+  {
+    "id": 9,
+    "question": "(a) A tank can hold 2,500 liters of water. If it is <sup>3</sup>⁄<sub>5</sub> full, how many more liters are needed to fill it completely?\n(b) A man earns ₦85,000 per month. He spends <sup>3</sup>⁄<sub>10</sub> on rent, <sup>1</sup>⁄<sub>5</sub> on food, and <sup>1</sup>⁄<sub>4</sub> on other expenses. How much does he save?\n(c) If he increases his savings by <sup>1</sup>⁄<sub>5</sub> of his current savings, how much will he save?",
+    "marks": null,
+    "image": null
+  },
+  {
+    "id": 10,
+    "question": "(a) What are prime numbers? List all prime numbers between 20 and 40.\n(b) Find the missing number in the pattern: 3, 6, 11, 18, ?, 38.\n(c) If a = 3, b = 4, and c = 5, evaluate: (i) 2a + 3b - c (ii) a<sup>2</sup> + b<sup>2</sup> - c<sup>2</sup>.",
+    "marks": null,
+    "image": null
+  }
 ];
 
 
-        const staticTheoryQuestions = [
-      
-                                       
-                                {
-      "id": 1,
-      "question": "a. A circle has a radius of 21 cm. Find:<br>i. The length of an arc that subtends an angle of 120\u00b0 at the centre. (3 marks)<br>ii. The area of the sector formed by this arc. (3 marks)<br>b. The perimeter of a sector of a circle of radius 7 cm is 25 cm. Find:<br>i. The length of the arc of the sector. (3 marks)<br>ii. The angle subtended by the arc at the centre. (3 marks)",
-      "marks": 12,
-      "image": null
-    },
-    {
-      "id": 2,
-      "question": "a. A closed cylindrical tank has a radius of 7 m and a height of 10 m. Find:<br>i. Its curved surface area. (3 marks)<br>ii. Its total surface area. (3 marks)<br>b. A cone has a base radius of 6 cm and a vertical height of 8 cm. Find:<br>i. Its slant height. (2 marks)<br>ii. Its total surface area. (4 marks)",
-      "marks": 12,
-      "image": null
-    },
-    {
-      "id": 3,
-      "question": "a. A rectangular tank is 5 m long, 4 m wide, and 3 m high. Find:<br>i. Its volume in m\u00b3. (2 marks)<br>ii. Its capacity in litres. (2 marks)<br>b. A cone has a volume of 308 cm\u00b3 and a height of 6 cm. Find its base radius. (Take \u03c0 = 22/7) (4 marks)<br>c. A square-based pyramid has a base side of 12 cm and a vertical height of 9 cm. Find its volume. (4 marks)",
-      "marks": 12,
-      "image": null
-    },
-    {
-      "id": 4,
-      "question": "A frustum of a cone has top radius 4 cm, bottom radius 8 cm, and vertical height 9 cm.<br>a. Find the height of the small cone that was cut off. (4 marks)<br>b. Find the volume of the frustum. (6 marks)<br>c. Find the curved surface area of the frustum if the slant height of the large cone is 17 cm and the slant height of the small cone is 8.5 cm. (4 marks)",
-      "marks": 14,
-      "image": null
-    },
-    {
-      "id": 5,
-      "question": "A solid object consists of a cylinder of height 10 cm and radius 7 cm, with a hemisphere of the same radius on top.<br>a. Find the volume of the cylinder. (3 marks)<br>b. Find the volume of the hemisphere. (3 marks)<br>c. Find the total volume of the object. (2 marks)<br>d. Find the total surface area of the object (excluding the base where it stands). (4 marks)",
-      "marks": 12,
-      "image": null
-    },
-    {
-      "id": 6,
-      "question": "a. Distinguish between primary data and secondary data, giving one example of each. (4 marks)<br>b. Classify the following as qualitative, discrete, or continuous data:<br>i. The eye colour of students<br>ii. The number of children in a family<br>iii. The time taken to run 100 m<br>iv. The brands of mobile phones (4 marks)<br>c. State two advantages of primary data. (2 marks)",
-      "marks": 10,
-      "image": null
-    },
-    {
-      "id": 7,
-      "question": "The following are the scores of 30 students in a Mathematics test:<br>12, 15, 18, 12, 14, 16, 18, 19, 12, 14, 15, 17, 18, 16, 14, 12, 15, 16, 18, 17, 14, 15, 16, 18, 19, 12, 14, 15, 16, 17<br>a. Construct a frequency distribution table with columns for Score, Tally, and Frequency. (6 marks)<br>b. What is the modal score? (2 marks)<br>c. How many students scored 15 or above? (2 marks)<br>d. What percentage of students scored 18? (2 marks)",
-      "marks": 12,
-      "image": null
-    },
-    {
-      "id": 8,
-      "question": "The table below shows the favourite subjects of 50 students:<br>",
-      "marks": 12,
-      "image": "img1/ss1_math_que8.png"
-    },
-    {
-      "id": 9,
-      "question": "A student spends his monthly allowance as follows:<br>Item\tFood\tTransport\tBooks\tEntertainment\tSavings<br>Amount (\u20a6)\t6000\t3000\t4000\t2000\t5000<br>a. Calculate the total monthly allowance. (2 marks)<br>b. Calculate the angle for each item. (5 marks)<br>c. Draw a pie chart to represent this data. (5 marks)",
-      "marks": 12,
-      "image": "img1/ss1_math_que9.png"
-    },
-    {
-      "id": 10,
-      "question": "The table below shows the heights of 40 students in centimetres:<br>Height (cm)\t150-154\t155-159\t160-164\t165-169\t170-174<br>Frequency\t6\t10\t14\t7\t3<br>a. State the class boundaries for each class interval. (3 marks)<br>b. State the class midpoints for each class interval. (3 marks)<br>c. Draw a histogram for this data. Use a scale of 2 cm to represent 5 cm on the horizontal axis and 2 cm to represent 2 students on the vertical axis. (5 marks)<br>d. On the same axes, draw a frequency polygon. (3 marks)",
-      "marks": 14,
-      "image": "img1/ss1_math_que10.png"
-    }
 
-];
        // ================== APPLICATION VARIABLES ==================
         let questions = [];
         let currentQuestion = 0;
@@ -1427,7 +1424,7 @@
         };
        
                     // ================== TIMER ==================
-                let timeLeft = 60 * 90; // 90 minutes in seconds
+                let timeLeft = 60 * 60; // 90 minutes in seconds
                 const timerEl = document.getElementById('timer');
                 const timerInterval = setInterval(() => {
                     const hours = Math.floor(timeLeft / 3600);
